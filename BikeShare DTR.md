@@ -60,14 +60,20 @@ Workload Expectations (What features do we each want to work on?):
 All work on everything, share the work load.
 
 Workflow Expectations (Git workflow/Tools/Code Review/Reviewing Pull Requests):
-
+Branch for features.
+Commit often.
+Review code, leave comments, ask questions.
+Do the PR form!!!!
 
 Expectations for giving and receiving feedback:
+Specific, Actionable, Kind
 
 Agenda to discuss project launch:
+IN progress.
 
 Ideas:
 
 Tools:
+Waffle.io
 
 Additional Notes:
