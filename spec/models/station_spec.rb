@@ -13,4 +13,7 @@ RSpec.describe Station, type: :model do
      #   undefined method `parameterize' for nil:NilClass
     # it {should validate_uniqueness_of(:name)}
   end
+  describe 'relationships' do
+    it {should have_many(:trips)}
+  end
 end
