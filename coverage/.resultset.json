@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/dylanmeskis/turing/2module/projects/bike_share/spec/features/visitor_can_see_a_trip_show_page_spec.rb": [
+      "/Users/miriambensalah/turing/2module/projects/bike_share/spec/features/visitor_can_see_a_trip_show_page_spec.rb": [
         1,
         null,
         1,
@@ -23,7 +23,38 @@
         null,
         null
       ],
-      "/Users/dylanmeskis/turing/2module/projects/bike_share/spec/features/visitor_can_see_index_of_all_stations_spec.rb": [
+      "/Users/miriambensalah/turing/2module/projects/bike_share/spec/features/visitor_can_see_index_of_all_conditions_spec.rb": [
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null
+      ],
+      "/Users/miriambensalah/turing/2module/projects/bike_share/spec/features/visitor_can_see_index_of_all_stations_spec.rb": [
         1,
         null,
         1,
@@ -47,7 +78,7 @@
         null,
         null
       ],
-      "/Users/dylanmeskis/turing/2module/projects/bike_share/spec/features/visitor_can_see_index_of_all_trips_spec.rb": [
+      "/Users/miriambensalah/turing/2module/projects/bike_share/spec/features/visitor_can_see_index_of_all_trips_spec.rb": [
         1,
         null,
         1,
@@ -93,7 +124,7 @@
         null,
         null
       ],
-      "/Users/dylanmeskis/turing/2module/projects/bike_share/spec/models/station_spec.rb": [
+      "/Users/miriambensalah/turing/2module/projects/bike_share/spec/models/station_spec.rb": [
         1,
         null,
         1,
@@ -114,7 +145,7 @@
         null,
         null
       ],
-      "/Users/dylanmeskis/turing/2module/projects/bike_share/app/models/station.rb": [
+      "/Users/miriambensalah/turing/2module/projects/bike_share/app/models/station.rb": [
         1,
         1,
         1,
@@ -134,12 +165,12 @@
         null,
         null
       ],
-      "/Users/dylanmeskis/turing/2module/projects/bike_share/app/models/application_record.rb": [
+      "/Users/miriambensalah/turing/2module/projects/bike_share/app/models/application_record.rb": [
         1,
         1,
         null
       ],
-      "/Users/dylanmeskis/turing/2module/projects/bike_share/spec/models/trip_spec.rb": [
+      "/Users/miriambensalah/turing/2module/projects/bike_share/spec/models/trip_spec.rb": [
         1,
         null,
         1,
@@ -159,7 +190,7 @@
         null,
         null
       ],
-      "/Users/dylanmeskis/turing/2module/projects/bike_share/app/models/trip.rb": [
+      "/Users/miriambensalah/turing/2module/projects/bike_share/app/models/trip.rb": [
         1,
         1,
         null,
@@ -174,7 +205,7 @@
         1,
         null
       ],
-      "/Users/dylanmeskis/turing/2module/projects/bike_share/app/controllers/stations_controller.rb": [
+      "/Users/miriambensalah/turing/2module/projects/bike_share/app/controllers/stations_controller.rb": [
         1,
         null,
         1,
@@ -186,24 +217,35 @@
         null,
         null
       ],
-      "/Users/dylanmeskis/turing/2module/projects/bike_share/app/controllers/application_controller.rb": [
+      "/Users/miriambensalah/turing/2module/projects/bike_share/app/controllers/application_controller.rb": [
         1,
         1,
         null
       ],
-      "/Users/dylanmeskis/turing/2module/projects/bike_share/app/controllers/trips_controller.rb": [
+      "/Users/miriambensalah/turing/2module/projects/bike_share/app/controllers/trips_controller.rb": [
         1,
         null,
         1,
         1,
         null,
         null,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/miriambensalah/turing/2module/projects/bike_share/app/models/condition.rb": [
+        1,
+        null
+      ],
+      "/Users/miriambensalah/turing/2module/projects/bike_share/app/controllers/conditions_controller.rb": [
+        1,
         1,
         1,
         null,
         null
       ]
     },
-    "timestamp": 1536439149
+    "timestamp": 1536442726
   }
 }
