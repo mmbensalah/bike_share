@@ -1,6 +1,31 @@
 {
   "RSpec": {
     "coverage": {
+      "/Users/dylanmeskis/turing/2module/projects/bike_share/spec/features/visitor_can_see_index_of_all_stations_spec.rb": [
+        1,
+        null,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null
+      ],
       "/Users/dylanmeskis/turing/2module/projects/bike_share/spec/models/station_spec.rb": [
         1,
         null,
@@ -24,6 +49,9 @@
         1,
         null,
         null,
+        1,
+        1,
+        null,
         null
       ],
       "/Users/dylanmeskis/turing/2module/projects/bike_share/app/controllers/application_controller.rb": [
@@ -32,6 +60,6 @@
         null
       ]
     },
-    "timestamp": 1536426028
+    "timestamp": 1536426891
   }
 }
