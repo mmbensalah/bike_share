@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   resources :stations, only: [:index, :show], param: :slug
 
   resources :trips, only: [:index, :show]
+  resources :conditions, only: [:index, :show]
 end
