@@ -3,10 +3,8 @@ require 'rails_helper'
 describe 'visitor can see all trips' do
   describe 'on the trips index page' do
     it 'shows all trips along with all their attributes' do
-      station = create(:station)
-      station_2 = create(:station)
-      trip = create(:trip, start_station: station, end_station: station_2)
-      trip_2 = create(:trip, start_station: station, end_station: station_2)
+      trip = create(:trip)
+      trip_2 = create(:trip)
 
       visit trips_path
 
