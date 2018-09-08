@@ -14,26 +14,26 @@
       <img src="./assets/0.10.2/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2018-09-08T14:13:09-06:00">2018-09-08T14:13:09-06:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2018-09-08T14:16:06-06:00">2018-09-08T14:16:06-06:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="green">95.18%</span></span>
+    (<span class="covered_percent"><span class="green">95.83%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         1.08
+         1.17
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>10</b> files in total.
-    <b>83</b> relevant lines. 
-    <span class="green"><b>79</b> lines covered</span> and
+    <b>96</b> relevant lines. 
+    <span class="green"><b>92</b> lines covered</span> and
     <span class="red"><b>4</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -103,9 +103,9 @@
       <tr>
         <td class="strong"><a href="#da29834056bd85fbe03c402ff1061f11cfb99f74" class="src_link" title="app/models/trip.rb">app/models/trip.rb</a></td>
         <td class="green strong">100.0 %</td>
+        <td>13</td>
         <td>4</td>
-        <td>3</td>
-        <td>3</td>
+        <td>4</td>
         <td>0</td>
         <td>1.0</td>
       </tr>
@@ -143,11 +143,11 @@
       <tr>
         <td class="strong"><a href="#b59d0e021def23372b938452e31fd88148d6fd90" class="src_link" title="spec/models/trip_spec.rb">spec/models/trip_spec.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>8</td>
-        <td>2</td>
-        <td>2</td>
+        <td>18</td>
+        <td>14</td>
+        <td>14</td>
         <td>0</td>
-        <td>1.0</td>
+        <td>1.7</td>
       </tr>
       
     </tbody>
@@ -506,8 +506,8 @@
     <h3>app/models/trip.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>3</b> relevant lines. 
-      <span class="green"><b>3</b> lines covered</span> and
+      <b>4</b> relevant lines. 
+      <span class="green"><b>4</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -524,16 +524,70 @@
         <li class="covered" data-hits="1" data-linenumber="2">
           <span class="hits">1</span>
           
+          <code class="ruby">  validates_presence_of :duration,</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="3">
+          
+          
+          <code class="ruby">                        :start_date,</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="4">
+          
+          
+          <code class="ruby">                        :end_date,</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="5">
+          
+          
+          <code class="ruby">                        :bike_id,</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="6">
+          
+          
+          <code class="ruby">                        :subscription_type,</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="7">
+          
+          
+          <code class="ruby">                        :zip_code,</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="8">
+          
+          
+          <code class="ruby">                        :start_station_id,</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="9">
+          
+          
+          <code class="ruby">                        :end_station_id</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="10">
+          
+          
+          <code class="ruby">                        </code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="11">
+          <span class="hits">1</span>
+          
           <code class="ruby">  belongs_to :start_station, class_name: &quot;Station&quot;, foreign_key: :start_station_id</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="3">
+        <li class="covered" data-hits="1" data-linenumber="12">
           <span class="hits">1</span>
           
           <code class="ruby">  belongs_to :end_station, class_name: &quot;Station&quot;, foreign_key: :end_station_id</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="4">
+        <li class="never" data-hits="" data-linenumber="13">
           
           
           <code class="ruby">end</code>
@@ -1128,8 +1182,8 @@
     <h3>spec/models/trip_spec.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>2</b> relevant lines. 
-      <span class="green"><b>2</b> lines covered</span> and
+      <b>14</b> relevant lines. 
+      <span class="green"><b>14</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -1155,31 +1209,91 @@
           <code class="ruby">RSpec.describe Trip, type: :model do</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="4">
+        <li class="covered" data-hits="1" data-linenumber="4">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">  # describe &#39;relationships&#39; do</code>
+          <code class="ruby">  describe &#39;validations&#39; do</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="5">
+        <li class="covered" data-hits="2" data-linenumber="5">
+          <span class="hits">2</span>
           
-          
-          <code class="ruby">  #   it { should belong_to(:start_station)}</code>
+          <code class="ruby">    it { should validate_presence_of(:duration)}</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="6">
+        <li class="covered" data-hits="2" data-linenumber="6">
+          <span class="hits">2</span>
           
-          
-          <code class="ruby">  #   it { should belong_to(:end_station)}</code>
+          <code class="ruby">    it { should validate_presence_of(:start_date)}</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="7">
+        <li class="covered" data-hits="2" data-linenumber="7">
+          <span class="hits">2</span>
           
-          
-          <code class="ruby">  # end</code>
+          <code class="ruby">    it { should validate_presence_of(:end_date)}</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="8">
+        <li class="covered" data-hits="2" data-linenumber="8">
+          <span class="hits">2</span>
+          
+          <code class="ruby">    it { should validate_presence_of(:bike_id)}</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="9">
+          <span class="hits">2</span>
+          
+          <code class="ruby">    it { should validate_presence_of(:subscription_type)}</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="10">
+          <span class="hits">2</span>
+          
+          <code class="ruby">    it { should validate_presence_of(:zip_code)}</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="11">
+          <span class="hits">2</span>
+          
+          <code class="ruby">    it { should validate_presence_of(:start_station_id)}</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="12">
+          <span class="hits">2</span>
+          
+          <code class="ruby">    it { should validate_presence_of(:end_station_id)}</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="13">
+          
+          
+          <code class="ruby">  end </code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="14">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  describe &#39;relationships&#39; do</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="15">
+          <span class="hits">2</span>
+          
+          <code class="ruby">    it { should belong_to(:start_station)}</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="16">
+          <span class="hits">2</span>
+          
+          <code class="ruby">    it { should belong_to(:end_station)}</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="17">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="18">
           
           
           <code class="ruby">end</code>
