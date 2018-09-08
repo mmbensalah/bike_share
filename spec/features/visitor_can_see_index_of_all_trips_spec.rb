@@ -5,7 +5,7 @@ describe 'visitor can see all trips' do
     it 'shows all trips along with all their attributes' do
       station = create(:station)
       station_2 = create(:station)
-      trip = create(:trip, start_station: station, end_station: station)
+      trip = create(:trip, start_station: station, end_station: station_2)
       trip_2 = create(:trip, start_station: station, end_station: station_2)
 
       visit trips_path
