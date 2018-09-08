@@ -5,6 +5,7 @@ describe 'visitor can see a station show page' do
     station = create(:station)
 
     visit station_path(station)
+    expect(current_path).to eq("/stations/#{station.slug}")
 
     expect(page).to have_content(station.name)
     expect(page).to have_content(station.dock_count)

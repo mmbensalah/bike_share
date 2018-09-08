@@ -6,7 +6,6 @@ describe 'visitor can see all stations' do
         installation date' do
       station_1 = create(:station)
       station_2 = create(:station)
-
       visit stations_path
 
       expect(page).to have_content(station_1.name)

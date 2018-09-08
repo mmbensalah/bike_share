@@ -5,6 +5,6 @@ class StationsController < ApplicationController
   end
 
   def show
-    @station = Station.find(params[:id])
+    @station = Station.find_by(slug: params[:slug])
   end
 end
