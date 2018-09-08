@@ -8,7 +8,7 @@ FactoryBot.define do
     bike_id { Faker::Number.between(1, 100) }
     subscription_type "Placeholder"
     zip_code { Faker::Number.number(5) }
-    start_station_id { Faker::Number.between(1, 40)}
-    end_station_id { Faker::Number.between(1, 40)}
+    association :start_station_id, factory: :station
+    association :end_station_id, factory: :station
   end
 end

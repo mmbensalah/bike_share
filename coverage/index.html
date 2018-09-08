@@ -14,27 +14,27 @@
       <img src="./assets/0.10.2/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2018-09-08T12:35:36-06:00">2018-09-08T12:35:36-06:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2018-09-08T14:07:54-06:00">2018-09-08T14:07:54-06:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="red">68.12%</span></span>
+    (<span class="covered_percent"><span class="red">75.0%</span></span>
      covered at
      <span class="covered_strength">
        <span class="red">
-         0.75
+         0.89
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
-    <b>7</b> files in total.
-    <b>69</b> relevant lines. 
-    <span class="green"><b>47</b> lines covered</span> and
-    <span class="red"><b>22</b> lines missed </span>
+    <b>9</b> files in total.
+    <b>80</b> relevant lines. 
+    <span class="green"><b>60</b> lines covered</span> and
+    <span class="red"><b>20</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -83,11 +83,21 @@
       <tr>
         <td class="strong"><a href="#f9a556651436049dc2ea06c09f2d90abff1e71af" class="src_link" title="app/models/station.rb">app/models/station.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>14</td>
-        <td>9</td>
-        <td>9</td>
+        <td>18</td>
+        <td>11</td>
+        <td>11</td>
         <td>0</td>
-        <td>1.2</td>
+        <td>1.4</td>
+      </tr>
+      
+      <tr>
+        <td class="strong"><a href="#da29834056bd85fbe03c402ff1061f11cfb99f74" class="src_link" title="app/models/trip.rb">app/models/trip.rb</a></td>
+        <td class="green strong">100.0 %</td>
+        <td>4</td>
+        <td>3</td>
+        <td>3</td>
+        <td>0</td>
+        <td>1.0</td>
       </tr>
       
       <tr>
@@ -102,22 +112,32 @@
       
       <tr>
         <td class="strong"><a href="#56cc15c2907d110250039d3dde9ff4306fed05c7" class="src_link" title="spec/features/visitor_can_see_index_of_all_trips_spec.rb">spec/features/visitor_can_see_index_of_all_trips_spec.rb</a></td>
-        <td class="red strong">24.14 %</td>
-        <td>44</td>
-        <td>29</td>
-        <td>7</td>
-        <td>22</td>
-        <td>0.2</td>
+        <td class="red strong">35.48 %</td>
+        <td>46</td>
+        <td>31</td>
+        <td>11</td>
+        <td>20</td>
+        <td>0.4</td>
       </tr>
       
       <tr>
         <td class="strong"><a href="#952e359b75a9b9d06b62085232b9558d735d7d0d" class="src_link" title="spec/models/station_spec.rb">spec/models/station_spec.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>16</td>
-        <td>7</td>
-        <td>7</td>
+        <td>19</td>
+        <td>9</td>
+        <td>9</td>
         <td>0</td>
         <td>1.6</td>
+      </tr>
+      
+      <tr>
+        <td class="strong"><a href="#b59d0e021def23372b938452e31fd88148d6fd90" class="src_link" title="spec/models/trip_spec.rb">spec/models/trip_spec.rb</a></td>
+        <td class="green strong">100.0 %</td>
+        <td>8</td>
+        <td>2</td>
+        <td>2</td>
+        <td>0</td>
+        <td>1.0</td>
       </tr>
       
     </tbody>
@@ -294,8 +314,8 @@
     <h3>app/models/station.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>9</b> relevant lines. 
-      <span class="green"><b>9</b> lines covered</span> and
+      <b>11</b> relevant lines. 
+      <span class="green"><b>11</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -318,37 +338,37 @@
         <li class="covered" data-hits="1" data-linenumber="3">
           <span class="hits">1</span>
           
-          <code class="ruby">  validates_presence_of :dock_count, :city, :installation_date</code>
+          <code class="ruby">  validates_presence_of :dock_count,</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="4">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="4">
           
-          <code class="ruby">  before_save :generate_slug</code>
+          
+          <code class="ruby">                        :city,</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="5">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">                        :installation_date</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="6">
           <span class="hits">1</span>
           
-          <code class="ruby">  def to_param</code>
+          <code class="ruby">  before_save :generate_slug</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="7">
           <span class="hits">1</span>
           
-          <code class="ruby">    slug</code>
+          <code class="ruby">  has_many :trips, foreign_key: &#39;start_station_id&#39;, class_name: &quot;Trip&quot;</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="8">
+        <li class="covered" data-hits="1" data-linenumber="8">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">  end</code>
+          <code class="ruby">  has_many :trips, foreign_key: &#39;end_station_id&#39;, class_name: &quot;Trip&quot;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="9">
@@ -360,28 +380,95 @@
         <li class="covered" data-hits="1" data-linenumber="10">
           <span class="hits">1</span>
           
-          <code class="ruby">  private</code>
+          <code class="ruby">  def to_param</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="11">
           <span class="hits">1</span>
           
-          <code class="ruby">    def generate_slug</code>
+          <code class="ruby">    slug</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="12">
-          <span class="hits">3</span>
+        <li class="never" data-hits="" data-linenumber="12">
           
-          <code class="ruby">      self.slug = name.parameterize</code>
+          
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="13">
           
           
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="14">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  private</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="15">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    def generate_slug</code>
+        </li>
+      
+        <li class="covered" data-hits="5" data-linenumber="16">
+          <span class="hits">5</span>
+          
+          <code class="ruby">      self.slug = name.parameterize</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="17">
+          
+          
           <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="14">
+        <li class="never" data-hits="" data-linenumber="18">
+          
+          
+          <code class="ruby">end</code>
+        </li>
+      
+    </ol>
+  </pre>
+</div>
+
+      
+        <div class="source_table" id="da29834056bd85fbe03c402ff1061f11cfb99f74">
+  <div class="header">
+    <h3>app/models/trip.rb</h3>
+    <h4><span class="green">100.0 %</span> covered</h4>
+    <div>
+      <b>3</b> relevant lines. 
+      <span class="green"><b>3</b> lines covered</span> and
+      <span class="red"><b>0</b> lines missed.</span>
+    </div>
+  </div>
+  
+  <pre>
+    <ol>
+      
+        <li class="covered" data-hits="1" data-linenumber="1">
+          <span class="hits">1</span>
+          
+          <code class="ruby">class Trip &lt; ApplicationRecord</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="2">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  belongs_to :start_station, class_name: &quot;Station&quot;, foreign_key: :start_station_id</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="3">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  belongs_to :end_station, class_name: &quot;Station&quot;, foreign_key: :end_station_id</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="4">
           
           
           <code class="ruby">end</code>
@@ -546,11 +633,11 @@
         <div class="source_table" id="56cc15c2907d110250039d3dde9ff4306fed05c7">
   <div class="header">
     <h3>spec/features/visitor_can_see_index_of_all_trips_spec.rb</h3>
-    <h4><span class="red">24.14 %</span> covered</h4>
+    <h4><span class="red">35.48 %</span> covered</h4>
     <div>
-      <b>29</b> relevant lines. 
-      <span class="green"><b>7</b> lines covered</span> and
-      <span class="red"><b>22</b> lines missed.</span>
+      <b>31</b> relevant lines. 
+      <span class="green"><b>11</b> lines covered</span> and
+      <span class="red"><b>20</b> lines missed.</span>
     </div>
   </div>
   
@@ -590,25 +677,25 @@
         <li class="covered" data-hits="1" data-linenumber="6">
           <span class="hits">1</span>
           
-          <code class="ruby">      trip = create(:trip)</code>
+          <code class="ruby">      station = create(:station)</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="7">
+        <li class="covered" data-hits="1" data-linenumber="7">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">      trip_2 = create(:trip)</code>
+          <code class="ruby">      station_2 = create(:station)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="8">
+        <li class="covered" data-hits="1" data-linenumber="8">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby"></code>
+          <code class="ruby">      trip = create(:trip, start_station: station, end_station: station)</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="9">
+        <li class="covered" data-hits="1" data-linenumber="9">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">      visit trips_path</code>
+          <code class="ruby">      trip_2 = create(:trip, start_station: station, end_station: station_2)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="10">
@@ -617,160 +704,160 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="11">
+        <li class="covered" data-hits="1" data-linenumber="11">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">      expect(page).to have_content(trip.duration)</code>
+          <code class="ruby">      visit trips_path</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="12">
+        <li class="never" data-hits="" data-linenumber="12">
           
           
-          <code class="ruby">      expect(page).to have_content(trip.start_date)</code>
+          <code class="ruby"></code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="13">
           
           
-          <code class="ruby">      expect(page).to have_content(trip.end_date)</code>
+          <code class="ruby">      expect(page).to have_content(trip.duration)</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="14">
           
           
-          <code class="ruby">      expect(page).to have_content(trip.bike_id)</code>
+          <code class="ruby">      expect(page).to have_content(trip.start_date)</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="15">
           
           
-          <code class="ruby">      expect(page).to have_content(trip.subscription_type)</code>
+          <code class="ruby">      expect(page).to have_content(trip.end_date)</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="16">
           
           
-          <code class="ruby">      expect(page).to have_content(trip.zip_code)</code>
+          <code class="ruby">      expect(page).to have_content(trip.bike_id)</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="17">
           
           
-          <code class="ruby">      expect(page).to have_content(trip.start_station_id)</code>
+          <code class="ruby">      expect(page).to have_content(trip.subscription_type)</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="18">
           
           
-          <code class="ruby">      expect(page).to have_content(trip.end_station_id)</code>
+          <code class="ruby">      expect(page).to have_content(trip.zip_code)</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="19">
           
           
-          <code class="ruby">      expect(page).to have_content(trip_2.duration)</code>
+          <code class="ruby">      expect(page).to have_content(trip.start_station_id)</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="20">
           
           
-          <code class="ruby">      expect(page).to have_content(trip_2.start_date)</code>
+          <code class="ruby">      expect(page).to have_content(trip.end_station_id)</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="21">
           
           
-          <code class="ruby">      expect(page).to have_content(trip_2.end_date)</code>
+          <code class="ruby">      expect(page).to have_content(trip_2.duration)</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="22">
           
           
-          <code class="ruby">      expect(page).to have_content(trip_2.bike_id)</code>
+          <code class="ruby">      expect(page).to have_content(trip_2.start_date)</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="23">
           
           
-          <code class="ruby">      expect(page).to have_content(trip_2.subscription_type)</code>
+          <code class="ruby">      expect(page).to have_content(trip_2.end_date)</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="24">
           
           
-          <code class="ruby">      expect(page).to have_content(trip_2.zip_code)</code>
+          <code class="ruby">      expect(page).to have_content(trip_2.bike_id)</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="25">
           
           
-          <code class="ruby">      expect(page).to have_content(trip_2.start_station_id)</code>
+          <code class="ruby">      expect(page).to have_content(trip_2.subscription_type)</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="26">
           
           
+          <code class="ruby">      expect(page).to have_content(trip_2.zip_code)</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="27">
+          
+          
+          <code class="ruby">      expect(page).to have_content(trip_2.start_station_id)</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="28">
+          
+          
           <code class="ruby">      expect(page).to have_content(trip_2.end_station_id)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="27">
+        <li class="never" data-hits="" data-linenumber="29">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="28">
+        <li class="never" data-hits="" data-linenumber="30">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="29">
+        <li class="covered" data-hits="1" data-linenumber="31">
           <span class="hits">1</span>
           
           <code class="ruby">    describe &#39;on the trips index page&#39; do</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="30">
+        <li class="covered" data-hits="1" data-linenumber="32">
           <span class="hits">1</span>
           
           <code class="ruby">      xit &#39;shows the first 30 trips along with all their attributes&#39; do</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="31">
+        <li class="never" data-hits="" data-linenumber="33">
           
           
           <code class="ruby">        # Come back and flesh this out</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="32">
+        <li class="missed" data-hits="0" data-linenumber="34">
           
           
           <code class="ruby">        31.times do</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="33">
+        <li class="missed" data-hits="0" data-linenumber="35">
           
           
           <code class="ruby">          create(:trip)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="34">
+        <li class="never" data-hits="" data-linenumber="36">
           
           
           <code class="ruby">        end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="35">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="36">
-          
-          
-          <code class="ruby">        visit trips_path</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="37">
@@ -782,7 +869,7 @@
         <li class="missed" data-hits="0" data-linenumber="38">
           
           
-          <code class="ruby">        expect(page).to have_content</code>
+          <code class="ruby">        visit trips_path</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="39">
@@ -791,31 +878,43 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="40">
+        <li class="missed" data-hits="0" data-linenumber="40">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">        expect(page).to have_content</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="41">
           
           
-          <code class="ruby">      end</code>
+          <code class="ruby"></code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="42">
           
           
-          <code class="ruby">    end</code>
+          <code class="ruby"></code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="43">
           
           
-          <code class="ruby">  end</code>
+          <code class="ruby">      end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="44">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="45">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="46">
           
           
           <code class="ruby">end</code>
@@ -831,8 +930,8 @@
     <h3>spec/models/station_spec.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>7</b> relevant lines. 
-      <span class="green"><b>7</b> lines covered</span> and
+      <b>9</b> relevant lines. 
+      <span class="green"><b>9</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -930,7 +1029,92 @@
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="16">
+        <li class="covered" data-hits="1" data-linenumber="16">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  describe &#39;relationships&#39; do</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="17">
+          <span class="hits">2</span>
+          
+          <code class="ruby">    it {should have_many(:trips)}</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="18">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="19">
+          
+          
+          <code class="ruby">end</code>
+        </li>
+      
+    </ol>
+  </pre>
+</div>
+
+      
+        <div class="source_table" id="b59d0e021def23372b938452e31fd88148d6fd90">
+  <div class="header">
+    <h3>spec/models/trip_spec.rb</h3>
+    <h4><span class="green">100.0 %</span> covered</h4>
+    <div>
+      <b>2</b> relevant lines. 
+      <span class="green"><b>2</b> lines covered</span> and
+      <span class="red"><b>0</b> lines missed.</span>
+    </div>
+  </div>
+  
+  <pre>
+    <ol>
+      
+        <li class="covered" data-hits="1" data-linenumber="1">
+          <span class="hits">1</span>
+          
+          <code class="ruby">require &#39;rails_helper&#39;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="2">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="3">
+          <span class="hits">1</span>
+          
+          <code class="ruby">RSpec.describe Trip, type: :model do</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="4">
+          
+          
+          <code class="ruby">  # describe &#39;relationships&#39; do</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="5">
+          
+          
+          <code class="ruby">  #   it { should belong_to(:start_station)}</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="6">
+          
+          
+          <code class="ruby">  #   it { should belong_to(:end_station)}</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="7">
+          
+          
+          <code class="ruby">  # end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="8">
           
           
           <code class="ruby">end</code>
