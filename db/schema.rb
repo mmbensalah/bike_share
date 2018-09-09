@@ -23,17 +23,7 @@ ActiveRecord::Schema.define(version: 20180909175318) do
     t.integer "mean_humidity"
     t.integer "mean_visibility"
     t.integer "mean_wind_speed"
-    t.integer "precipitation"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "items", force: :cascade do |t|
-    t.string "title"
-    t.float "price"
-    t.string "image"
-    t.text "description"
-    t.integer "status", default: 0
+    t.float "precipitation"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
