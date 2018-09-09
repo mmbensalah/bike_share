@@ -1,10 +1,28 @@
 <h1>Trip <%= @trip.id %> Show Page</h1>
 
-<%= @trip.duration %>
-<%= @trip.start_date %>
-<%= @trip.end_date %>
-<%= @trip.zip_code %>
-<%= @trip.bike_id %>
-<%= @trip.start_station_id %>
-<%= @trip.end_station_id %>
-<%= @trip.subscription_type %>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Duration</th>
+      <th scope="col">Start Date</th>
+      <th scope="col">Start Station</th>
+      <th scope="col">Zip Code</th>
+      <th scope="col">Bike ID</th>
+      <th scope="col">End Date</th>
+      <th scope="col">End Station</th>
+      <th scope="col">Subscription Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @trip.duration %></td>
+      <td><%= @trip.start_date %></td>
+      <td><%= @trip.start_station_id %></td>
+      <td><%= @trip.zip_code %></td>
+      <td><%= @trip.bike_id %></td>
+      <td><%= @trip.end_date %></td>
+      <td><%= @trip.end_station_id %></td>
+      <td><%= @trip.subscription_type %></td>
+    </tr>
+  </tbody>
+</table>
