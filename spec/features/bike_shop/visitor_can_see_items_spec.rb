@@ -3,7 +3,7 @@ require "rails_helper"
 describe "As a visitor" do
   describe "when I visit '/bike-shop'" do
     it "should show items for sale" do
-      items = create_list(:items, 12)
+      items = create_list(:item, 12)
 
       visit bike_shop_path
 
