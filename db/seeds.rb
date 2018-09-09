@@ -9,7 +9,7 @@ require 'csv'
 require 'time'
 
 CSV.foreach("./db/csv/station.csv", headers: true, header_converters: :symbol) do |row|
-  Station.create( name:                    row[:name],
+  Station.create(             name:                    row[:name],
                               dock_count:              row[:dock_count],
                               city:                    row[:city],
                               installation_date:       Date.strptime(row[:installation_date],"%m/%d/%Y")
