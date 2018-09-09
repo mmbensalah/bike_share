@@ -3,6 +3,9 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
   get '/dashboard', to: 'dashboard#index'
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  get '/logout', to: 'sessions#destroy'
 
   resources :stations, only: [:index, :show], param: :slug
 
@@ -10,4 +13,5 @@ Rails.application.routes.draw do
   resources :conditions, only: [:index, :show]
 
   resources :users, only: [:new, :create]
+
 end
