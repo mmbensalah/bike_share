@@ -15,6 +15,9 @@
     <title>Bike Share</title>
   </head>
   <body>
+    <% flash.each do |name, msg| %>
+      <%= content_tag :div, msg, class: "#{name} alert alert-primary" %>
+    <% end %>
       <%= yield %>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
