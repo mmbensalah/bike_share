@@ -15,13 +15,42 @@
     <title>Bike Share</title>
   </head>
   <body>
-    <nav class='nav-bar'>
-      <%= link_to "Create Account", new_user_path %>
-    </nav>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="/">BS</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <% if current_user %>
+                <li class="nav-item">
+                  <a class="nav-link disabled" href=""><%= "Logged in as #{current_user.username}" %></a>
+                </li>
+                <li class="nav-item active">
+                  <%= link_to "Dashboard", dashboard_path, class: "nav-link" %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to "Log Out", logout_path, class: "nav-link" %>
+                </li>
+                <% else %>
+                  <li class="nav-item active">
+                    <%= link_to "Home", root_path, class: "nav-link" %>
+                  </li>
+                  <li class="nav-item">
+                    <%= link_to "Log In", login_path, class: "nav-link" %>
+                  </li>
+                  <li class="nav-item">
+                    <%= link_to "Create Account", new_user_path, class: "nav-link" %>
+                  </li>
+                  <% end  %>
+                </ul>
+              </div>
+            </nav>
 
     <% flash.each do |name, msg| %>
       <%= content_tag :div, msg, class: "#{name} alert alert-primary" %>
     <% end %>
+
       <%= yield %>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
