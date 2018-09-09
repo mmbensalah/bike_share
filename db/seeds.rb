@@ -6,27 +6,24 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'csv'
-Station.destroy_all
-Station.destroy_all
-Station.destroy_all
-Station.destroy_all
+require 'time'
+
 CSV.foreach("./db/csv/station.csv", headers: true, header_converters: :symbol) do |row|
-  Station.create( id:                      row[:id],
-                  name:                    row[:name],
-                  dock_count:              row[:dock_count],
-                  city:                    row[:city],
-                  installation_date:       row[:installation_date],
-                  created_at:              row[:created_at],
-                  updated_at:              row[:updated_at]
-                )
+  Station.create( name:                    row[:name],
+                              dock_count:              row[:dock_count],
+                              city:                    row[:city],
+                              installation_date:       Date.strptime(row[:installation_date],"%m/%d/%Y")
+                            )
 end
-CSV.foreach("./db/csv/status.csv", headers: true, header_converters: :symbol) do |row|
-  Station.create( id:                      row[:id],
-                  name:                    row[:name],
-                  dock_count:              row[:dock_count],
-                  city:                    row[:city],
-                  installation_date:       row[:installation_date],
-                  created_at:              row[:created_at],
-                  updated_at:              row[:updated_at]
-                )
+CSV.foreach("./db/csv/weather.csv", headers: true, header_converters: :symbol) do |row|
+  Condition.find_or_create_by!(
+                    date:                         Date.strptime(row[:date],"%m/%d/%Y"),
+                    max_temperature:              row[:max_temperature].to_i,
+                    min_temperature:              row[:min_temperature].to_i,
+                    mean_temperature:             row[:mean_temperature].to_i,
+                    mean_humidity:                row[:mean_humidity].to_i,
+                    mean_visibility:              row[:mean_visibility_miles].to_i,
+                    mean_wind_speed:              row[:mean_wind_speed_mph].to_i,
+                    precipitation:                 row[:precipitation_inches].to_f
+                    )
 end
