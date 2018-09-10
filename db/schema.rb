@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180909161104) do
+
+ActiveRecord::Schema.define(version: 20180909175318) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,7 +25,7 @@ ActiveRecord::Schema.define(version: 20180909161104) do
     t.integer "mean_humidity"
     t.integer "mean_visibility"
     t.integer "mean_wind_speed"
-    t.integer "precipitation"
+    t.float "precipitation"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -61,6 +63,17 @@ ActiveRecord::Schema.define(version: 20180909161104) do
     t.datetime "updated_at", null: false
     t.index ["end_station_id"], name: "index_trips_on_end_station_id"
     t.index ["start_station_id"], name: "index_trips_on_start_station_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "email"
+    t.string "username"
+    t.string "password_digest"
+    t.integer "role", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_foreign_key "trips", "stations", column: "end_station_id"

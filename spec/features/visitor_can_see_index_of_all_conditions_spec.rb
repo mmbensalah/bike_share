@@ -7,7 +7,7 @@ describe 'visitor can see index of all conditions' do
     condition_1 = create(:condition)
 
     visit conditions_path
-
+    
     expect(page).to have_content(condition.date)
     expect(page).to have_content(condition.max_temperature)
     expect(page).to have_content(condition.min_temperature)

@@ -11,6 +11,7 @@
       <th scope="col">End Date</th>
       <th scope="col">End Station</th>
       <th scope="col">Subscription Type</th>
+      <th scope="col">Admin Options</th>
     </tr>
   </thead>
   <tbody>
@@ -23,6 +24,10 @@
       <td><%= @trip.end_date %></td>
       <td><%= @trip.end_station_id %></td>
       <td><%= @trip.subscription_type %></td>
+      <td>
+        <%= link_to "Edit Trip", edit_admin_trip_path %>
+        <%= link_to "Delete Trip", admin_trip_path, method: :delete %>
+      </td>
     </tr>
   </tbody>
 </table>

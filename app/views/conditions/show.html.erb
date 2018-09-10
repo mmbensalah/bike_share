@@ -1,10 +1,28 @@
 <h1>Condition <%= @condition.id %></h1>
 
-<%= @condition.date %>
-<%= @condition.max_temperature %>
-<%= @condition.min_temperature %>
-<%= @condition.mean_temperature %>
-<%= @condition.mean_humidity %>
-<%= @condition.mean_visibility %>
-<%= @condition.mean_wind_speed %>
-<%= @condition.precipitation %>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Date</th>
+      <th scope="col">Max Temperature</th>
+      <th scope="col">Min Temperature</th>
+      <th scope="col">Mean Temperature</th>
+      <th scope="col">Mean Humidity</th>
+      <th scope="col">Mean Visibility</th>
+      <th scope="col">Mean Wind Speed</th>
+      <th scope="col">Precipitation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @condition.date %></td>
+      <td><%= @condition.max_temperature %></td>
+      <td><%= @condition.min_temperature %></td>
+      <td><%= @condition.mean_temperature %></td>
+      <td><%= @condition.mean_humidity %></td>
+      <td><%= @condition.mean_visibility %></td>
+      <td><%= @condition.mean_wind_speed %></td>
+      <td><%= @condition.precipitation %></td>
+    </tr>
+  </tbody>
+</table>
