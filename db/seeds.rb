@@ -15,7 +15,17 @@
 # require 'time'
 # load(Rails.root.join( 'db', 'seeds', "#{Rails.env.downcase}.rb"))
 
-
+Item.create(title: "Handlebars", price: "35.00", image: './assets/bike_gear.jpg', description: 'Use to steer your bike.', status: 0)
+Item.create(title: "Pedals", price: "12.50", image: './assets/bike_gear.jpg', description: 'Use to make your bike go.', status: 0)
+Item.create(title: "Streamers", price: "5.00", image: './assets/bike_gear.jpg', description: 'Make your bike looke cool.', status: 0)
+Item.create(title: "Water Bottle Holder", price: "6.99", image: './assets/bike_gear.jpg', description: 'Have a place to hold your water.', status: 0)
+Item.create(title: "Lights", price: "25.00", image: './assets/bike_gear.jpg', description: 'Set of 2. Make sure people see you!', status: 0)
+Item.create(title: "Pump", price: "7.00", image: './assets/bike_shoe.jpg', description: 'Pump up your tires.', status: 0)
+Item.create(title: "More Stuff", price: "100.00", image: './assets/bike_show.jpg', description: 'You can always use more stuff', status: 0)
+Item.create(title: "Tires", price: "55.00", image: './assets/bike_show.jpg', description: 'To go places', status: 0)
+Item.create(title: "Paint", price: "2.00", image: './assets/bike_show.jpg', description: 'Can you paint a bike? Let\'s try!', status: 0)
+Item.create(title: "Grips", price: "14.90", image: './assets/bike_show.jpg', description: 'The better to grip the bike.', status: 0)
+Item.create(title: "Grips", price: "84.90", image: './assets/bike_show.jpg', description: 'No one was buying these, they\' top of the line', status: 1)
 
 require 'csv'
 require 'time'
