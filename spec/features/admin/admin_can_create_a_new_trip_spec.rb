@@ -10,14 +10,14 @@ describe 'admin can create new trip' do
 
         visit new_admin_trip_path
 
-        fill_in :trip_date
-        fill_in :trip_max_temperature
-        fill_in :trip_min_temperature
-        fill_in :trip_mean_temperature
-        fill_in :trip_mean_humidity
-        fill_in :trip_mean_visibility
-        fill_in :trip_mean_wind_speed
-        fill_in :trip_precipitation
+        fill_in :trip_duration, with: 500
+        fill_in :trip_start_date, with: "09-15-1992"
+        fill_in :trip_end_date, with: "10-31-2007"
+        fill_in :trip_bike_id, with: 7
+        fill_in :trip_subscription_type, with: "Subscriber"
+        fill_in :trip_zip_code, with: 80220
+        fill_in :trip_start_station_id, with: 1
+        fill_in :trip_end_station_id, with: 2
 
         click_on "Create Trip"
         expect(Trip.all.count).to eq(1)

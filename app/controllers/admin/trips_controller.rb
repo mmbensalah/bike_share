@@ -8,6 +8,14 @@ class Admin::TripsController < Admin::BaseController
 
   end
 
+  def new
+    @trip = Trip.new
+  end
+
+  def create
+
+  end
+
   def destroy
     @trip = Trip.find(params[:id])
     if @trip.destroy
