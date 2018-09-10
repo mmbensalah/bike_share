@@ -21,3 +21,5 @@ coverage/
 
 /db/csv
 
+*/.DS_Store
+.DS_Store
