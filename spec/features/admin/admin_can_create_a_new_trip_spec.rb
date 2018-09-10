@@ -25,7 +25,16 @@ describe 'admin can create new trip' do
         trip = Trip.first
         expect(current_path).to eq admin_trip_path(trip)
         expect(page).to have_content("You successfully created a trip!")
+    end
+  end
+  describe "User can't create a new trip" do
+    it "won't allow user to visit new trip page" do
+      user = create(:user)
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
+      visit new_admin_trip_path
+
+      expect(page).to have_content("The page you were looking for doesn't exist.")
     end
   end
 end
