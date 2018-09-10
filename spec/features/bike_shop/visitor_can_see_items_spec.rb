@@ -10,7 +10,6 @@ describe "As a visitor" do
       expect(page).to have_css(".item"), minimum: 12
       expect(page).to have_content(items.first.title)
       expect(page).to have_content(items.first.price)
-      # expect(page).to have_content(items.first.image)
       expect(page).to have_content(items.first.description)
       expect(page).to have_content(items.second.title)
       expect(page).to have_content(items.last.title)
