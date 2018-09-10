@@ -14,7 +14,6 @@ class Admin::TripsController < Admin::BaseController
   end
 
   def create
-    require 'pry'; binding.pry
     @trip = Trip.create!(trip_params)
     if @trip.save
       flash[:success] = "You successfully created a trip!"
