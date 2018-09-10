@@ -1,4 +1,4 @@
-class Admin::TripsController < ApplicationController
+class Admin::TripsController < Admin::BaseController
 
   def show
     @trip = Trip.find(params[:id])
