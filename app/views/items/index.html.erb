@@ -1,0 +1,16 @@
+<h1>Items availble in the Bike Shoppe!</h1>
+
+
+<div class="card" style="width: 18rem;">
+  <% @items.each do |item| %>
+  <div class ='item' id="item-<%= item.id %>">
+  <img class="card-img-top" src="<%= item.image %>" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title"><%= item.title %></h5>
+    <p class="card-text">Price: $<%= item.price %></p>
+    <p class="card-text"><%= item.description %></p>
+  </div>
+    <%= button_to "Add to Cart", carts_path(item_id: item.id) %>
+  </div>
+    <% end %>
+</div>
