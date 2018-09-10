@@ -11,7 +11,7 @@ describe 'admin can edit a trip' do
         station_1 = create(:station)
         station_2 = create(:station)
 
-        visit edit_admin_trip_path
+        visit edit_admin_trip_path(trip)
         fill_in :trip_duration, with: 500
         fill_in :trip_start_date, with: "1992-04-01"
         fill_in :trip_end_date, with: "2007-09-15"
@@ -32,8 +32,8 @@ describe 'admin can edit a trip' do
     it "won't allow user to visit edit trip page" do
       user = create(:user)
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
-
-      visit edit_admin_trip_path
+      trip = create(:trip)
+      visit edit_admin_trip_path(trip)
 
       expect(page).to have_content("The page you were looking for doesn't exist.")
     end

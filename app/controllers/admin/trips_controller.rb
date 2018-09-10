@@ -5,7 +5,8 @@ class Admin::TripsController < Admin::BaseController
   end
 
   def edit
-
+    @trip = Trip.find(params[:id])
+    @stations = Station.all
   end
 
   def new
@@ -21,6 +22,17 @@ class Admin::TripsController < Admin::BaseController
     else
       flash[:failure] = "Invalid information, please fill out the form again."
       render :new
+    end
+  end
+
+  def update
+    @trip = Trip.find(params[:id])
+    if @trip.update(trip_params)
+      flash[:success] = "You successfully edited a trip!"
+      redirect_to admin_trip_path(@trip)
+    else
+      flash[:failure] = "Invalid information, please fill out the form again."
+      render :edit
     end
   end
 
