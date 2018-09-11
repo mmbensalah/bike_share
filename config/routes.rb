@@ -14,9 +14,11 @@ Rails.application.routes.draw do
   resources :stations, only: [:index, :show], param: :slug
 
   resources :trips, only: [:index, :show]
+
   resources :conditions, only: [:index, :show]
 
-  resources :carts, only: [:create]
+  resources :carts, only: [:create, :index]
+
   resources :users, only: [:new, :create]
 
   namespace :admin do

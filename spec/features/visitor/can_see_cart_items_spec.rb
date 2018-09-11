@@ -7,6 +7,7 @@ describe "As a visitor" do
       item_2 = Item.create(title: "Pedals", price: "12.50", image: './assets/bike_gear.jpg', description: 'Use to make your bike go.', status: 0)
 
       visit bike_shop_path
+
       within("#item-#{item_1.id}") do
         click_on("Add to Cart")
       end
@@ -17,9 +18,7 @@ describe "As a visitor" do
         click_on("Add to Cart")
       end
 
-      within("#navbar") do
-        click_on("Cart")
-      end
+      find("#nav-cart-link").click
 
       expect(current_path).to eq(carts_path)
       within("#cart-item-#{item_1.id}") do
