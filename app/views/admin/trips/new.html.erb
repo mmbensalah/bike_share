@@ -1,7 +1,7 @@
 <h1 class='text-center'>Create A New Trip</h1>
 
 <div class="login-form">
-  <%= form_for @trip, url: admin_trips_path do |f| %>
+  <%= form_for [:admin, @trip] do |f| %>
     <div class="form-group">
       <%= f.label :duration %>
       <%= f.text_field :duration %>
