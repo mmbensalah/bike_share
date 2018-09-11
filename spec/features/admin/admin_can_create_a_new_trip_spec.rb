@@ -23,7 +23,7 @@ describe 'admin can create new trip' do
         expect(Trip.all.count).to eq(1)
 
         trip = Trip.first
-        expect(current_path).to eq admin_trip_path(trip)
+        expect(current_path).to eq trip_path(trip)
         expect(page).to have_content("You successfully created a trip!")
     end
   end

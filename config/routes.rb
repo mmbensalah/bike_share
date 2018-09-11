@@ -22,7 +22,9 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create]
 
   namespace :admin do
-    resources :trips, only: [:index, :show, :edit, :destroy, :new, :create, :update]
+    get '/dashboard', to: 'dashboard#index'
+    resources :trips, only: [:edit, :destroy, :new, :create, :update]
+    resources :conditions, only: [:edit, :destroy]
   end
 
 

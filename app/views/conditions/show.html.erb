@@ -11,6 +11,9 @@
       <th scope="col">Mean Visibility</th>
       <th scope="col">Mean Wind Speed</th>
       <th scope="col">Precipitation</th>
+      <% if current_admin? %>
+      <th scope="col">Admin Options</th>
+      <% end %>
     </tr>
   </thead>
   <tbody>
@@ -23,6 +26,12 @@
       <td><%= @condition.mean_visibility %></td>
       <td><%= @condition.mean_wind_speed %></td>
       <td><%= @condition.precipitation %></td>
+      <% if current_admin? %>
+      <td>
+        <%= link_to "Edit", edit_admin_condition_path(condition) %>
+        <%= link_to "Delete", admin_condition_path(id: condition.id), method: :delete %>
+      </td>
+      <% end %>
     </tr>
   </tbody>
 </table>
