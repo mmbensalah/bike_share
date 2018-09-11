@@ -43,7 +43,9 @@
                     <%= link_to "Create Account", new_user_path, class: "nav-link" %>
                   </li>
                   <% end  %>
-                  <li class="nav-item nav-link">Cart: <%= @cart.total_count %></li>
+                  <li>
+                    <%= link_to "Cart: #{@cart.total_count}", carts_path, class: "nav-item nav-link", id: 'nav-cart-link' %>
+                  </li>
                 </ul>
               </div>
             </nav>
