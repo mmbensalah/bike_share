@@ -17,9 +17,9 @@ describe 'admin goes to log in form' do
       expect(current_path).to eq(admin_dashboard_path)
 
       expect(page).to have_content("Welcome #{admin.username}")
-      expect(page).to have_content(user.first_name)
-      expect(page).to have_content(user.last_name)
-      expect(page).to have_content(user.email)
+      expect(page).to have_content(admin.first_name)
+      expect(page).to have_content(admin.last_name)
+      expect(page).to have_content(admin.email)
     end
   end
 end

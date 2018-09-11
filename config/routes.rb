@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get '/bike-shop', to: 'items#index'
 
   root 'welcome#index'
+  # Look into namespacing dashboard under user
   get '/dashboard', to: 'dashboard#index'
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
@@ -21,6 +22,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :trips, only: [:index, :show, :edit, :destroy, :new, :create, :update]
+    get '/dashboard', to: 'dashboard#index'
   end
 
 
