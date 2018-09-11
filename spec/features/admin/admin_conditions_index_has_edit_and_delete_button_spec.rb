@@ -9,7 +9,6 @@ describe 'admin visits the conditions index page' do
       condition = create(:condition)
 
       visit admin_conditions_path
-
       click_on "Edit"
 
       expect(current_path).to eq edit_admin_condition_path(condition)
