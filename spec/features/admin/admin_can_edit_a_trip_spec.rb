@@ -21,7 +21,7 @@ describe 'admin can edit a trip' do
         select(value = station_1.name, from: 'trip[start_station_id]')
         select(value = station_2.name, from: 'trip[end_station_id]')
 
-        click_on "Edit Trip"
+        click_on "Update Trip"
 
         expect(current_path).to eq admin_trip_path(trip)
         expect(page).to have_content("You successfully edited a trip!")
