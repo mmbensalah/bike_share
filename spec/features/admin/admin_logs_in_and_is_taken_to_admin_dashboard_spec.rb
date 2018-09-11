@@ -21,6 +21,8 @@ describe 'admin goes to log in form' do
       expect(page).to have_content(admin.first_name)
       expect(page).to have_content(admin.last_name)
       expect(page).to have_content(admin.email)
+      expect(page).to have_content("Log Out")
+      expect(page).to_not have_content("Log In")
     end
   end
 end
