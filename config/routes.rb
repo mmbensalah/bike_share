@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
   get '/dashboard', to: 'dashboard#index'
+  get '/conditions-dashboard', to: 'conditions_dashboard#index'
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'
@@ -22,6 +23,4 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :trips, only: [:index, :show, :edit, :destroy, :new, :create, :update]
   end
-
-
 end
