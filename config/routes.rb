@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   namespace :admin do
     get '/dashboard', to: 'dashboard#index'
     resources :trips, only: [:edit, :destroy, :new, :create, :update]
-    resources :conditions, only: [:edit, :destroy, :new, :create]
+    resources :conditions, only: [:edit, :destroy, :new, :create, :update]
   end
 
 
