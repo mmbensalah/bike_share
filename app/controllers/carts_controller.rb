@@ -1,6 +1,7 @@
 class CartsController < ApplicationController
   def index
-  end 
+    @cart_items = @cart.find_items
+  end
 
   def create
     item = Item.find(params[:item_id])

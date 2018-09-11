@@ -25,15 +25,15 @@ describe "As a visitor" do
         expect(page).to have_content(item_1.title)
         expect(page).to have_content(item_1.price)
         expect(page).to have_content("Quantity: 2")
-        expect(page).to have_content("Subtotal: $#{item_1.price * 2}")
+        expect(page).to have_content("Subtotal: $70.00")
       end
       within("#cart-item-#{item_2.id}") do
         expect(page).to have_content(item_2.title)
         expect(page).to have_content(item_2.price)
         expect(page).to have_content("Quantity: 1")
-        expect(page).to have_content("Subtotal: $#{item_2.price}")
+        expect(page).to have_content("Subtotal: $12.50")
       end
-      expect(page).to have_content("Total: $#{item_1.price * 2 + item_2.price}")
+      expect(page).to have_content("Your current cart total: $82.50")
     end
   end
 end
