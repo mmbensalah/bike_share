@@ -6,6 +6,6 @@ FactoryBot.define do
     price { Faker::Number.decimal(2) }
     image { Faker::Internet.url }
     description { Faker::ChuckNorris.fact }
-    status "active"
+    status { "active" }
   end
 end
