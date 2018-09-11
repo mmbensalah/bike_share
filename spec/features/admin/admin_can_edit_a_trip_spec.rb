@@ -23,7 +23,7 @@ describe 'admin can edit a trip' do
 
         click_on "Update Trip"
 
-        expect(current_path).to eq admin_trip_path(trip)
+        expect(current_path).to eq trip_path(trip)
         expect(page).to have_content("You successfully edited a trip!")
         expect(page).to have_content("500")
     end

@@ -14,13 +14,15 @@ Rails.application.routes.draw do
 
   resources :stations, only: [:index, :show], param: :slug
 
-  resources :trips, only: [:index, :show]
+  resources :trips, only: [:index, :show, :update]
   resources :conditions, only: [:index, :show]
 
   resources :carts, only: [:create]
   resources :users, only: [:new, :create]
 
   namespace :admin do
-    resources :trips, only: [:index, :show, :edit, :destroy, :new, :create, :update]
+    get '/dashboard', to: 'dashboard#index'
+    resources :trips, only: [:edit, :destroy, :new, :create, :update]
+    resources :conditions, only: [:edit, :destroy]
   end
 end
