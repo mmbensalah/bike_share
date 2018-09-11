@@ -21,7 +21,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :trips, only: [:edit, :destroy, :new, :create, :update]
-    resources :conditions, only: [:edit, :destroy]
+    resources :conditions, only: [:edit, :destroy, :new, :create]
   end
 
 

@@ -15,4 +15,8 @@ class Admin::ConditionsController < Admin::BaseController
     end
   end
 
+  def new
+    @condition = Condition.new
+  end
+
 end
