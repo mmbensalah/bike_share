@@ -25,6 +25,7 @@ describe 'admin visits the conditions index page' do
 
       click_on "Delete"
       expect(current_path).to eq(conditions_path)
+      expect(page).to have_content("Condition successfully destroyed!")
       expect(Condition.all.count).to eq(0)
     end
   end
