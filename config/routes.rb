@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   get '/bike-shop', to: 'items#index'
 
   root 'welcome#index'
-  # Look into namespacing dashboard under user
   get '/dashboard', to: 'dashboard#index'
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
