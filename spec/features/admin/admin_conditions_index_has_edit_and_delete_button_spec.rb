@@ -8,7 +8,9 @@ describe 'admin visits the conditions index page' do
 
       condition = create(:condition)
 
-      visit admin_conditions_path
+      visit conditions_path
+      expect(page).to have_content("Edit")
+
       click_on "Edit"
 
       expect(current_path).to eq edit_admin_condition_path(condition)
@@ -19,20 +21,24 @@ describe 'admin visits the conditions index page' do
 
       condition = create(:condition)
 
-      visit admin_conditions_path
+      visit conditions_path
 
       click_on "Delete"
-      expect(current_path).to eq(admin_conditions_path)
+      expect(current_path).to eq(conditions_path)
       expect(Condition.all.count).to eq(0)
     end
   end
   describe 'as a user' do
-    it 'does not allow user to see admin condition index page' do
+    it 'does not allow user to see edit or delete button on conditions index' do
       user = create(:user)
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+      condition = create(:condition)
 
-      visit admin_conditions_path
+      visit conditions_path
+      expect(page).to_not have_content("Edit")
+      expect(page).to_not have_content("Delete")
 
+      visit edit_admin_condition_path(condition)
       expect(page).to have_content("The page you were looking for doesn't exist.")
     end
   end

@@ -8,10 +8,10 @@ describe 'admin can delete a trip' do
 
         trip = create(:trip)
 
-        visit admin_trips_path
+        visit trips_path
         click_on "Delete"
 
-        expect(current_path).to eq admin_trips_path
+        expect(current_path).to eq trips_path
         expect(page).to have_content("Trip successfully destroyed!")
         expect(Trip.all.count).to eq(0)
       end

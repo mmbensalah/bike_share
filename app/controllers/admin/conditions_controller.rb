@@ -1,9 +1,5 @@
 class Admin::ConditionsController < Admin::BaseController
 
-  def index
-    @conditions = Condition.all
-  end
-
   def edit
 
   end
@@ -12,10 +8,11 @@ class Admin::ConditionsController < Admin::BaseController
     @condition = Condition.find(params[:id])
     if @condition.destroy
       flash[:success] = "Condition successfully destroyed!"
-      redirect_to admin_conditions_path
+      redirect_to conditions_path
     else
       flash[:failure] = "Something went wrong, condition could not be destroyed."
-      redirect_to admin_condition_path(@condition)
+      redirect_to condition_path(@condition)
     end
   end
+
 end

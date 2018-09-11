@@ -1,13 +1,5 @@
 class Admin::TripsController < Admin::BaseController
 
-  def index
-    @trips = Trip.all
-  end
-
-  def show
-    @trip = Trip.find(params[:id])
-  end
-
   def edit
     @trip = Trip.find(params[:id])
     @stations = Station.all
@@ -22,7 +14,7 @@ class Admin::TripsController < Admin::BaseController
     @trip = Trip.create!(trip_params)
     if @trip.save
       flash[:success] = "You successfully created a trip!"
-      redirect_to admin_trip_path(@trip)
+      redirect_to trip_path(@trip)
     else
       flash[:failure] = "Invalid information, please fill out the form again."
       render :new
@@ -33,7 +25,7 @@ class Admin::TripsController < Admin::BaseController
     @trip = Trip.find(params[:id])
     if @trip.update(trip_params)
       flash[:success] = "You successfully edited a trip!"
-      redirect_to admin_trip_path(@trip)
+      redirect_to trip_path(@trip)
     else
       flash[:failure] = "Invalid information, please fill out the form again."
       render :edit
@@ -44,10 +36,10 @@ class Admin::TripsController < Admin::BaseController
     @trip = Trip.find(params[:id])
     if @trip.destroy
       flash[:success] = "Trip successfully destroyed!"
-      redirect_to admin_trips_path
+      redirect_to trips_path
     else
       flash[:failure] = "Something went wrong, trip could not be destroyed."
-      redirect_to admin_trip_path(@trip)
+      redirect_to trip_path(@trip)
     end
   end
 
