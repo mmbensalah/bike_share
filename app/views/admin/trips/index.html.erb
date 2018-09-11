@@ -1,0 +1,38 @@
+<h1>Admin Trips Index</h1>
+
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Duration</th>
+      <th scope="col">Start Date</th>
+      <th scope="col">Start Station</th>
+      <th scope="col">Zip Code</th>
+      <th scope="col">Bike ID</th>
+      <th scope="col">End Date</th>
+      <th scope="col">End Station</th>
+      <th scope="col">Subscription Type</th>
+      <th scope="col">Admin Options</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @trips.each do |trip| %>
+    <tr>
+      <td><%= trip.id %></td>
+      <td><%= trip.duration %></td>
+      <td><%= trip.start_date %></td>
+      <td><%= trip.start_station_id %></td>
+      <td><%= trip.zip_code %></td>
+      <td><%= trip.bike_id %></td>
+      <td><%= trip.end_date %></td>
+      <td><%= trip.end_station_id %></td>
+      <td><%= trip.subscription_type %></td>
+      <td>
+        <%= link_to "Edit", edit_admin_trip_path(trip) %>
+        <%= link_to "Delete", admin_trip_path(id: trip.id), method: :delete %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

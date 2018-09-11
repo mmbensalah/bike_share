@@ -1,5 +1,9 @@
 class Admin::TripsController < Admin::BaseController
 
+  def index
+    @trips = Trip.all
+  end
+
   def show
     @trip = Trip.find(params[:id])
   end
@@ -39,7 +43,8 @@ class Admin::TripsController < Admin::BaseController
   def destroy
     @trip = Trip.find(params[:id])
     if @trip.destroy
-      flash[:success] = "Trip succesfully destroyed"
+      flash[:success] = "Trip successfully destroyed!"
+      redirect_to admin_trips_path
     else
       flash[:failure] = "Something went wrong, trip could not be destroyed."
       redirect_to admin_trip_path(@trip)

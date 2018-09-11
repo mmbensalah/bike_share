@@ -10,7 +10,7 @@ describe 'admin visits a trip show page' do
 
       visit admin_trip_path(trip)
 
-      click_on "Edit Trip"
+      click_on "Edit"
 
       expect(current_path).to eq edit_admin_trip_path(trip)
     end
@@ -22,8 +22,8 @@ describe 'admin visits a trip show page' do
 
       visit admin_trip_path(trip)
 
-      click_on "Delete Trip"
-
+      click_on "Delete"
+      expect(current_path).to eq(admin_trips_path)
       expect(Trip.all.count).to eq(0)
     end
   end
