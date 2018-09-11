@@ -28,8 +28,8 @@
       <td><%= @condition.precipitation %></td>
       <% if current_admin? %>
       <td>
-        <%= link_to "Edit", edit_admin_condition_path(condition) %>
-        <%= link_to "Delete", admin_condition_path(id: condition.id), method: :delete %>
+        <%= link_to "Edit", edit_admin_condition_path %>
+        <%= link_to "Delete", admin_condition_path, method: :delete %>
       </td>
       <% end %>
     </tr>
