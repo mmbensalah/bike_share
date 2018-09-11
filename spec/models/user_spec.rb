@@ -21,10 +21,10 @@ describe User, type: :model do
     end
 
     it 'can be created as admin' do
-      user = create(:user, role: 1)
+      admin = create(:user, role: 1)
 
-      expect(user.role).to eq("admin")
-      expect(user.admin?).to be_truthy
+      expect(admin.role).to eq("admin")
+      expect(admin.admin?).to be_truthy
     end
   end
 end
