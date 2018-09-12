@@ -1,4 +1,4 @@
-<h1>Trips Index</h1>
+<h1 class='text-center'>Trips Index</h1>
 
 
 <table class="table">
@@ -13,9 +13,7 @@
       <th scope="col">End Date</th>
       <th scope="col">End Station</th>
       <th scope="col">Subscription Type</th>
-      <% if current_admin? %>
-      <th scope="col">Admin Options</th>
-      <% end %>
+      <th scope="col">Options</th>
     </tr>
   </thead>
   <tbody>
@@ -30,12 +28,13 @@
       <td><%= trip.end_date %></td>
       <td><%= trip.end_station_id %></td>
       <td><%= trip.subscription_type %></td>
-      <% if current_admin? %>
       <td>
-        <%= link_to "Edit", edit_admin_trip_path(trip) %>
-        <%= link_to "Delete", admin_trip_path(id: trip.id), method: :delete %>
+        <%= link_to "View this Trip", trip_path(trip), class: "btn btn-info" %>
+        <% if current_admin? %>
+        <%= link_to "Edit", edit_admin_trip_path(trip), class: "btn btn-warning" %>
+        <%= link_to "Delete", admin_trip_path(id: trip.id), method: :delete, class: "btn btn-danger" %>
+        <% end %>
       </td>
-      <% end %>
     </tr>
     <% end %>
   </tbody>
