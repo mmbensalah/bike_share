@@ -28,7 +28,7 @@ describe 'show pages have link to index' do
       station = create(:station)
 
       visit station_path(station)
-      click_on "View this Station"
+      click_on "Back to All Stations"
       expect(current_path).to eq(stations_path)
     end
   end
