@@ -13,8 +13,8 @@
   </thead>
   <tbody>
     <% @stations.each do |station| %>
-    <div id="station-<%= station.id %>">
     <tr>
+      <div id="station-<%= station.id %>">
       <th scope="row"><%= station.id %></th>
       <td><%= station.name %></td>
       <td><%= station.dock_count %></td>
@@ -24,11 +24,11 @@
         <%= link_to "View this Station", station_path(station), class: "btn btn-info" %>
         <% if current_admin? %>
           <%= link_to "Edit", edit_admin_station_path(station), class: 'btn btn-warning' %>
-          <%= link_to "Delete", edit_admin_station_path(station), method: :delete, class: 'btn btn-info' %>
+          <%= link_to "Delete", edit_admin_station_path(station), method: :delete, class: 'btn btn-danger' %>
         <% end %>
       </td>
+      <div>
     </tr>
-    <div>
     <% end %>
   </tbody>
 </table>

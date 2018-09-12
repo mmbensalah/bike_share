@@ -19,7 +19,7 @@ describe "As an admin" do
       end
 
       within("#station-#{station_2.id}") do
-        expect(page).to have_content(station_1.name)
+        expect(page).to have_content(station_2.name)
         expect(page).to have_content("Edit")
         expect(page).to have_content("Delete")
       end
