@@ -3,7 +3,7 @@
 
 <div>
   <h3>Your current cart total: <%= number_to_currency(@cart.total_price) %></h3>
-  <%= link_to "Checkout", dashboard_path, class: "btn btn-primary" %>
+  <%= button_to "Checkout", orders_path, class: "btn btn-primary" %>
 </div>
 
 <div class="card" style="width: 18rem;">
