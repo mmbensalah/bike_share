@@ -17,5 +17,18 @@ describe "As a visitor" do
       expect(page).to have_content("Price: $#{item_1.price}")
       expect(page).to have_content(item_1.description)
     end
+
+    it 'should be able to add that item to cart' do
+      item = create(:item)
+
+      visit item_path(item)
+      expect(page).to have_content("Cart: 0")
+
+      click_on("Add to Cart")
+
+      expect(current_path).to eq(items_path)
+      expect(page).to have_content("Cart: 1")
+      expect(page).to have_content("You have successfully added #{item.title} to your cart.")
+    end
   end
 end
