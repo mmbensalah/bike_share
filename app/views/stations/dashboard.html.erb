@@ -10,6 +10,12 @@ Fewest bikes available at a station - Station.minimum(:dock_count)
   SQL SELECT min(dock_count) FROM stations;
 Stations where the fewest bikes are available - Station.where(dock_count: Station.minimum(:dock_count))
   SQL: SELECT * FROM stations WHERE dock_count = (SELECT MIN(dock_count) FROM stations);
-Most recently installed station - 
+Most recently installed station -
 
 The oldest station -
+
+*** use something like this to dry up your code
+def get_stations(param)
+  Station.where(dock_count(: Station.method(param).call("cock_count"))
+end
+***

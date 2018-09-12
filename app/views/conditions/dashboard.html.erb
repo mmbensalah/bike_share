@@ -1,0 +1,17 @@
+SELECT start_date, COUNT(start_date)
+FROM trips
+INNER JOIN conditions ON conditions.date = trips.start_date
+WHERE max_temperature BETWEEN 60.0 AND 69.9
+GROUP BY start_date
+ORDER BY count(start_date) desc LIMIT 1;
+
+Trip.select("start_date, count(id) as count")
+joins(:conditions)
+where ("max_temp between ? and ? ", 60, 69.9)
+group(:start_date)
+order("count(start_date) desc")
+limit(1)
+
+Trip.select("start_date, count(trips.id) as count").join("INNER JOIN conditions ON conditions.date = trips.start_date").where("max_temperature between ? and ?", 60, 69.9).group(:start_date).order("count(trips.id) desc").limit(1)
+
+======
