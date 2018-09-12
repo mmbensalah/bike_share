@@ -1,7 +1,10 @@
 <h1>Your Cart</h1>
 <p>Please log in to purchase!</p>
 
-<h3>Your current cart total: <%= number_to_currency(@cart.total_price) %></h3>
+<div>
+  <h3>Your current cart total: <%= number_to_currency(@cart.total_price) %></h3>
+  <%= button_to "Checkout", orders_path, class: "btn btn-primary" %>
+</div>
 
 <div class="card" style="width: 18rem;">
   <% @cart_items.each do |item| %>

@@ -24,7 +24,7 @@
         <%= link_to "View this Station", station_path(station), class: "btn btn-info" %>
         <% if current_admin? %>
           <%= link_to "Edit", edit_admin_station_path(station), class: 'btn btn-warning' %>
-          <%= link_to "Delete", edit_admin_station_path(station), method: :delete, class: 'btn btn-danger' %>
+          <%= link_to "Delete", admin_station_path(station), method: :delete, class: 'btn btn-danger' %>
         <% end %>
       </td>
       <div>
