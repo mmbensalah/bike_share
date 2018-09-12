@@ -7,6 +7,7 @@ describe 'index pages have link to show' do
       condition = create(:condition)
 
       visit conditions_path
+      save_and_open_page
       click_on "View this Condition"
       expect(current_path).to eq(condition_path(condition))
 
