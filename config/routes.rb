@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
   get '/dashboard', to: 'dashboard#index'
+  get '/conditions-dashboard', to: 'conditions_dashboard#index'
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'
