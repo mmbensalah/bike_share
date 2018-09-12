@@ -26,9 +26,12 @@ describe "As a visitor" do
 
       click_on("Add to Cart")
 
-      expect(current_path).to eq(items_path)
+      expect(current_path).to eq(bike_shop_path)
       expect(page).to have_content("Cart: 1")
       expect(page).to have_content("You have successfully added #{item.title} to your cart.")
+
+      find("#nav-cart-link").click
+      expect(page).to have_content(item.title)
     end
   end
 end
