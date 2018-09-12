@@ -46,6 +46,16 @@
                   <li>
                     <%= link_to "Cart: #{@cart.total_count}", carts_path, class: "nav-item nav-link", id: 'nav-cart-link' %>
                   </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Index Links
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                      <%= link_to "Stations", stations_path, class: "dropdown-item" %>
+                      <%= link_to "Trips", trips_path, class: "dropdown-item" %>
+                      <%= link_to "Conditions", conditions_path, class: "dropdown-item" %>
+                    </div>
+                  </li>
                 </ul>
               </div>
             </nav>
