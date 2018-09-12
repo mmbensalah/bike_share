@@ -15,12 +15,10 @@ describe "As an admin" do
 
       expect(current_path).to eq(edit_admin_station_path(station))
 
-      new_name = "Station New Name"
       dock_count = 30
       city = "Daly City"
-      date = "9/12/2018"
+      date = "2018-09-15"
 
-      fill_in :station_name, with: new_name
       fill_in :station_dock_count, with: dock_count
       fill_in :station_city, with: city
       fill_in :station_installation_date, with: date
@@ -28,12 +26,11 @@ describe "As an admin" do
 
       expect(current_path).to eq(station_path(station))
 
-      expect(page).to have_content(new_name)
-      expect(page).to have_content(dock_count)
+      expect(page).to have_content(station.name)
+      expect(page).to have_content("Dock Count: #{dock_count}")
       expect(page).to have_content(city)
-      expect(page).to have_content(date)
-      expect(page).to_not have_content(station.name)
-      expect(page).to_not have_content(station.dock_count)
+      expect(page).to have_content("Installation Date: #{date}")
+      expect(page).to_not have_content("Dock Count: #{station.dock_count}")
       expect(page).to_not have_content(station.city)
       expect(page).to_not have_content(station.installation_date)
     end
