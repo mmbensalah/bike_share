@@ -27,6 +27,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
+gem 'by_star', git: "git://github.com/radar/by_star"
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -44,6 +45,7 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'nyan-cat-formatter'
+  gem 'by_star', git: "git://github.com/radar/by_star"
 end
 
 group :development do
