@@ -20,7 +20,7 @@
       <td><%= station.city %></td>
       <td><%= station.installation_date %></td>
       <td>
-        <%= link_to "View this Station", station_path(station) %>
+        <%= link_to "View this Station", station_path(station), class: "btn btn-info" %>
       </td>
     </tr>
     <% end %>

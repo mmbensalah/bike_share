@@ -28,10 +28,10 @@
       <td><%= condition.mean_wind_speed %></td>
       <td><%= condition.precipitation %></td>
       <td>
-        <%= link_to "View this Condition", condition_path(condition) %>
+        <%= link_to "View this Condition", condition_path(condition), class: "btn btn-info" %>
         <% if current_admin? %>
-        <%= link_to "Edit", edit_admin_condition_path(condition) %>
-        <%= link_to "Delete", admin_condition_path(id: condition.id), method: :delete %>
+        <%= link_to "Edit", edit_admin_condition_path(condition), class: "btn btn-warning" %>
+        <%= link_to "Delete", admin_condition_path(id: condition.id), method: :delete, class: "btn btn-danger" %>
         <% end %>
       </td>
     </tr>
