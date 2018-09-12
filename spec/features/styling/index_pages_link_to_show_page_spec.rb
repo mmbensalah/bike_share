@@ -28,8 +28,8 @@ describe 'index pages have link to show' do
       station = create(:station)
 
       visit stations_path
-      click_on "View this Trip"
-      expect(current_path).to eq(trip_path(trip))
+      click_on "View this Station"
+      expect(current_path).to eq(station_path(station))
     end
   end
 end

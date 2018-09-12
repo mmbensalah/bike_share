@@ -8,6 +8,7 @@
       <th scope="col">Dock Count</th>
       <th scope="col">City</th>
       <th scope="col">Installation Date</th>
+      <th scope="col">Options</th>
     </tr>
   </thead>
   <tbody>
@@ -18,6 +19,9 @@
       <td><%= station.dock_count %></td>
       <td><%= station.city %></td>
       <td><%= station.installation_date %></td>
+      <td>
+        <%= link_to "View this Station", station_path(station) %>
+      </td>
     </tr>
     <% end %>
   </tbody>
