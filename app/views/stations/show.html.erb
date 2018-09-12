@@ -17,6 +17,10 @@
       <td><%= @station.dock_count %></td>
       <td><%= @station.city %></td>
       <td><%= @station.installation_date %></td>
+      <% if current_admin? %>
+        <td><%= link_to "Edit", edit_admin_station_path(@station), class: "btn btn-warning" %></td>
+        <td><%= link_to "Delete", admin_station_path(@station), method: :delete, class: "btn btn-danger" %></td>
+      <% end %>
     </tr>
   </tbody>
 </table>
