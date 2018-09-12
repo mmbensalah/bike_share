@@ -10,12 +10,14 @@ describe 'Trips Dashboard' do
       expect(page).to have_content("Average Duration of Ride: #{Trip.average_duration}")
       expect(page).to have_content("Longest Ride: #{Trip.longest_ride}")
       expect(page).to have_content("Shortest Ride: #{Trip.shortest_ride}")
-      expect(page).to have_content("Station where most rides start: #{Trip.most_rides_starting_station}")
-      expect(page).to have_content("Station where most rides end: #{Trip.most_rides_ending_station}")
+      expect(page).to have_content("Station where most rides start: #{Trip.most_rides_start_station}")
+      expect(page).to have_content("Station where most rides end: #{Trip.most_rides_end_station}")
       expect(page).to have_content("Most ridden bike: #{Trip.most_ridden_bike}")
       expect(page).to have_content("Least ridden bike: #{Trip.least_ridden_bike}")
-      expect(page).to have_content("Date with highest number of trips: #{Trip.least_ridden_bike}")
-      expect(page).to have_content("Date with lowest number of trips: #{Trip.least_ridden_bike}")
+      expect(page).to have_content("Date with highest number of trips: #{Trip.date_with_most_trips}")
+      expect(page).to have_content("Date with lowest number of trips: #{Trip.date_with_least_trips}")
       # add test for month by month breakdown
       # add test for user subscription breakdown
     end
+  end
+end
