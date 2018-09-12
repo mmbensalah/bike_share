@@ -14,7 +14,7 @@ describe 'As a user' do
     within ".login-form" do
       click_on "Log In"
     end
-
+    
     expect(current_path).to eq(dashboard_path)
     expect(page).to have_content("Welcome #{user.username}")
     expect(page).to have_content(user.first_name)
