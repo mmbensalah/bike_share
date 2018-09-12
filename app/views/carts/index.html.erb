@@ -13,6 +13,8 @@
       <p class="card-text">Quantity: <%= @cart.contents[item.id.to_s] %></p>
       <p class="card-text">Subtotal: <%= number_to_currency((item.price * @cart.contents[item.id.to_s])) %></p>
     </div>
+    <div><%= button_to "Checkout" %>
+    </div>
   </div>
     <% end %>
 </div>

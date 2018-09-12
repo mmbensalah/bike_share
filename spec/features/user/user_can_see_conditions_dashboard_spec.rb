@@ -9,9 +9,5 @@ describe 'Conditions Dashboard' do
 
       expect(page).to have_content('Conditions Dashboard')
     end
-
-
-    end
-
   end
 end
