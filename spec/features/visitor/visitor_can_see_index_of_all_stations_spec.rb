@@ -18,5 +18,21 @@ describe 'visitor can see all stations' do
       expect(page).to have_content(station_2.city)
       expect(page).to have_content(station_2.installation_date)
     end
+
+    it 'should not see edit and delete options' do
+      station_1 = create(:station)
+      station_2 = create(:station)
+      visit stations_path
+
+      within("#station-#{station_1.id}") do
+        expect(page).to_not have_content("Edit")
+        expect(page).to_not have_content("Delete")
+      end
+
+      within("#station-#{station_2.id}") do
+        expect(page).to_not have_content("Edit")
+        expect(page).to_not have_content("Delete")
+      end
+    end
   end
 end
