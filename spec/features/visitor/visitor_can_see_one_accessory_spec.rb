@@ -5,7 +5,7 @@ describe "As a visitor" do
     it 'I can view a single item' do
       item_1, item_2 = create_list(:item, 2)
 
-      visit items_path
+      visit bike_shop_path
 
       within("#item-#{item_1.id}") do
         click_on(item_1.title)

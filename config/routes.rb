@@ -2,7 +2,6 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
 
-  get '/bike-shop', to: 'items#index'
 
   root 'welcome#index'
   get '/dashboard', to: 'dashboard#index'
@@ -20,6 +19,9 @@ Rails.application.routes.draw do
   resources :carts, only: [:create, :index]
 
   resources :users, only: [:new, :create]
+
+  get '/bike-shop', to: 'items#index'
+  resources :items, only: [:show]
 
   namespace :admin do
     get '/dashboard', to: 'dashboard#index'
