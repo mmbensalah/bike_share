@@ -1,7 +1,10 @@
 <h1>Your Cart</h1>
 <p>Please log in to purchase!</p>
 
-<h3>Your current cart total: <%= number_to_currency(@cart.total_price) %></h3>
+<div>
+  <h3>Your current cart total: <%= number_to_currency(@cart.total_price) %></h3>
+  <%= link_to "Checkout", dashboard_path, class: "btn btn-primary" %>
+</div>
 
 <div class="card" style="width: 18rem;">
   <% @cart_items.each do |item| %>
@@ -12,8 +15,6 @@
       <p class="card-text">Price: <%= number_to_currency(item.price) %></p>
       <p class="card-text">Quantity: <%= @cart.contents[item.id.to_s] %></p>
       <p class="card-text">Subtotal: <%= number_to_currency((item.price * @cart.contents[item.id.to_s])) %></p>
-    </div>
-    <div><%= button_to "Checkout" %>
     </div>
   </div>
     <% end %>

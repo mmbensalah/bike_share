@@ -32,7 +32,7 @@ describe 'As a user' do
         expect(page).to have_content("Subtotal: $12.50")
       end
       expect(page).to have_content("Your current cart total: $47.50")
-      expect(page).to have_button("Checkout")
+      expect(page).to have_link("Checkout")
     end
   end
 end
