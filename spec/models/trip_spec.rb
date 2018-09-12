@@ -44,7 +44,7 @@ RSpec.describe Trip, type: :model do
       trip_1 = create(:trip, end_station_id: starting_station_1.id)
       trip_2 = create(:trip, end_station_id: starting_station_1.id)
       trip_3 = create(:trip, end_station_id: starting_station_2.id)
-      expect(Trip.most_rides_end_station).to eq(starting_station_1.name)
+      expect(Trip.most_rides_end_station).to eq({3 => 1})
     end
     it 'most_ridden_bike' do
       create(:trip, bike_id: 1)
@@ -62,13 +62,25 @@ RSpec.describe Trip, type: :model do
       trip = create(:trip, start_date: "2009-09-31")
       create(:trip, start_date: "2009-09-31")
       create(:trip, start_date: "2009-09-27")
-      expect(Trip.date_with_most_trips).to eq(trip.start_date)
+      expect(Trip.date_with_most_trips).to eq({trip.start_date => 2})
     end
     it 'date_with_least_trips' do
       create(:trip, start_date: "2009-09-31")
       create(:trip, start_date: "2009-09-31")
       trip = create(:trip, start_date: "2009-09-27")
-      expect(Trip.date_with_most_trips).to eq(trip.start_date)
+      expect(Trip.date_with_least_trips).to eq({trip.start_date => 1})
+    end
+    it 'subscription_counts' do
+      create(:trip, subscription_type: "Subscriber")
+      create(:trip, subscription_type: "Subscriber")
+      create(:trip, subscription_type: "Customer")
+      expect(Trip.subscription_counts).to eq({"Subscriber" => 2, "Customer" => 1})
+    end
+    it 'subscription_percents' do
+      create(:trip, subscription_type: "Subscriber")
+      create(:trip, subscription_type: "Subscriber")
+      create(:trip, subscription_type: "Customer")
+      expect(Trip.subscription_percents).to eq("Subscriber" => 66.67, "Customer" => 33.33)
     end
   end
 end

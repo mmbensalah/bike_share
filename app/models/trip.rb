@@ -39,10 +39,20 @@ class Trip < ApplicationRecord
   end
 
   def self.date_with_most_trips
-    Trip.order("count_id desc").limit(1).group(:start_date).count(:id)
+    Trip.order("count_id DESC").limit(1).group(:start_date).count(:id)
   end
 
   def self.date_with_least_trips
-    Trip.order("count_id asc").limit(1).group(:start_date).count(:id)
+    Trip.order("count_id ASC").limit(1).group(:start_date).count(:id)
+  end
+
+  def self.subscription_counts
+    Trip.group(:subscription_type).count(:id)
+  end
+
+  def self.subscription_percents
+    subscription_counts.transform_values do |v|
+      (v / Trip.count.to_f * 100).round(2)
+    end
   end
 end
