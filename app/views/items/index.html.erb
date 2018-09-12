@@ -10,7 +10,11 @@
     <p class="card-text">Price: <%= number_to_currency(item.price) %></p>
     <p class="card-text"><%= image_tag(item.description) %></p>
   </div>
-    <%= button_to "Add to Cart", carts_path(item_id: item.id) %>
+    <% if item.status == "active" %>
+      <%= button_to "Add to Cart", carts_path(item_id: item.id) %>
+    <% else %>
+      <p style='color: red'>Item Retired</p>
+    <% end %>
   </div>
     <% end %>
 </div>
