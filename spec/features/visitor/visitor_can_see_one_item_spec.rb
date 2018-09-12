@@ -33,5 +33,14 @@ describe "As a visitor" do
       find("#nav-cart-link").click
       expect(page).to have_content(item.title)
     end
+
+    it 'should show a retired item' do
+      item = create(:item, status: 1)
+
+      visit item_path(item)
+
+      expect(page).to have_content("Item Retired")
+      expect(page).to_not have_content("Add to Cart")
+    end
   end
 end

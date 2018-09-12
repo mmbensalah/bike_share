@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   def index
-    @items = Item.where(status: 0)
+    @items = Item.all
   end
 
   def show

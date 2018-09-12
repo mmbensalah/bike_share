@@ -18,7 +18,12 @@ describe "As a visitor" do
       within("#item-#{item_13.id}") do
         expect(page).to have_content("Retired")
       end
-      expect(page).to have_button("Add to Cart")
+      within("#item-#{items[11].id}") do
+        expect(page).to have_button("Add to Cart")
+      end
+      within("#item-#{items[2].id}") do
+        expect(page).to have_button("Add to Cart")
+      end
     end
   end
 end
