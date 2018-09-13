@@ -10,5 +10,7 @@ class TripsDashboardController < ApplicationController
     @least_ridden_bike = Trip.least_ridden_bike
     @date_with_highest_trips = Trip.date_with_most_trips
     @date_with_least_trips = Trip.date_with_least_trips
+    @subscription_counts = Trip.subscription_counts
+    @subscription_percents = Trip.subscription_percents
   end
 end

@@ -41,4 +41,14 @@
         <small>Trip count: <%= @date_with_least_trips[:trips] %></small>
     <span class="badge badge-primary badge-pill"><%= @date_with_least_trips[:date] %></span>
   </li>
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    Subscriber breakdown:
+        <small>Trip count: <%= @subscription_counts["Subscriber"] %></small>
+    <span class="badge badge-primary badge-pill">Percent: <%= @subscription_percents["Subscriber"] %></span>
+  </li>
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    Customer breakdown:
+        <small>Trip count: <%= @subscription_counts["Customer"] %></small>
+    <span class="badge badge-primary badge-pill">Percent: <%= @subscription_percents["Customer"] %></span>
+  </li>
 </ul>
