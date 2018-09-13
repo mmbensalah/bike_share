@@ -1,5 +1,9 @@
 <h1 class='text-center'>Station Index</h1>
 
+<% if current_admin? %>
+  <%= link_to "Add New Station", new_admin_station_path, class: 'btn btn-secondary text-center' %>
+<% end %>
+
 <table class="table">
   <thead>
     <tr>
