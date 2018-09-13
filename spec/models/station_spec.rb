@@ -8,7 +8,7 @@ RSpec.describe Station, type: :model do
     @trip_1 = Trip.create!(duration: 71, start_date: "2013-08-29", end_date: "2013-08-29", bike_id: 48, subscription_type: "Subscriber", zip_code: 97214, start_station_id: 1, end_station_id: 1)
     @trip_2 = Trip.create!(duration: 77, start_date: "2013-08-29", end_date: "2013-08-29", bike_id: 26, subscription_type: "Subscriber", zip_code: 94103, start_station_id: 1, end_station_id: 2)
     @trip_3 = Trip.create!(duration: 1099, start_date: "2013-09-05", end_date: "2013-09-05", bike_id: 48, subscription_type: "Customer", zip_code: 10038, start_station_id: 3, end_station_id: 1)
-    @trip_4 = Trip.create!(duration: 83, start_date: "2013-08-29", end_date: "2013-08-29", bike_id: 319, subscription_type: "Subscriber", zip_code: 94103, start_station_id: 1, end_station_id: 3)
+    @trip_4 = Trip.create!(duration: 83, start_date: "2013-08-29", end_date: "2013-08-29", bike_id: 319, subscription_type: "Subscriber", zip_code: 94103, start_station_id: 1, end_station_id: 1)
     @trip_5 = Trip.create!(duration: 109, start_date: "2013-08-29", end_date: "2013-08-29", bike_id: 679, subscription_type: "Subscriber", zip_code: 95112, start_station_id: 1, end_station_id: 2)
   end
 
@@ -20,14 +20,27 @@ RSpec.describe Station, type: :model do
   end
 
   describe 'relationships' do
-    it {should have_many(:trips)}
+    it {should have_many(:start_trips)}
+    it {should have_many(:end_trips)}
   end
 
   describe 'instance methods' do
     context '#ride_count' do
       it 'should return the number of rides started/ended at this station' do
         expect(@station_1.ride_count("started")).to eq(4)
-        expect(@station_1.ride_count("ended")).to eq(2)
+        expect(@station_1.ride_count("ended")).to eq(3)
+      end
+    end
+
+    context '#destination_station' do
+      it 'should return station most frequently as the destination station' do
+        expect(@station_1.destination_station).to eq({(@station_1.id) => 2})
+      end
+    end
+
+    context '#origination_station' do
+      it 'should return station most frequently as the origination station' do
+        expect(@station_1.origination_station).to eq({(@station_1.id) => 2})
       end
     end
   end

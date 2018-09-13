@@ -19,6 +19,14 @@ class Station < ApplicationRecord
     end
   end
 
+  def destination_station
+    start_trips.order("count_id desc").limit(1).group(:end_station_id).count(:id)
+  end
+
+  def origination_station
+    end_trips.order("count_id desc").limit(1).group(:start_station_id).count(:id)
+  end
+
   private
     def generate_slug
       self.slug = name.parameterize
