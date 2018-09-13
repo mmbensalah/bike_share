@@ -26,6 +26,6 @@ class Cart
   def find_items
     @contents.map do |item_id, _ |
       Item.find(item_id)
-    end 
+    end
   end
 end

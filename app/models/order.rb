@@ -1,4 +1,5 @@
 class Order < ApplicationRecord
   belongs_to :user
-  validates_presence_of :total
+  has_many :order_items
+  has_many :items, through: :order_items
 end
