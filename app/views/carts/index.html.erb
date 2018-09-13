@@ -9,7 +9,7 @@
 <div class="card" style="width: 18rem;">
   <% @cart_items.each do |item| %>
   <div class ='item' id="cart-item-<%= item.id %>">
-    <img class="card-img-top" src="<%= item.image %>" alt="Card image cap">
+    <%= image_tag(item.image, class: "card-img-top", alt: "Bike picture") %>
     <div class="card-body">
       <h5 class="card-title"><%= item.title %></h5>
       <p class="card-text">Price: <%= number_to_currency(item.price) %></p>
