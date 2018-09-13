@@ -15,8 +15,8 @@ class Station < ApplicationRecord
     {
     ride_count_started: ride_count("started"),
     ride_count_ended: ride_count("ended"),
-    destination_station: destination_station,
-    origination_station: origination_station,
+    destination_station: [destination_station.name, destination_station.station_count],
+    origination_station: [origination_station.name, origination_station.station_count],
     most_trips: most_trips,
     top_zip_code: top_zips,
     top_bike: top_bike
@@ -25,9 +25,9 @@ class Station < ApplicationRecord
 
   def ride_count(point)
     if point == "started"
-      start_trips.where(start_station_id: self.id).count
+      start_trips.where(start_station_id: id).count
     elsif point == "ended"
-      end_trips.where(end_station_id: self.id).count
+      end_trips.where(end_station_id: id).count
     end
   end
 
@@ -42,7 +42,13 @@ class Station < ApplicationRecord
   end
 
   def origination_station
-    end_trips.order("count_id desc").limit(1).group(:start_station_id).count(:id)
+    Station.select("stations.*, count(trips.start_station_id) as station_count")
+      .where("trips.end_station_id = ?", id)
+      .joins("join trips on trips.end_station_id = stations.id")
+      .order("station_count desc")
+      .limit(1)
+      .group("trips.start_station_id, stations.id")
+      .first
   end
 
   def most_trips
