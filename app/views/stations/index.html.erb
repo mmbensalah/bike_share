@@ -11,7 +11,7 @@
       <th scope="col">Options</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody class='stations'>
     <% @stations.each do |station| %>
     <tr>
       <div id="station-<%= station.id %>">
@@ -24,7 +24,8 @@
         <%= link_to "View this Station", station_path(station), class: "btn btn-info" %>
         <% if current_admin? %>
           <%= link_to "Edit", edit_admin_station_path(station), class: 'btn btn-warning' %>
-          <%= link_to "Delete", admin_station_path(station), method: :delete, class: 'btn btn-danger' %>
+          <%= link_to "Delete", admin_station_path(station), method: :delete, class: 'btn btn-danger',
+            data: {confirm: "Are you sure you want to delete #{station.name}?"} %>
         <% end %>
       </td>
       <div>
