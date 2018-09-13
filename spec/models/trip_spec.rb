@@ -87,9 +87,7 @@ RSpec.describe Trip, type: :model do
       create(:trip, start_date: "2015-08-25")
       create(:trip, start_date: "2015-08-25")
       create(:trip, start_date: "2015-10-25")
-      expect(Trip.rides_per_month("August",
-                                  "September",
-                                  "October")).to eq({"August" => 2,
+      expect(Trip.rides_per_month).to eq({"August" => 2,
                                                      "September" => 1,
                                                      "October" => 1})
     end
