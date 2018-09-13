@@ -29,6 +29,16 @@ class Admin::StationsController < Admin::BaseController
     end
   end
 
+  def destroy
+    @station = Station.find_by_slug(params[:slug])
+    if @station.destroy
+      flash[:success] = "You have succesfully deleted Station #{@station.name}."
+    else
+      flash[:failure] = "Station #{@station.name} could not be deleted."
+    end
+    redirect_to stations_path
+  end
+
   private
     def station_params
       params.require(:station).permit(:name, :dock_count, :city, :installation_date)
