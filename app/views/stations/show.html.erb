@@ -14,3 +14,8 @@
     </tr>
   </tbody>
 </table>
+
+<% if current_admin? %>
+  <%= link_to "Delete Station", admin_station_path(@station), method: :delete, class: 'btn btn-danger',
+    data: {confirm: "Are you sure you want to delete #{@station.name}?"} %>
+<% end %>
