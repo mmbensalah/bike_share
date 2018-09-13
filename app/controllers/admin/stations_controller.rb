@@ -15,11 +15,11 @@ class Admin::StationsController < Admin::BaseController
   end
 
   def edit
-    @station = Station.find_by_slug(params[:id])
+    @station = Station.find_by_slug(params[:slug])
   end
 
   def update
-    @station = Station.find_by_slug(params[:id])
+    @station = Station.find_by_slug(params[:slug])
     if @station.update(station_params)
       flash[:success] = "Your changes to #{@station.name} have been saved."
       redirect_to station_path(@station)
