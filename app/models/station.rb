@@ -35,6 +35,10 @@ class Station < ApplicationRecord
     start_trips.order("count_id desc").limit(1).group(:zip_code).count(:id)
   end
 
+  def top_bike
+    start_trips.order("count_id desc").limit(1).group(:bike_id).count(:id)
+  end
+
   private
     def generate_slug
       self.slug = name.parameterize

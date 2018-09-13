@@ -8,7 +8,7 @@ RSpec.describe Station, type: :model do
     @trip_1 = Trip.create!(duration: 71, start_date: "2013-08-29", end_date: "2013-08-29", bike_id: 48, subscription_type: "Subscriber", zip_code: 97214, start_station_id: 1, end_station_id: 1)
     @trip_2 = Trip.create!(duration: 77, start_date: "2013-08-29", end_date: "2013-08-29", bike_id: 26, subscription_type: "Subscriber", zip_code: 94103, start_station_id: 1, end_station_id: 2)
     @trip_3 = Trip.create!(duration: 1099, start_date: "2013-09-05", end_date: "2013-09-05", bike_id: 48, subscription_type: "Customer", zip_code: 10038, start_station_id: 3, end_station_id: 1)
-    @trip_4 = Trip.create!(duration: 83, start_date: "2013-08-29", end_date: "2013-08-29", bike_id: 319, subscription_type: "Subscriber", zip_code: 94103, start_station_id: 1, end_station_id: 1)
+    @trip_4 = Trip.create!(duration: 83, start_date: "2013-08-29", end_date: "2013-08-29", bike_id: 48, subscription_type: "Subscriber", zip_code: 94103, start_station_id: 1, end_station_id: 1)
     @trip_5 = Trip.create!(duration: 109, start_date: "2013-08-29", end_date: "2013-08-29", bike_id: 679, subscription_type: "Subscriber", zip_code: 95112, start_station_id: 1, end_station_id: 2)
   end
 
@@ -53,6 +53,12 @@ RSpec.describe Station, type: :model do
     context '#top_zips' do
       it 'should return most frequent rider zip code' do
         expect(@station_1.top_zips).to eq({94103 => 2})
+      end
+    end
+
+    context '#top_bike' do
+      it 'should return bike id of most used bike' do
+        expect(@station_1.top_bike).to eq({48 => 2})
       end
     end
   end
