@@ -24,5 +24,27 @@ describe 'admin goes to log in form' do
       expect(page).to have_content("Log Out")
       expect(page).to_not have_content("Log In")
     end
+
+    it 'should have admin dashboard in nav' do
+      admin = create(:user, role: 1)
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
+
+      visit dashboard_path
+
+      click_on("Admin Dashboard")
+      expect(current_path).to eq(admin_dashboard_path)
+    end
+
+    it 'should not allow a user to see Admin Dashboard' do
+      user = create(:user)
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+
+      visit dashboard_path
+      expect(page).to_not have_content("Admin Dashboard")
+
+      visit admin_dashboard_path
+
+      expect(page).to have_content("The page you were looking for doesn't exist.")
+    end
   end
 end
