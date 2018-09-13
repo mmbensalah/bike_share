@@ -1,1 +1,40 @@
 <h1 class='text-center'>Trips Dashboard</h1>
+
+<ul class="list-group">
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    Average Duration
+    <span class="badge badge-primary badge-pill"><%= @average_duration %></span>
+  </li>
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    Longest Ride
+    <span class="badge badge-primary badge-pill"><%= @longest_ride %></span>
+  </li>
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    Shortest Ride
+    <span class="badge badge-primary badge-pill"><%= @shortest_ride %></span>
+  </li>
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    Station where most rides start:
+    <span class="badge badge-primary badge-pill"><%= @most_rides_start %></span>
+  </li>
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    Station where most rides end:
+    <span class="badge badge-primary badge-pill"><%= @most_rides_end %></span>
+  </li>
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    Most ridden bike:
+    <span class="badge badge-primary badge-pill"><%= @most_ridden_bike %></span>
+  </li>
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    Least ridden bike:
+    <span class="badge badge-primary badge-pill"><%= @least_ridden_bike %></span>
+  </li>
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    Date with highest number of trips:
+    <span class="badge badge-primary badge-pill"><%= @date_with_highest_trips%></span>
+  </li>
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    Date with least number of trips:
+    <span class="badge badge-primary badge-pill"><%= @date_with_least_trips%></span>
+  </li>
+</ul>
