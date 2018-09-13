@@ -43,5 +43,17 @@ RSpec.describe Station, type: :model do
         expect(@station_1.origination_station).to eq({(@station_1.id) => 2})
       end
     end
+
+    context '#most_trips' do
+      it 'should return Date when most trips were taken' do
+        expect(@station_1.most_trips).to eq({@trip_1.start_date => 4})
+      end
+    end
+
+    context '#top_zips' do
+      it 'should return most frequent rider zip code' do
+        expect(@station_1.top_zips).to eq({94103 => 2})
+      end
+    end
   end
 end
