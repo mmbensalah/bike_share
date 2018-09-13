@@ -12,12 +12,8 @@ class ApplicationController < ActionController::Base
     current_user && current_user.admin?
   end
 
-  def current_user?
-    current_user && current_user.default?
-  end
-
   def require_user
-    render file: "/public/404" unless (current_user? || current_admin?)
+    render file: "/public/404" unless (current_user || current_admin?)
   end
 
   def set_cart
