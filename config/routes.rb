@@ -27,7 +27,7 @@ Rails.application.routes.draw do
     get '/dashboard', to: 'dashboard#index'
     resources :trips, only: [:edit, :destroy, :new, :create, :update]
     resources :conditions, only: [:edit, :destroy, :new, :create, :update]
-    resources :stations, only: [:edit, :update, :destroy], param: :slug
+    resources :stations, only: [:edit, :update, :destroy, :create, :new], param: :slug
   end
 
 

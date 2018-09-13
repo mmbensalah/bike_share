@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'As a user' do
   describe 'when user clicks on checkout for cart' do
-    it 'redirects user to dashboard' do
+    xit 'redirects user to dashboard' do
       user = create(:user)
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
