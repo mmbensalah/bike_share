@@ -4,7 +4,8 @@ describe 'Trips Dashboard' do
   describe 'user can visit trips dashboard path' do
     it 'renders trips dashboard for user' do
       user = create(:user)
-      10.times { create(:trip) }
+      5.times { create(:trip, subscription_type: "Customer") }
+      5.times { create(:trip, subscription_type: "Subscriber") }
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
       visit trips_dashboard_path
       expect(page).to have_content("Average duration of ride: #{Trip.average_duration}")
@@ -31,12 +32,14 @@ describe 'Trips Dashboard' do
       # expect(page).to have_content("November trips: ")
       # expect(page).to have_content("December trips: ")
       # add test for month by month breakdown
+      expect(page).to have_content(Trip.rides_per_year(*Trip.get_years).map {|pair| pair.values}.flatten.first)
       subscribe_counts = Trip.subscription_counts
       expect(page).to have_content(subscribe_counts["Subscriber"])
       expect(page).to have_content(subscribe_counts["Customer"])
       subscribe_percents = Trip.subscription_percents
       expect(page).to have_content(subscribe_percents["Subscriber"])
       expect(page).to have_content(subscribe_percents["Customer"])
+      save_and_open_page
     end
   end
 end

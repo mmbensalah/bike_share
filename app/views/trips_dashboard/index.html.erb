@@ -51,4 +51,10 @@
         <small>Trip count: <%= @subscription_counts["Customer"] %></small>
     <span class="badge badge-primary badge-pill">Percent: <%= @subscription_percents["Customer"] %></span>
   </li>
+  <% @year_counts.each do |pair| %>
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    Year of <%= pair.keys[0] %>:
+    <span class="badge badge-primary badge-pill">Trips: <%= pair.values[0] %></span>
+  </li>
+  <% end %>
 </ul>
