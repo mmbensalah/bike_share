@@ -12,6 +12,7 @@ class TripsDashboardController < ApplicationController
     @date_with_least_trips = Trip.date_with_least_trips
     @subscription_counts = Trip.subscription_counts
     @subscription_percents = Trip.subscription_percents
+    @rides_per_month = Trip.rides_per_month(*Trip.months)
     @year_counts = Trip.rides_per_year(*Trip.get_years)
   end
 end

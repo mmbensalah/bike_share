@@ -39,6 +39,7 @@ describe 'Trips Dashboard' do
       subscribe_percents = Trip.subscription_percents
       expect(page).to have_content(subscribe_percents["Subscriber"])
       expect(page).to have_content(subscribe_percents["Customer"])
+      save_and_open_page
     end
   end
 end

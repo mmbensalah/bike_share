@@ -81,7 +81,7 @@ class Trip < ApplicationRecord
     end
   end
 
-  def months
+  def self.months
     ["January", "February", "March", "April", "May", "June", "July", "August",
     "September", "October", "November", "December"]
   end
