@@ -19,6 +19,18 @@ describe 'Trips Dashboard' do
       expect(page).to have_content("#{Trip.date_with_most_trips.keys[0].strftime("%m/%d/%Y")}")
       expect(page).to have_content("#{Trip.date_with_least_trips.values[0]}")
       expect(page).to have_content("#{Trip.date_with_least_trips.keys[0].strftime("%m/%d/%Y")}")
+      expect(page).to have_content("January trips: ")
+      expect(page).to have_content("February trips: ")
+      expect(page).to have_content("March trips: ")
+      expect(page).to have_content("April trips: ")
+      expect(page).to have_content("May trips: ")
+      expect(page).to have_content("June trips: ")
+      expect(page).to have_content("July trips: ")
+      expect(page).to have_content("August trips: ")
+      expect(page).to have_content("September trips: ")
+      expect(page).to have_content("October trips: ")
+      expect(page).to have_content("November trips: ")
+      expect(page).to have_content("December trips: ")
       # add test for month by month breakdown
       # add test for user subscription breakdown
     end

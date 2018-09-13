@@ -11,43 +11,69 @@ class Trip < ApplicationRecord
   belongs_to :end_station, class_name: "Station", foreign_key: :end_station_id
 
   def self.average_duration
-    Trip.average(:duration)
+    average(:duration)
   end
 
   def self.longest_ride
-    Trip.maximum(:duration)
+    find_by(duration: maximum(:duration))
   end
 
   def self.shortest_ride
-    Trip.minimum(:duration)
+    find_by(duration: minimum(:duration))
   end
 
   def self.most_rides_start_station
-    Trip.order("count_all desc").limit(1).group(:start_station_id).count
+    station_id_count = order("count_all desc")
+                       .limit(1)
+                       .group(:start_station_id)
+                       .count
+    Station.find(station_id_count.keys[0])
   end
 
   def self.most_rides_end_station
-    Trip.order("count_all asc").limit(1).group(:start_station_id).count
+    station_id_count = order("count_all desc")
+                       .limit(1)
+                       .group(:end_station_id)
+                       .count
+    Station.find(station_id_count.keys[0])
   end
 
   def self.most_ridden_bike
-    Trip.order("count_id desc").limit(1).group(:bike_id).count(:id)
+    bike_count = order("count_id DESC")
+                 .limit(1)
+                 .group(:bike_id)
+                 .count(:id)
+                 .to_a.flatten
+    { bike: bike_count[0], count: bike_count[1] }
   end
 
   def self.least_ridden_bike
-    Trip.order("count_id asc").limit(1).group(:bike_id).count(:id)
+    bike_count = order("count_id ASC")
+                 .limit(1)
+                 .group(:bike_id)
+                 .count(:id).to_a.flatten
+    { bike: bike_count[0], count: bike_count[1] }
   end
 
   def self.date_with_most_trips
-    Trip.order("count_id DESC").limit(1).group(:start_date).count(:id)
+    date_trips = order("count_id DESC")
+                 .limit(1)
+                 .group(:start_date)
+                 .count(:id).to_a.flatten
+                 require 'pry'; binding.pry
+    { date: date_trips[0].strftime("%m/%d/%Y"), trips: date_trips[1] }
   end
 
   def self.date_with_least_trips
-    Trip.order("count_id ASC").limit(1).group(:start_date).count(:id)
+    date_trips = order("count_id ASC")
+                 .limit(1)
+                 .group(:start_date)
+                 .count(:id).to_a.flatten
+    { date: date_trips[0].strftime("%m/%d/%Y"), trips: date_trips[1] }
   end
 
   def self.subscription_counts
-    Trip.group(:subscription_type).count(:id)
+    group(:subscription_type).count(:id)
   end
 
   def self.subscription_percents
