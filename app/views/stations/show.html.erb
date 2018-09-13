@@ -17,9 +17,12 @@
 
 <% if current_user %>
   <ul>
-    <li>Number of rides started here: <%= @station.ride_count(started) %></li>
-    <li>Number of rides ended here: <%= @station.ride_count(ended) %></li>
-    <li>Most popular Destination Station: <%= @station.destination_station %></li>
-    <li>Most popular Origination Station: <%= @station.origination_station %></li>
+    <li>Number of rides started here: <%= @show_data[:ride_count_started] %></li>
+    <li>Number of rides ended here: <%= @show_data[:ride_count_ended] %></li>
+    <li>Most popular Destination Station: <%= @show_data[:destination_station][0] %> with <%= @show_data[:destination_station][1] %> arrivals</li>
+    <li>Most popular Origination Station: <%= @show_data[:origination_station][0] %> with <%= @show_data[:origination_station][1] %> departures</li>
+    <li>Date of most trips: <%= @show_data[:most_trips].keys.first %> with <%= @show_data[:most_trips].values.first %> rides</li>
+    <li>Most frequent rider zip code: <%= @show_data[:top_zip_code].keys.first %> with <%= @show_data[:top_zip_code].values.first %> rides</li>
+    <li>Most used bike: <%= @show_data[:top_bike].keys.first %> (id) with <%= @show_data[:top_bike].values.first %> rides</li>
   </ul>
 <% end %>

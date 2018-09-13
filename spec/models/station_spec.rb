@@ -41,7 +41,8 @@ RSpec.describe Station, type: :model do
 
     context '#origination_station' do
       it 'should return station most frequently as the origination station' do
-        expect(@station_1.origination_station).to eq({(@station_1.id) => 2})
+        expect(@station_1.origination_station).to eq(@station_1)
+        expect(@station_1.origination_station.station_count).to eq(2)
       end
     end
 
