@@ -84,12 +84,13 @@ class Trip < ApplicationRecord
   def self.rides_per_month
     # PLEASE TELL ME WHY THIS WON'T WORK!!!!
     group("DATE_TRUNC('month', start_date)").count
+    ## You need to do a where select instead of a group, so
+    # whereTrip.where(start_date: "2013-09-01 00:00:00".."2013-09-30 00:00:00").count
   end
 
   # Need to rewrite this method to go through all years based on our data
   def self.rides_per_year(year)
     { year => Trip.by_year(year, field: :start_date).count }
   end
-
 
 end
