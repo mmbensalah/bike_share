@@ -33,12 +33,12 @@ describe "As an admin" do
 
       click_on("Delete Station")
 
-      expect(page).to eq(stations_path)
-      expect(page).to have_content("You have succesfully deleted Station #{station_1.name}.")
+      expect(current_path).to eq(stations_path)
+      expect(page).to have_content("You have succesfully deleted Station #{station.name}.")
       within(".stations") do
         expect(page).to_not have_content(station.name)
         expect(page).to have_content(station_2.name)
       end
-    end 
+    end
   end
 end
