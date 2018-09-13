@@ -81,18 +81,9 @@ class Trip < ApplicationRecord
     end
   end
 
-  def self.months
-    ["January", "February", "March", "April", "May", "June", "July", "August",
-    "September", "October", "November", "December"]
-  end
-
-  def self.rides_per_month(*months)
-    months_hash = {}
-    months.each do |month|
-      count = Trip.by_month(month, field: :start_date, year: get_years.first).count
-      months_hash[month] = count
-    end
-    months_hash
+  def self.rides_per_month
+    months = group("DATE_TRUNC('month', start_date)").count
+    months.transform_keys! {|key| key.strftime("%B")}
   end
 
   def self.get_years
