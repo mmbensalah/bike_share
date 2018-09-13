@@ -8,11 +8,11 @@ describe "As an admin" do
 
       visit stations_path
 
-      click_on("Create New Station")
+      click_on("Add New Station")
 
       expect(current_path).to eq(new_admin_station_path)
 
-      name = "New Station Name"
+      name = "New Station"
       dock_count = 30
       city = "Daly City"
       date = "2018-09-15"
