@@ -83,11 +83,10 @@ class Trip < ApplicationRecord
 
   def self.rides_per_month
     group("DATE_TRUNC('month', start_date)").count
-
   end
 
   def self.get_years
-    select("start_date").map{ |item| item.start_date.year }.uniq
+    select("start_date").map{ |trip| trip.start_date.year }.uniq
   end
 
   def self.rides_per_year(*years)

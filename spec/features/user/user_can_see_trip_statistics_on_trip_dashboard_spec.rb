@@ -7,7 +7,6 @@ describe 'Trips Dashboard' do
       10.times { create(:trip) }
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
       visit trips_dashboard_path
-      save_and_open_page
       expect(page).to have_content("Average duration of ride: #{Trip.average_duration}")
       expect(page).to have_content("Longest ride: #{Trip.longest_ride}")
       expect(page).to have_content("Shortest ride: #{Trip.shortest_ride}")
