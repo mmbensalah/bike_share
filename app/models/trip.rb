@@ -55,4 +55,18 @@ class Trip < ApplicationRecord
       (v / Trip.count.to_f * 100).round(2)
     end
   end
+
+  def self.rides_per_month(*months)
+    rides_per_month = {}
+    months.each do |month|
+      rides_per_month[month] = Trip.by_month(month, field: :start_date, year: Trip.first.start_date.year).count
+    end
+    rides_per_month
+  end
+
+  def self.rides_per_year(year)
+    {year => Trip.by_year(year, field: :start_date).count}
+  end
+
+
 end

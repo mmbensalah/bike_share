@@ -82,5 +82,23 @@ RSpec.describe Trip, type: :model do
       create(:trip, subscription_type: "Customer")
       expect(Trip.subscription_percents).to eq("Subscriber" => 66.67, "Customer" => 33.33)
     end
+    it 'rides_per_month' do
+      create(:trip, start_date: "2015-09-25")
+      create(:trip, start_date: "2015-08-25")
+      create(:trip, start_date: "2015-08-25")
+      create(:trip, start_date: "2015-10-25")
+      expect(Trip.rides_per_month("August",
+                                  "September",
+                                  "October")).to eq({"August" => 2,
+                                                     "September" => 1,
+                                                     "October" => 1})
+    end
+    it 'rides_per_year' do
+      create(:trip, start_date: "2015-09-25")
+      create(:trip, start_date: "2015-08-25")
+      create(:trip, start_date: "2016-08-25")
+      create(:trip, start_date: "2017-10-25")
+      expect(Trip.rides_per_year(2015)).to eq(2015 => 2)
+    end
   end
 end
