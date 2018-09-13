@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'
+  get '/trips-dashboard', to: 'trips_dashboard#index'
 
 
   resources :stations, only: [:index, :show], param: :slug
