@@ -11,6 +11,18 @@ class Station < ApplicationRecord
     slug
   end
 
+  def show_data
+    {
+    ride_count_started: ride_count("started"),
+    ride_count_ended: ride_count("ended"),
+    destination_station: destination_station,
+    origination_station: origination_station,
+    most_trips: most_trips,
+    top_zip_code: top_zips,
+    top_bike: top_bike
+    }
+  end
+
   def ride_count(point)
     if point == "started"
       start_trips.where(start_station_id: self.id).count

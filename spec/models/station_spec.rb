@@ -61,5 +61,19 @@ RSpec.describe Station, type: :model do
         expect(@station_1.top_bike).to eq({48 => 2})
       end
     end
+
+    context '#show_data' do
+      it 'should return a hash with all data needed for show page' do
+        expect(@station_1.show_data).to eq({
+                                          ride_count_started: @station_1.ride_count("started"),
+                                          ride_count_ended: @station_1.ride_count("ended"),
+                                          destination_station: @station_1.destination_station,
+                                          origination_station: @station_1.origination_station,
+                                          most_trips: @station_1.most_trips,
+                                          top_zip_code: @station_1.top_zips,
+                                          top_bike: @station_1.top_bike
+                                          })
+      end
+    end
   end
 end
