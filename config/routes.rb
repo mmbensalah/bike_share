@@ -26,6 +26,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     get '/dashboard', to: 'dashboard#index'
+    get '/bike-shop', to: 'items#index'
     resources :trips, only: [:edit, :destroy, :new, :create, :update]
     resources :conditions, only: [:edit, :destroy, :new, :create, :update]
     resources :stations, only: [:edit, :update, :destroy, :create, :new], param: :slug
