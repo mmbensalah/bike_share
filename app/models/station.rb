@@ -32,7 +32,13 @@ class Station < ApplicationRecord
   end
 
   def destination_station
-    start_trips.order("count_id desc").limit(1).group(:end_station_id).count(:id)
+    Station.select("stations.*, count(trips.end_station_id) as station_count")
+      .where("trips.start_station_id = ?", id)
+      .joins("join trips on trips.start_station_id = stations.id")
+      .order("station_count desc")
+      .limit(1)
+      .group("trips.end_station_id, stations.id")
+      .first
   end
 
   def origination_station
