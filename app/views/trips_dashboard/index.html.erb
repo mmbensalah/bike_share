@@ -2,15 +2,15 @@
 
 <ul class="list-group">
   <li class="list-group-item d-flex justify-content-between align-items-center">
-    Average Duration
+    Average duration of ride:
     <span class="badge badge-primary badge-pill"><%= @average_duration %></span>
   </li>
   <li class="list-group-item d-flex justify-content-between align-items-center">
-    Longest Ride
+    Longest ride:
     <span class="badge badge-primary badge-pill"><%= @longest_ride %></span>
   </li>
   <li class="list-group-item d-flex justify-content-between align-items-center">
-    Shortest Ride
+    Shortest ride:
     <span class="badge badge-primary badge-pill"><%= @shortest_ride %></span>
   </li>
   <li class="list-group-item d-flex justify-content-between align-items-center">
@@ -31,10 +31,12 @@
   </li>
   <li class="list-group-item d-flex justify-content-between align-items-center">
     Date with highest number of trips:
-    <span class="badge badge-primary badge-pill"><%= @date_with_highest_trips%></span>
+    <small>Trip count: <%= @date_with_highest_trips.values[0] %></small>
+    <span class="badge badge-primary badge-pill"><%= @date_with_highest_trips.keys[0].strftime("%m/%d/%Y") %></span>
   </li>
   <li class="list-group-item d-flex justify-content-between align-items-center">
     Date with least number of trips:
-    <span class="badge badge-primary badge-pill"><%= @date_with_least_trips%></span>
+        <small>Trip count: <%= @date_with_least_trips.values[0] %></small>
+    <span class="badge badge-primary badge-pill"><%= @date_with_least_trips.keys[0].strftime("%m/%d/%Y") %></span>
   </li>
 </ul>

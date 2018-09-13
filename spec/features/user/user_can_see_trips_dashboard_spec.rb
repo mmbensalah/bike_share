@@ -4,6 +4,7 @@ describe 'Trips Dashboard' do
   describe 'user can visit trips dashboard path' do
     it 'renders trips dashboard for user' do
       user = create(:user)
+      create(:trip)
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
       visit trips_dashboard_path
 
