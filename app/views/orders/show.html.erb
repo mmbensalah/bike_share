@@ -1,5 +1,11 @@
 <h1 class='text-center'>Order <%= @order.id %></h1>
-
+<% if current_admin? %>
+<div>
+  <%= @order.user.first_name %>
+  <%= @order.user.last_name %>
+  <%= @order.user.address %>
+</div>
+<% end %>
 <table class="table">
   <thead>
     <tr>
