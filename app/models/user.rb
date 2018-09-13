@@ -6,4 +6,5 @@ class User < ApplicationRecord
   validates_confirmation_of :password
   enum role: %w(default admin)
   has_secure_password
+  has_many :orders
 end

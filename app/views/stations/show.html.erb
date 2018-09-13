@@ -9,7 +9,8 @@
         <td>Installation Date: <%= @station.installation_date %></td>
       <% if current_admin? %>
         <td><%= link_to "Edit", edit_admin_station_path(@station), class: "btn btn-warning" %></td>
-        <td><%= link_to "Delete", admin_station_path(@station), method: :delete, class: "btn btn-danger" %></td>
+        <td><%= link_to "Delete", admin_station_path(@station), method: :delete, class: "btn btn-danger",
+          data: {confirm: "Are you sure you want to delete #{@station.name}?"} %></td>
       <% end %>
     </tr>
   </tbody>
