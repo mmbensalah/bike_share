@@ -98,7 +98,13 @@ RSpec.describe Trip, type: :model do
       create(:trip, start_date: "2015-08-25")
       create(:trip, start_date: "2016-08-25")
       create(:trip, start_date: "2017-10-25")
-      expect(Trip.rides_per_year(2015)).to eq(2015 => 2)
+      expect(Trip.rides_per_year(2015, 2016, 2017)).to eq([{2015 => 2}, {2016 => 1}, {2017 => 1}])
+    end
+    it 'get_years' do
+      create(:trip, start_date: "2015-09-25")
+      create(:trip, start_date: "2015-08-25")
+      create(:trip, start_date: "2016-08-25")
+      expect(Trip.get_years).to eq([2015, 2016])
     end
   end
 end
