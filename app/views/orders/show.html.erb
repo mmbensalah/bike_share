@@ -1,0 +1,30 @@
+<h1 class='text-center'>Order <%= @order.id %></h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Item</th>
+      <th scope="col">Price</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Subtotal</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @order.order_items.each do |order_item| %>
+    <tr>
+      <div id="order-<%= @order.id %>">
+      <td><%= order_item.title %></td>
+      <td><%= order_item.price %></td>
+      <td><%= order_item.quantity %></td>
+      <td><%= number_to_currency(order_item.price * order_item.quantity) %></td>
+      <div>
+    </tr>
+    <% end %>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>Total: <%= number_to_currency(@order.total_price) %></td>
+  </tr>
+  </tbody>
+</table>

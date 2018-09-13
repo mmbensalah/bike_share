@@ -10,6 +10,7 @@ describe "When a visitor visits /bike-shop" do
     within("#item-#{item_1.id}") do
       click_on("Add to Cart")
     end
+
     expect(current_path).to eq(bike_shop_path)
     expect(page).to have_content("You have successfully added #{item_1.title} to your cart.")
   end

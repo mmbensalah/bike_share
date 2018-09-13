@@ -27,6 +27,7 @@ describe "As a visitor" do
         expect(page).to have_content("Quantity: 2")
         expect(page).to have_content("Subtotal: $70.00")
       end
+
       within("#cart-item-#{item_2.id}") do
         expect(page).to have_content(item_2.title)
         expect(page).to have_content(item_2.price)
