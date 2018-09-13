@@ -18,9 +18,9 @@ describe "As an authenticated user" do
       visit station_path(station)
 
       expect(page).to have_content("Number of rides started here: #{station.ride_count(started)}")
-      expect(page).to have_content("Number of rides ending here: #{station.ride_count(ended)}")
-      expect(page).to have_content("Most frequent Destination Station: #{station.destination_station}")
-      expect(page).to have_content("Most frequent Origination Station: #{station.origination_station}")
+      expect(page).to have_content("Number of rides ended here: #{station.ride_count(ended)}")
+      expect(page).to have_content("Most popular Destination Station: #{station.destination_station}")
+      expect(page).to have_content("Most popular Origination Station: #{station.origination_station}")
       expect(page).to have_content("Date of highest trips: #{station.date_most_trips}")
       expect(page).to have_content("Most frequent rider zip code: #{station.highest_zip_code}")
       expect(page).to have_content("Most used bike: #{station.most_used_bike}")

@@ -14,3 +14,10 @@
     </tr>
   </tbody>
 </table>
+
+<% if current_user %>
+  <ul>
+    <li>Number of rides started here: <%= @station.ride_count(started) %></li>
+    <li>Number of rides ended here: <%= @station.ride_count(ended) %></li>
+    <li>Most popular Destination Station: <%= @station.destination_station %></li>
+    <li>Most popular Origination Station: <%= @station.origination_station %></li>
