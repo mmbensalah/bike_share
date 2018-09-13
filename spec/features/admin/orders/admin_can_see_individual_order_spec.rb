@@ -1,9 +1,8 @@
 require 'rails_helper'
 
 describe 'admin can visit individual order show page' do
-  describe 'it shows all the details for this item' do
-    order_item = create(:order_item)
-    order = order_item.order
+  it 'shows all the details for this item' do
+    order = create(:order)
     visit order_path(order)
 
     expect(page).to have_content("#{order.user.name}")
