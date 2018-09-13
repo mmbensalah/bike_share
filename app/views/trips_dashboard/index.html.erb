@@ -7,36 +7,38 @@
   </li>
   <li class="list-group-item d-flex justify-content-between align-items-center">
     Longest ride:
-    <span class="badge badge-primary badge-pill"><%= @longest_ride %></span>
+    <span class="badge badge-primary badge-pill"><%= @longest_ride.duration %></span>
   </li>
   <li class="list-group-item d-flex justify-content-between align-items-center">
     Shortest ride:
-    <span class="badge badge-primary badge-pill"><%= @shortest_ride %></span>
+    <span class="badge badge-primary badge-pill"><%= @shortest_ride.duration %></span>
   </li>
   <li class="list-group-item d-flex justify-content-between align-items-center">
     Station where most rides start:
-    <span class="badge badge-primary badge-pill"><%= @most_rides_start %></span>
+    <span class="badge badge-primary badge-pill"><%= @most_rides_start.name %></span>
   </li>
   <li class="list-group-item d-flex justify-content-between align-items-center">
     Station where most rides end:
-    <span class="badge badge-primary badge-pill"><%= @most_rides_end %></span>
+    <span class="badge badge-primary badge-pill"><%= @most_rides_end.name %></span>
   </li>
   <li class="list-group-item d-flex justify-content-between align-items-center">
     Most ridden bike:
-    <span class="badge badge-primary badge-pill"><%= @most_ridden_bike %></span>
+    <small>Trip count: <%= @most_ridden_bike[:count] %></small>
+    <span class="badge badge-primary badge-pill"><%= @most_ridden_bike[:bike] %></span>
   </li>
   <li class="list-group-item d-flex justify-content-between align-items-center">
     Least ridden bike:
-    <span class="badge badge-primary badge-pill"><%= @least_ridden_bike %></span>
+    <small>Trip count: <%= @least_ridden_bike[:count] %></small>
+    <span class="badge badge-primary badge-pill"><%= @least_ridden_bike[:bike] %></span>
   </li>
   <li class="list-group-item d-flex justify-content-between align-items-center">
     Date with highest number of trips:
-    <small>Trip count: <%= @date_with_highest_trips.values[0] %></small>
-    <span class="badge badge-primary badge-pill"><%= @date_with_highest_trips.keys[0].strftime("%m/%d/%Y") %></span>
+    <small>Trip count: <%= @date_with_highest_trips[:trips] %></small>
+    <span class="badge badge-primary badge-pill"><%= @date_with_highest_trips[:date] %></span>
   </li>
   <li class="list-group-item d-flex justify-content-between align-items-center">
     Date with least number of trips:
-        <small>Trip count: <%= @date_with_least_trips.values[0] %></small>
-    <span class="badge badge-primary badge-pill"><%= @date_with_least_trips.keys[0].strftime("%m/%d/%Y") %></span>
+        <small>Trip count: <%= @date_with_least_trips[:trips] %></small>
+    <span class="badge badge-primary badge-pill"><%= @date_with_least_trips[:date] %></span>
   </li>
 </ul>

@@ -60,7 +60,6 @@ class Trip < ApplicationRecord
                  .limit(1)
                  .group(:start_date)
                  .count(:id).to_a.flatten
-                 require 'pry'; binding.pry
     { date: date_trips[0].strftime("%m/%d/%Y"), trips: date_trips[1] }
   end
 
@@ -82,16 +81,14 @@ class Trip < ApplicationRecord
     end
   end
 
-  def self.rides_per_month(*months)
-    rides_per_month = {}
-    months.each do |month|
-      rides_per_month[month] = Trip.by_month(month, field: :start_date, year: Trip.first.start_date.year).count
-    end
-    rides_per_month
+  def self.rides_per_month
+    # PLEASE TELL ME WHY THIS WON'T WORK!!!!
+    group("DATE_TRUNC('month', start_date)").count
   end
 
+  # Need to rewrite this method to go through all years based on our data
   def self.rides_per_year(year)
-    {year => Trip.by_year(year, field: :start_date).count}
+    { year => Trip.by_year(year, field: :start_date).count }
   end
 
 
