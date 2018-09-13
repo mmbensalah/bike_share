@@ -1,22 +1,21 @@
 <h1 class='text-center'><%= @station.name %> Station</h1>
 <%= link_to "Back to All Stations", stations_path, class: 'text-center'%>
 <table class="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Name</th>
-      <th scope="col">Dock Count</th>
-      <th scope="col">City</th>
-      <th scope="col">Installation Date</th>
-    </tr>
-  </thead>
   <tbody>
     <tr>
       <th scope="row"><%= @station.id %></th>
-      <td><%= @station.name %></td>
-      <td><%= @station.dock_count %></td>
-      <td><%= @station.city %></td>
-      <td><%= @station.installation_date %></td>
+        <td>Dock Count: <%= @station.dock_count %></td>
+        <td>City: <%= @station.city %></td>
+        <td>Installation Date: <%= @station.installation_date %></td>
+      <% if current_admin? %>
+        <td><%= link_to "Edit", edit_admin_station_path(@station), class: "btn btn-warning" %></td>
+        <td><%= link_to "Delete", admin_station_path(@station), method: :delete, class: "btn btn-danger" %></td>
+      <% end %>
     </tr>
   </tbody>
 </table>
+
+<% if current_admin? %>
+  <%= link_to "Delete Station", admin_station_path(@station), method: :delete, class: 'btn btn-danger',
+    data: {confirm: "Are you sure you want to delete #{@station.name}?"} %>
+<% end %>

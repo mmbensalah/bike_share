@@ -1,5 +1,9 @@
 <h1 class='text-center'>Station Index</h1>
 
+<% if current_admin? %>
+  <%= link_to "Add New Station", new_admin_station_path, class: 'btn btn-secondary text-center' %>
+<% end %>
+
 <table class="table">
   <thead>
     <tr>
@@ -11,9 +15,10 @@
       <th scope="col">Options</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody class='stations'>
     <% @stations.each do |station| %>
     <tr>
+      <div id="station-<%= station.id %>">
       <th scope="row"><%= station.id %></th>
       <td><%= station.name %></td>
       <td><%= station.dock_count %></td>
@@ -21,7 +26,13 @@
       <td><%= station.installation_date %></td>
       <td>
         <%= link_to "View this Station", station_path(station), class: "btn btn-info" %>
+        <% if current_admin? %>
+          <%= link_to "Edit", edit_admin_station_path(station), class: 'btn btn-warning' %>
+          <%= link_to "Delete", admin_station_path(station), method: :delete, class: 'btn btn-danger',
+            data: {confirm: "Are you sure you want to delete #{station.name}?"} %>
+        <% end %>
       </td>
+      <div>
     </tr>
     <% end %>
   </tbody>
