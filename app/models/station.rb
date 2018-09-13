@@ -4,8 +4,8 @@ class Station < ApplicationRecord
                         :city,
                         :installation_date
   before_save :generate_slug
-  has_many :start_trips, foreign_key: 'start_station_id', class_name: "Trip"
-  has_many :end_trips, foreign_key: 'end_station_id', class_name: "Trip"
+  has_many :start_trips, foreign_key: 'start_station_id', class_name: "Trip", dependent: :destroy
+  has_many :end_trips, foreign_key: 'end_station_id', class_name: "Trip", dependent: :destroy
 
   def to_param
     slug

@@ -3,6 +3,7 @@ require 'rails_helper'
 describe 'visitor can see a station show page' do
   it 'displays a stations attributes' do
     station = create(:station)
+    station.start_trips.create(duration: 71, start_date: "2013-08-29", end_date: "2013-08-29", bike_id: 48, subscription_type: "Subscriber", zip_code: 97214, start_station_id: 1, end_station_id: 1)
 
     visit station_path(station)
     expect(current_path).to eq("/stations/#{station.slug}")

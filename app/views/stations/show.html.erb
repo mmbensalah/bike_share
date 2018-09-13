@@ -17,34 +17,38 @@
 </table>
 
 <% if current_user %>
-  <ul class='list-group'>
-    <li class="list-group-item d-flex justify-content-between align-items-center">
-      Number of rides started here:
-      <span class="badge badge-primary badge-pill"><%= @show_data[:ride_count_started] %></span>
-    </li>
-    <li class="list-group-item d-flex justify-content-between align-items-center">
-      Number of rides ended here:
-      <span class="badge badge-primary badge-pill"><%= @show_data[:ride_count_ended] %></span>
-    </li>
-    <li class="list-group-item d-flex justify-content-between align-items-center">
-      Most popular Destination Station:
-      <span class="badge badge-primary badge-pill"><%= @show_data[:destination_station][0] %> with <%= @show_data[:destination_station][1] %> arrivals</span>
-    </li>
-    <li class="list-group-item d-flex justify-content-between align-items-center">
-      Most popular Origination Station:
-      <span class="badge badge-primary badge-pill"><%= @show_data[:origination_station][0] %> with <%= @show_data[:origination_station][1] %> departures</span>
-    </li>
-    <li class="list-group-item d-flex justify-content-between align-items-center">
-      Date of most trips:
-      <span class="badge badge-primary badge-pill"><%= @show_data[:most_trips].keys.first %> with <%= @show_data[:most_trips].values.first %> rides</span>
-    </li>
-    <li class="list-group-item d-flex justify-content-between align-items-center">
-      Most frequent rider zip code:
-      <span class="badge badge-primary badge-pill"><%= @show_data[:top_zip_code].keys.first %> with <%= @show_data[:top_zip_code].values.first %> rides</span>
-    </li>
-    <li class="list-group-item d-flex justify-content-between align-items-center">
-      Most used bike:
-      <span class="badge badge-primary badge-pill"><%= @show_data[:top_bike].keys.first %> (id) with <%= @show_data[:top_bike].values.first %> rides</span>
-    </li>
-  </ul>
+  <% unless @show_data %>
+    <ul class='list-group'>
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        Number of rides started here:
+        <span class="badge badge-primary badge-pill"><%= @show_data[:ride_count_started] %></span>
+      </li>
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        Number of rides ended here:
+        <span class="badge badge-primary badge-pill"><%= @show_data[:ride_count_ended] %></span>
+      </li>
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        Most popular Destination Station:
+        <span class="badge badge-primary badge-pill"><%= @show_data[:destination_station][0] %> with <%= @show_data[:destination_station][1] %> arrivals</span>
+      </li>
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        Most popular Origination Station:
+        <span class="badge badge-primary badge-pill"><%= @show_data[:origination_station][0] %> with <%= @show_data[:origination_station][1] %> departures</span>
+      </li>
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        Date of most trips:
+        <span class="badge badge-primary badge-pill"><%= @show_data[:most_trips].keys.first %> with <%= @show_data[:most_trips].values.first %> rides</span>
+      </li>
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        Most frequent rider zip code:
+        <span class="badge badge-primary badge-pill"><%= @show_data[:top_zip_code].keys.first %> with <%= @show_data[:top_zip_code].values.first %> rides</span>
+      </li>
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        Most used bike:
+        <span class="badge badge-primary badge-pill"><%= @show_data[:top_bike].keys.first %> (id) with <%= @show_data[:top_bike].values.first %> rides</span>
+      </li>
+    </ul>
+  <% end %>
+  <% else %>
+    <p>Station has no data yet.</p>
 <% end %>
