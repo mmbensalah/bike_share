@@ -27,7 +27,7 @@ Item.create(title: "More Stuff", price: "100.00", image: 'bike_shoe.jpg', descri
 Item.create(title: "Tires", price: "55.00", image: 'bike_shoe.jpg', description: 'To go places', status: 0)
 Item.create(title: "Paint", price: "2.00", image: 'bike_shoe.jpg', description: 'Can you paint a bike? Let\'s try!', status: 0)
 Item.create(title: "Grips", price: "14.90", image: 'bike_shoe.jpg', description: 'The better to grip the bike.', status: 0)
-Item.create(title: "Grips", price: "84.90", image: 'bike_shoe.jpg', description: 'No one was buying these, they\' top of the line', status: 1)
+Item.create(title: "Butt Pads", price: "84.90", image: 'bike_shoe.jpg', description: 'No one was buying these', status: 1)
 Item.create(title: "Bike Seat", price: "40.00", image: 'bike_shoe.jpg', description: 'Keep your bum comfty!', status: 0)
 
 require 'csv'
