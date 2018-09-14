@@ -4,6 +4,9 @@
   <div class="card-body">
     <h5 class="card-title text-center">Order for <%= @order.user.last_name %>, <%= @order.user.first_name %></h5>
     <div>
+      Status: <b><%= @order.status %></b>
+    </div>
+    <div>
       Address:
     </div>
     <p class="card-text">
