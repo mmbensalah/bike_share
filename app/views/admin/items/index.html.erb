@@ -8,7 +8,6 @@
       <th scope="col">Description</th>
       <th scope="col">Status</th>
       <th scope="col"></th>
-      <th scope="col">Active/Retired</th>
     </tr>
   </thead>
   <tbody>
@@ -20,11 +19,6 @@
       <td><%= item.description %></td>
       <td><%= item.status %></td>
       <td>Edit</td>
-      <% if item.status == "active" %>
-        <td>Retire Item</td>
-      <% else %>
-        <td>Activate Item</td>
-      <% end %>
     </tr>
   </div>
   <% end %>

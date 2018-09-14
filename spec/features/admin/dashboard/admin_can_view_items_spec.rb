@@ -15,14 +15,12 @@ describe "As an authenticated admin" do
         expect(page).to have_content(items.first.description)
         expect(page).to have_content(items.first.status)
         expect(page).to have_content("Edit")
-        expect(page).to have_content("Retire Item")
       end
       within("#item-#{item_13.id}") do
         expect(page).to have_content(item_13.title)
         expect(page).to have_content(item_13.description)
         expect(page).to have_content(item_13.status)
         expect(page).to have_content("Edit")
-        expect(page).to have_content("Activate Item")
       end
     end
   end
