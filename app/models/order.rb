@@ -10,9 +10,4 @@ class Order < ApplicationRecord
       order_item.price * order_item.quantity
     end.sum)
   end
-
-  def helpers
-  ActionController::Base.helpers
-  end
-
 end
