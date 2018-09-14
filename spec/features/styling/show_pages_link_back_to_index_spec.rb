@@ -26,6 +26,7 @@ describe 'show pages have link to index' do
     it 'links to index page' do
 
       station = create(:station)
+      station.start_trips.create(duration: 71, start_date: "2013-08-29", end_date: "2013-08-29", bike_id: 48, subscription_type: "Subscriber", zip_code: 97214, start_station_id: 1, end_station_id: 1)
 
       visit station_path(station)
       click_on "Back to All Stations"
