@@ -47,6 +47,7 @@ describe 'As a user' do
       click_on 'Checkout'
 
       expect(current_path).to eq(dashboard_path)
+      expect(page).to have_content("Successfully submitted your order totaling $47.50")
 
       click_on "Order: #{Order.last.id}"
 
@@ -56,7 +57,6 @@ describe 'As a user' do
       expect(page).to have_content(@item_2.title)
       expect(page).to have_content(@item_2.price)
       expect(page).to have_content("Total: $47.50")
-      expect(page).to have_content("Successfully submitted your order totaling #{@order.total_price}")
     end
   end
 end
