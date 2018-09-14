@@ -1,1 +1,31 @@
 <h1>All Items in Bike Shop</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Item Name</th>
+      <th scope="col">Image</th>
+      <th scope="col">Description</th>
+      <th scope="col">Status</th>
+      <th scope="col"></th>
+      <th scope="col">Active/Retired</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @items.each do |item| %>
+  <div class ='item' id="item-<%= item.id %>">
+    <tr>
+      <td><%= item.title %></td>
+      <td><%= image_tag(item.image, class: "card-img-top", alt: "Bike picture") %></td>
+      <td><%= item.description %></td>
+      <td><%= item.status %></td>
+      <td>Edit</td>
+      <% if item.status == "active" %>
+        <td>Retire Item</td>
+      <% else %>
+        <td>Activate Item</td>
+      <% end %>
+    </tr>
+  </div>
+  <% end %>
+</table>
