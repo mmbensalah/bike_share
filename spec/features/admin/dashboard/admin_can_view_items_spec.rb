@@ -24,4 +24,15 @@ describe "As an authenticated admin" do
       end
     end
   end
+
+  describe "As a user" do
+    it 'should not allow a user to see Admin Bike Shop page' do
+      user = create(:user)
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+
+      visit admin_bike_shop_path
+
+      expect(page).to have_content("The page you were looking for doesn't exist.")
+    end
+  end
 end
