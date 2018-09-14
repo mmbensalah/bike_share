@@ -1,6 +1,7 @@
 class Item < ApplicationRecord
-  validates_presence_of :title
-  validates_presence_of :price
+  validates :title, uniqueness: true, presence: true
+  validates :price, :numericality => { :greater_than_or_equal_to => 0 },
+            presence: true
   validates_presence_of :image
   validates_presence_of :description
   validates_presence_of :status
