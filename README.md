@@ -2,6 +2,12 @@
 
 We created this app as a final TDD Rails project for BackEnd Module 2. This README outlines our process, so that future students might use it as resource for their own beginning Rails projects. 
 
+Group members:
+
+1. Kathleen Yruegas  https://github.com/KathleenYruegas
+2. Dylan Meskis      https://github.com/dmeskis
+3. Miriam Bensalah   https://github.com/mmbensalah
+
 Our app consists of 2 main portions: 
   1. Analysis of San Francisco's bike share data in an interactive format
   2. A rudimentary online store (bike-shop)
