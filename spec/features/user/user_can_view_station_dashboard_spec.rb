@@ -6,7 +6,7 @@ describe "As an authorized user" do
       user = create(:user)
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
-      visit welcome_path
+      visit root_path
       click_on("Stations Dashboard")
 
       expect(current_path).to eq(stations_dashboard_path)
