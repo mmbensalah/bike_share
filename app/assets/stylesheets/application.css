@@ -13,3 +13,7 @@
  *= require_tree .
  *= require_self
  */
+
+.welcome-page {
+  background-image: url("asphalt-bicycle.jpg") cover no-repeat;
+}

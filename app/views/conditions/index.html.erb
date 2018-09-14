@@ -1,5 +1,9 @@
 <h1 class='text-center'>Conditions</h1>
 
+<% if current_admin? %>
+  <%= link_to "Add New Condition", new_admin_condition_path, class: 'btn btn-secondary text-center' %>
+<% end %>
+
 <table class="table">
   <thead>
     <tr>

@@ -9,7 +9,7 @@ class OrdersController < ApplicationController
     if @order.save
       session[:cart] = nil
 
-      flash[:message] = 'Successfully submitted your order totaling'
+      flash[:message] = "Successfully submitted your order totaling #{@order.total_price}"
       redirect_to dashboard_path
     else
       flash[:message] = 'Something went wrong with your order. Try again.'

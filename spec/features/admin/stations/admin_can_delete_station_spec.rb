@@ -5,7 +5,10 @@ describe "As an admin" do
     it 'should be able to delete a station from the index' do
       admin = create(:user, role: 1)
       station_1 = create(:station)
+      station_1.start_trips.create(duration: 71, start_date: "2013-08-29", end_date: "2013-08-29", bike_id: 48, subscription_type: "Subscriber", zip_code: 97214, start_station_id: 1, end_station_id: 1)
+
       station_2 = create(:station)
+      station_2.start_trips.create(duration: 71, start_date: "2013-08-29", end_date: "2013-08-29", bike_id: 48, subscription_type: "Subscriber", zip_code: 97214, start_station_id: 2, end_station_id: 1)
 
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
 
@@ -16,6 +19,7 @@ describe "As an admin" do
       end
 
       expect(page).to have_content("You have succesfully deleted Station #{station_1.name}.")
+
       within(".stations") do
         expect(page).to_not have_content(station_1.name)
       end
@@ -25,13 +29,16 @@ describe "As an admin" do
     it 'should be able to delete a station from the show' do
       admin = create(:user, role: 1)
       station = create(:station)
+      station.start_trips.create(duration: 71, start_date: "2013-08-29", end_date: "2013-08-29", bike_id: 48, subscription_type: "Subscriber", zip_code: 97214, start_station_id: 1, end_station_id: 1)
+
       station_2 = create(:station)
+      station_2.start_trips.create(duration: 71, start_date: "2013-08-29", end_date: "2013-08-29", bike_id: 48, subscription_type: "Subscriber", zip_code: 97214, start_station_id: 2, end_station_id: 1)
 
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
 
       visit station_path(station)
 
-      click_on("Delete Station")
+      click_on("Delete")
 
       expect(current_path).to eq(stations_path)
       expect(page).to have_content("You have succesfully deleted Station #{station.name}.")

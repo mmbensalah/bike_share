@@ -5,6 +5,7 @@ describe "As a visitor" do
     it 'can create an account' do
       first_name = "Bob"
       last_name = "Myers"
+      address = "123 St, Denver, CO 80220"
       email = "bobby@email.com"
       username = "newbikeman"
       password = "test"
@@ -12,10 +13,10 @@ describe "As a visitor" do
 
       visit root_path
       click_on("Create Account")
-
       expect(current_path).to eq(new_user_path)
       fill_in :user_first_name, with: first_name
       fill_in :user_last_name, with: last_name
+      fill_in :user_address, with: address
       fill_in :user_email, with: email
       fill_in :user_username, with: username
       fill_in :user_password, with: password

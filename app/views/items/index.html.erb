@@ -1,5 +1,8 @@
 <h1>Items available in the Bike Shop!</h1>
 
+<% if current_admin? %>
+  <%= link_to "Add New Item", new_admin_item_path, class: 'btn btn-secondary text-center' %>
+<% end %>
 
 <div class="card" style="width: 18rem;">
   <% @items.each do |item| %>
