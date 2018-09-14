@@ -17,7 +17,7 @@
 </table>
 
 <% if current_user %>
-  <% unless @show_data %>
+  <% if @station.start_trips.first && @station.end_trips.first %>
     <ul class='list-group'>
       <li class="list-group-item d-flex justify-content-between align-items-center">
         Number of rides started here:
@@ -50,5 +50,5 @@
     </ul>
   <% end %>
   <% else %>
-    <p>Station has no data yet.</p>
+    <p>Station has no data yet. Nothing to see here!</p>
 <% end %>

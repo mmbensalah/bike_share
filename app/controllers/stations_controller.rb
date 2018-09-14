@@ -6,6 +6,6 @@ class StationsController < ApplicationController
 
   def show
     @station = Station.find_by(slug: params[:slug])
-    @show_data = @station.show_data unless (@station.start_trips && @station.end_trips)
+    @show_data = @station.show_data if @station.start_trips.first && @station.end_trips.first
   end
 end
