@@ -1,9 +1,15 @@
 <h1 class='text-center'>Order <%= @order.id %></h1>
 <% if current_admin? %>
-<div>
-  <%= @order.user.first_name %>
-  <%= @order.user.last_name %>
-  <%= @order.user.address %>
+<div class="card mx-auto" style="width: 25rem;">
+  <div class="card-body">
+    <h5 class="card-title text-center">Order for <%= @order.user.last_name %>, <%= @order.user.first_name %></h5>
+    <div>
+      Address:
+    </div>
+    <p class="card-text">
+      <%= @order.user.address %>
+    </p>
+  </div>
 </div>
 <% end %>
 <table class="table">
