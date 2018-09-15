@@ -1,6 +1,6 @@
 class StationsDashboardController < ApplicationController
   before_action :require_user
-  def index
 
+  def index
   end
 end
