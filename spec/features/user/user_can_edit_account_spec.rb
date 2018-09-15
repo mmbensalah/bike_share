@@ -5,11 +5,11 @@ describe "As an authenticated user" do
     it "should be able to edit account info" do
       user = create(:user)
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+
       old_first_name = user.first_name
       old_last_name = user.last_name
       old_email = user.email
       old_address = user.address
-
       visit dashboard_path
 
       click_on("Edit my account info")
@@ -41,6 +41,17 @@ describe "As an authenticated user" do
     it 'user must be logged in to edit account' do
       user = create(:user)
       visit edit_user_path(user)
+
+      expect(page).to have_content("The page you were looking for doesn't exist.")
+    end
+
+    it 'should only allow user to edit their own account' do
+      user = create(:user)
+      other_user = create(:user)
+
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+
+      visit edit_user_path(other_user)
 
       expect(page).to have_content("The page you were looking for doesn't exist.")
     end
