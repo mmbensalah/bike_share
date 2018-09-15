@@ -3,14 +3,21 @@ require "rails_helper"
 describe "As an authenticated user" do
   describe "when I visit my account page" do
     it "should be able to edit account info" do
-      user = create(:user)
+      old_first_name = "Jeniece"
+      old_last_name = "Mona"
+      old_email = "jm@email.com"
+      old_address = "555 Super st, Denver, CO 80333"
 
-    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+      visit new_user_path
 
-      old_first_name = user.first_name
-      old_last_name = user.last_name
-      old_email = user.email
-      old_address = user.address
+      fill_in :user_first_name, with: old_first_name
+      fill_in :user_last_name, with: old_last_name
+      fill_in :user_email, with: old_email
+      fill_in :user_address, with: old_address
+      fill_in :user_username, with: "userlady"
+      fill_in :user_password, with: "test"
+      fill_in :user_password_confirmation, with: "test"
+      click_on("Create User")
 
       visit dashboard_path
 
@@ -21,7 +28,7 @@ describe "As an authenticated user" do
       new_email = "katy@email.com"
       new_address = "123 Main St, Denver, CO 80224"
 
-      expect(current_path).to eq(edit_user_path(user))
+      expect(current_path).to eq(edit_user_path(User.last))
       fill_in :user_first_name, with: new_first_name
       fill_in :user_last_name, with: new_last_name
       fill_in :user_email, with: new_email
