@@ -1,0 +1,39 @@
+<h1 class='text-center'>Create A New Condition</h1>
+
+<div class="login-form">
+  <%= form_for [:admin, @condition] do |f| %>
+    <div class="form-group">
+      <%= f.label :date %>
+      <%= f.date_field :date %>
+    </div>
+    <div class="form-group">
+      <%= f.label :max_temperature %>
+      <%= f.number_field :max_temperature %>
+    </div>
+    <div class="form-group">
+      <%= f.label :min_temperature %>
+      <%= f.number_field :min_temperature %>
+    </div>
+    <div class="form-group">
+      <%= f.label :mean_temperature %>
+      <%= f.number_field :mean_temperature %>
+    </div>
+    <div class="form-group">
+      <%= f.label :mean_humidity %>
+      <%= f.number_field :mean_humidity %>
+    </div>
+    <div class="form-group">
+      <%= f.label :mean_visibility %>
+      <%= f.number_field :mean_visibility %>
+    </div>
+    <div class="form-group">
+      <%= f.label :mean_wind_speed %>
+      <%= f.number_field :mean_wind_speed %>
+    </div>
+    <div class="form-group">
+      <%= f.label :precipitation %>
+      <%= f.text_field :precipitation %>
+    </div>
+    <%= f.submit %>
+  <% end %>
+</div>

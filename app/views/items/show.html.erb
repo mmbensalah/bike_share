@@ -1,0 +1,18 @@
+<h1><%= @item.title %></h1>
+
+
+<div class="card text-white bg-success mb-3" style="width: 18rem;">
+  <%= image_tag(@item.image, class: "card-img-top", alt: "Bike picture") %>
+  <div class="card-body">
+    <p class="card-text">Price: <%= number_to_currency(@item.price) %></p>
+    <p class="card-text"><%= @item.description %></p>
+  </div>
+  <% if @item.status == "active" %>
+    <%= button_to "Add to Cart", carts_path(item_id: @item.id) %>
+  <% else %>
+    <p style='color: red'>Item Retired</p>
+  <% end %>
+  </div>
+</div>
+
+<%= link_to "Back to Bike Shop", bike_shop_path, class: 'btn btn-secondary' %>

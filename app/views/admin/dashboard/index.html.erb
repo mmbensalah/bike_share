@@ -1,5 +1,10 @@
-<h1>Welcome <%= current_user.username %>!</h1>
+<h1 class='text-center'>Welcome <%= current_user.username %>!</h1>
 
-<%= current_user.first_name %>
-<%= current_user.last_name %>
-<%= current_user.email %>
+<h3>Your info: </h3>
+<ul>
+  <li><%= current_user.first_name %></li>
+  <li><%= current_user.last_name %></li>
+  <li><%= current_user.email %></li>
+</ul>
+
+<%= link_to "View all Items in Bike Shop", admin_bike_shop_path, class: 'btn btn-info' %>

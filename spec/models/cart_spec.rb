@@ -19,4 +19,21 @@ describe Cart do
       expect(subject.contents).to eq({"1" => 2, "2" => 3})
     end
   end
+
+  describe "#total_price" do
+    it 'should give the total price for the cart' do
+      item_1 = create(:item)
+      item_2 = create(:item)
+
+      expect(subject.total_price).to eq(item_1.price + (item_2.price * 2))
+    end
+  end
+
+  describe '#find_items' do
+    it 'should return array of all items in cart' do
+      item_1 = create(:item)
+      item_2 = create(:item)
+      expect(subject.find_items).to eq([item_1, item_2])
+    end
+  end
 end

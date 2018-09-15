@@ -1,5 +1,5 @@
-<h1>Condition <%= @condition.id %></h1>
-
+<h1 class='text-center'>Condition <%= @condition.id %></h1>
+<%= link_to "Back to All Conditions", conditions_path, class: 'text-center'%>
 <table class="table">
   <thead>
     <tr>
@@ -28,8 +28,8 @@
       <td><%= @condition.precipitation %></td>
       <% if current_admin? %>
       <td>
-        <%= link_to "Edit", edit_admin_condition_path(condition) %>
-        <%= link_to "Delete", admin_condition_path(id: condition.id), method: :delete %>
+        <%= link_to "Edit", edit_admin_condition_path, class: "btn btn-warning" %>
+        <%= link_to "Delete", admin_condition_path, method: :delete, class: "btn btn-dange"%>
       </td>
       <% end %>
     </tr>

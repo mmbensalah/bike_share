@@ -1,4 +1,6 @@
 class DashboardController < ApplicationController
+
   def index
-  end 
+    @orders = Order.all
+  end
 end

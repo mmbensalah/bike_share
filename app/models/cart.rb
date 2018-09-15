@@ -16,4 +16,16 @@ class Cart
       @contents[item_id.to_s] = 1
     end
   end
+
+  def total_price
+    @contents.inject(0) do |sum, (item_id, quantity)|
+      sum += Item.find(item_id).price * quantity
+    end
+  end
+
+  def find_items
+    @contents.map do |item_id, _ |
+      Item.find(item_id)
+    end
+  end
 end

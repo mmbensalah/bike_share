@@ -1,0 +1,21 @@
+<h1>Your Cart</h1>
+<p>Please log in to purchase!</p>
+
+<div>
+  <h3>Your current cart total: <%= number_to_currency(@cart.total_price) %></h3>
+  <%= button_to "Checkout", orders_path, class: "btn btn-primary" %>
+</div>
+
+<div class="card" style="width: 18rem;">
+  <% @cart_items.each do |item| %>
+  <div class ='item' id="cart-item-<%= item.id %>">
+    <%= image_tag(item.image, class: "card-img-top", alt: "Bike picture") %>
+    <div class="card-body">
+      <h5 class="card-title"><%= item.title %></h5>
+      <p class="card-text">Price: <%= number_to_currency(item.price) %></p>
+      <p class="card-text">Quantity: <%= @cart.contents[item.id.to_s] %></p>
+      <p class="card-text">Subtotal: <%= number_to_currency((item.price * @cart.contents[item.id.to_s])) %></p>
+    </div><s></s>
+  </div>
+    <% end %>
+</div>
