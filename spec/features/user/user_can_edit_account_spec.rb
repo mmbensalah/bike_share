@@ -37,5 +37,12 @@ describe "As an authenticated user" do
       expect(page).to_not have_content(old_email)
       expect(page).to_not have_content(old_address)
     end
+
+    it 'user must be logged in to edit account' do
+      user = create(:user)
+      visit edit_user_path(user)
+
+      expect(page).to have_content("The page you were looking for doesn't exist.")
+    end
   end
 end
