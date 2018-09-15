@@ -24,11 +24,11 @@ class Station < ApplicationRecord
   end
 
   def self.newest
-    where(installation_date: (Station.maximum(:installation_date)))
+    where(installation_date: (Station.maximum(:installation_date))).limit(1).first
   end
 
   def self.oldest
-    where(installation_date: (Station.minimum(:installation_date)))
+    where(installation_date: (Station.minimum(:installation_date))).limit(1).first
   end
 
   def to_param

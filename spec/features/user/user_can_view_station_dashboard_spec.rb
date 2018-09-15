@@ -35,8 +35,8 @@ describe "As an authorized user" do
     it 'should show station analytics' do
       expect(page).to have_content("Total Number of Stations: #{Station.count}")
       expect(page).to have_content("Average bikes available per station: #{Station.average(:dock_count)}")
-      expect(page).to have_content("Most bikes available: #{@station_1.dock_count} at station: #{@station_1.name}")
-      expect(page).to have_content("Fewest bikes available: #{@station_5.dock_count} at stations: #{@station_2.name}, #{@station_5.name}")
+      expect(page).to have_content("Most bikes available: #{@station_1.dock_count} at 1 Station\n#{@station_1.name}")
+      expect(page).to have_content("Fewest bikes available: #{@station_5.dock_count} at 2 Stations\n#{@station_2.name} #{@station_5.name}")
       expect(page).to have_content("Most recently installed station: #{@station_3.name} installed on #{@station_3.installation_date}")
       expect(page).to have_content("Oldest station: #{@station_2.name} installed on #{@station_2.installation_date}")
     end

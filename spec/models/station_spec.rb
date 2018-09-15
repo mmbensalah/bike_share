@@ -93,7 +93,7 @@ RSpec.describe Station, type: :model do
     end
 
     context ".most_bikes" do
-      it 'should return station with most bikes' do
+      it 'should return station(s) with most bikes' do
         expect(Station.most_bikes).to eq([@station_1])
       end
     end
@@ -106,13 +106,13 @@ RSpec.describe Station, type: :model do
 
     context ".newest" do
       it 'should return station(s) installed most recently' do
-        expect(Station.newest).to eq([@station_3])
+        expect(Station.newest).to eq(@station_3)
       end
     end
 
     context ".oldest" do
       it 'should return oldest station(s)' do
-        expect(Station.oldest).to eq([@station_1])
+        expect(Station.oldest).to eq(@station_1)
       end
     end
   end
