@@ -4,12 +4,14 @@ describe "As an authenticated user" do
   describe "when I visit my account page" do
     it "should be able to edit account info" do
       user = create(:user)
-      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
       old_first_name = user.first_name
       old_last_name = user.last_name
       old_email = user.email
       old_address = user.address
+
       visit dashboard_path
 
       click_on("Edit my account info")
