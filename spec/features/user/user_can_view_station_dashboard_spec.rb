@@ -39,7 +39,6 @@ describe "As an authorized user" do
       expect(page).to have_content("Fewest bikes available: #{@station_5.dock_count} at stations: #{@station_2.name}, #{@station_5.name}")
       expect(page).to have_content("Most recently installed station: #{@station_3.name} installed on #{@station_3.installation_date}")
       expect(page).to have_content("Oldest station: #{@station_2.name} installed on #{@station_2.installation_date}")
-      expect(page).to have_content()
     end
   end
 end

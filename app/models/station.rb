@@ -7,6 +7,15 @@ class Station < ApplicationRecord
   has_many :start_trips, foreign_key: 'start_station_id', class_name: "Trip", dependent: :destroy
   has_many :end_trips, foreign_key: 'end_station_id', class_name: "Trip", dependent: :destroy
 
+  def self.total_stations
+    count(:id)
+  end
+
+  def self.avg_number_bikes
+    average(:dock_count).round(2)
+  end
+
+
   def to_param
     slug
   end

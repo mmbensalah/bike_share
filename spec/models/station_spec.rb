@@ -78,4 +78,18 @@ RSpec.describe Station, type: :model do
       end
     end
   end
+
+  describe "class methods" do
+    context ".total_stations" do
+      it 'should return total count of all stations' do
+        expect(Station.total_stations).to eq(3)
+      end
+    end
+
+    context ".avg_number_bikes" do
+      it 'should return average number of bikes at station' do
+        expect(Station.avg_number_bikes).to eq(25.67)
+      end
+    end
+  end
 end
