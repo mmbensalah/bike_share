@@ -16,7 +16,7 @@ Rails.application.routes.draw do
 
   resources :conditions, only: [:index, :show]
 
-  resources :carts, only: [:create, :index]
+  resources :carts, only: [:create, :index, :update]
 
   resources :users, only: [:new, :create, :edit, :update]
 
