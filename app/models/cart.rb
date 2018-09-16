@@ -17,6 +17,10 @@ class Cart
     end
   end
 
+  def remove_item(id)
+    @contents.delete(id.to_s)
+  end
+
   def total_price
     @contents.inject(0) do |sum, (item_id, quantity)|
       sum += Item.find(item_id).price * quantity
