@@ -74,6 +74,7 @@ describe "As an admin" do
         expect(page).to_not have_content("Ordered")
         expect(page).to_not have_content("Completed")
       end
+      save_and_open_page
       within("#status-filter") do
         click_on("Paid")
       end

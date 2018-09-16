@@ -33,12 +33,12 @@
       <th scope="col"></th>
     </tr>
   </thead>
-  <tbody>
+  <tbody class='orders'>
     <% @orders.each do |order| %>
-    <div class ='orders' id="order-<%= order.id %>">
+    <div id="order-<%= order.id %>">
     <tr>
       <td><%= link_to "Order #{order.id}", order_path(order) %></td>
-      <td><%= order.status %></td>
+      <td><%= order.status.capitalize %></td>
       <td>Edit</td>
     </tr>
   </div>
