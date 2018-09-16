@@ -1,5 +1,5 @@
 class Cart
-  attr_accessor :contents
+  attr_reader :contents
 
   def initialize(cart_contents)
     @contents = cart_contents || Hash.new(0)

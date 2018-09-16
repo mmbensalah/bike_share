@@ -29,7 +29,7 @@ describe 'visitor can change cart quantities' do
       click_on "Update Quantity"
 
       expect(page).to have_content("Quantity: 99")
-      
+
       within("#cart-item-1") do
         fill_in :quantity, with: 1
       end
