@@ -1,21 +1,10 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
-# google this thing below
-# how to use seed rb to selectively populate development and or production databas
-# production:
-
-# development:
-# require 'csv'
-# require 'time'
-# load(Rails.root.join( 'db', 'seeds', "#{Rails.env.downcase}.rb"))
+require 'csv'
+require 'time'
 
 Item.destroy_all
+User.destroy_all
+Order.destroy_all
+OrderItem.destroy_all
 
 Item.create(title: "Handlebars", price: "35.00", image: 'bike_gear.jpg', description: 'Use to steer your bike.', status: 0)
 Item.create(title: "Pedals", price: "12.50", image: 'bike_gear.jpg', description: 'Use to make your bike go.', status: 0)
@@ -30,8 +19,39 @@ Item.create(title: "Grips", price: "14.90", image: 'bike_shoe.jpg', description:
 Item.create(title: "Grips", price: "84.90", image: 'bike_shoe.jpg', description: 'No one was buying these, they\' top of the line', status: 1)
 Item.create(title: "Bike Seat", price: "40.00", image: 'bike_shoe.jpg', description: 'Keep your bum comfty!', status: 0)
 
-require 'csv'
-require 'time'
+User.create(first_name: "Kat", last_name: "Yruegas", email: "kat@email.com", username: "katuser", password: "test", role: 0)
+User.create(first_name: "Kat", last_name: "Yruegas", email: "katadmin@email.com", username: "katadmin", password: "test", role: 1)
+User.create(first_name: "Miriam", last_name: "Bensalah", email: "mir@email.com", username: "miriamuser", password: "test", role: 0)
+User.create(first_name: "Miriam", last_name: "Bensalah", email: "miradmin@email.com", username: "miriamadmin", password: "test", role: 1)
+User.create(first_name: "Dylan", last_name: "Meskis", email: "dyl@email.com", username: "dylanuser", password: "test", role: 0)
+User.create(first_name: "Dylan", last_name: "Meskis", email: "dyladmin@email.com", username: "dylanadmin", password: "test", role: 1)
+
+Order.create(user_id: 1, status: 1)
+Order.create(user_id: 1, status: 0)
+Order.create(user_id: 1, status: 1)
+Order.create(user_id: 1, status: 2)
+Order.create(user_id: 1, status: 3)
+Order.create(user_id: 1, status: 1)
+Order.create(user_id: 2, status: 1)
+Order.create(user_id: 2, status: 0)
+Order.create(user_id: 2, status: 1)
+Order.create(user_id: 2, status: 2)
+Order.create(user_id: 2, status: 3)
+Order.create(user_id: 2, status: 1)
+Order.create(user_id: 3, status: 1)
+Order.create(user_id: 3, status: 0)
+Order.create(user_id: 3, status: 1)
+Order.create(user_id: 3, status: 2)
+Order.create(user_id: 3, status: 3)
+Order.create(user_id: 3, status: 1)
+
+OrderItem.create(order_id: 1, item_id: 1, price: 35.00, quantity: 2)
+OrderItem.create(order_id: 1, item_id: 2, price: 12.50, quantity: 1)
+OrderItem.create(order_id: 2, item_id: 3, price: 5.00, quantity: 30)
+OrderItem.create(order_id: 3, item_id: 4, price: 6.99, quantity: 3)
+OrderItem.create(order_id: 3, item_id: 7, price: 100.00, quantity: 1)
+OrderItem.create(order_id: 4, item_id: 8, price: 55.00, quantity: 2)
+OrderItem.create(order_id: 5, item_id: 10, price: 14.90, quantity: 2)
 
 
 CSV.foreach("./db/csv/station.csv", headers: true, header_converters: :symbol) do |row|
