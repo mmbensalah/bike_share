@@ -23,6 +23,7 @@
       </p>
       <p class="card-text">Subtotal: <%= number_to_currency((item.price * @cart.contents[item.id.to_s])) %></p>
     </div><s></s>
+    <%= button_to "Remove from cart", cart_path(id: item.id), method: :delete, class: "btn btn-primary" %>
   </div>
     <% end %>
 </div>

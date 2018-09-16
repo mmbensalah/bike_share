@@ -1,4 +1,5 @@
 class Trip < ApplicationRecord
+  paginates_per 30
   validates_presence_of :duration,
                         :start_date,
                         :end_date,
