@@ -37,7 +37,8 @@
         <%= link_to "View this Trip", trip_path(trip), class: "btn btn-info" %>
         <% if current_admin? %>
         <%= link_to "Edit", edit_admin_trip_path(trip), class: "btn btn-warning" %>
-        <%= link_to "Delete", admin_trip_path(id: trip.id), method: :delete, class: "btn btn-danger" %>
+        <%= link_to "Delete", admin_trip_path(id: trip.id), method: :delete,
+            class: "btn btn-danger", data: {confirm: "Are you sure you want to delete this trip?"}%>
         <% end %>
       </td>
     </tr>
