@@ -9,6 +9,7 @@ describe "As an admin" do
       admin = create(:user, role: 1)
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
       old_dock_count = station.dock_count
+      old_installation_date = station.installation_date
 
       visit stations_path
 
@@ -30,12 +31,14 @@ describe "As an admin" do
       expect(current_path).to eq(station_path(station))
 
       expect(page).to have_content(station.name)
-      expect(page).to have_content("Dock Count: #{dock_count}")
-      expect(page).to have_content(city)
-      expect(page).to have_content("Installation Date: #{date}")
-      expect(page).to_not have_content("Dock Count: #{old_dock_count}")
-      expect(page).to_not have_content(station.city)
-      expect(page).to_not have_content(station.installation_date)
+      within("#station-attributes") do
+        expect(page).to have_content("Dock Count: #{dock_count}")
+        expect(page).to have_content(city)
+        expect(page).to have_content("Installation Date: #{date}")
+        expect(page).to_not have_content("Dock Count: #{old_dock_count}")
+        expect(page).to_not have_content(station.city)
+        expect(page).to_not have_content("Installation Date: #{old_installation_date}")
+      end
     end
   end
 end

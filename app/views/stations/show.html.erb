@@ -3,6 +3,7 @@
 <table class="table">
   <tbody>
     <tr>
+      <div id="station-attributes">
       <th scope="row"><%= @station.id %></th>
         <td>Dock Count: <%= @station.dock_count %></td>
         <td>City: <%= @station.city %></td>
@@ -12,6 +13,7 @@
         <td><%= link_to "Delete", admin_station_path(@station), method: :delete, class: "btn btn-danger",
           data: {confirm: "Are you sure you want to delete #{@station.name}?"} %></td>
       <% end %>
+    </div>
     </tr>
   </tbody>
 </table>

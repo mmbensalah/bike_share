@@ -32,6 +32,8 @@ gem 'by_star'
 
 gem 'figaro'
 
+gem 'kaminari'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
