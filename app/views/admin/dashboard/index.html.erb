@@ -1,13 +1,14 @@
 <h1 class='text-center'>Welcome <%= current_user.username %>!</h1>
 
 <h3>Your info: </h3>
-<ul>
-  <li><%= current_user.first_name %></li>
-  <li><%= current_user.last_name %></li>
-  <li><%= current_user.email %></li>
+<ul type='none'>
+  <li>Name: <%= current_user.first_name %> <%= current_user.last_name %></li>
+  <li>Email: <%= current_user.email %></li>
 </ul>
+<br/>
 
-<%= link_to "View all Items in Bike Shop", admin_bike_shop_path, class: 'btn btn-info' %>
+<%= link_to "View all Items in Bike Shop", admin_bike_shop_path, class: 'btn btn-info text-center' %>
+<br/>
 
 <h2>Orders</h2>
 
@@ -28,9 +29,9 @@
   </thead>
   <tbody>
     <% @orders.each do |order| %>
-  <div class ='order' id="order-<%= order.id %>">
+    <div class ='order' id="order-<%= order.id %>">
     <tr>
-      <td>Order <%= order.id %></td>
+      <td><%= link_to "Order #{order.id}", order_path(order) %></td>
       <td><%= order.status %></td>
       <td>Edit</td>
     </tr>

@@ -53,14 +53,17 @@ describe "As an admin" do
       within("#order-#{@order_6.id}") do
         expect(page).to have_content("Order #{@order_6.id}")
       end
+
+      click_on("Order #{@order_5.id}")
+      expect(current_path).to eq(order_path(@order_5))
     end
 
     it 'should show total of each order status' do
-      save_and_open_page
       expect(page).to have_content("Ordered: #{Order.status_total["ordered"]}")
       expect(page).to have_content("Paid: #{Order.status_total["paid"]}")
       expect(page).to have_content("Completed: #{Order.status_total["completed"]}")
       expect(page).to have_content("Cancelled: #{Order.status_total["cancelled"]}")
     end
+
   end
 end
