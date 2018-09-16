@@ -2,6 +2,11 @@ class OrdersController < ApplicationController
   include ActionView::Helpers::TextHelper
 
   def create
+    if visitor?
+      flash[:message] = "Please log in to checkout."
+      redirect_to login_path
+      abort
+    end
     @order = Order.create(user_id: current_user.id)
     @cart.contents.each do |id, quantity|
       @order.order_items.create!(item_id: id, quantity: quantity, price: Item.find(id).price, title: Item.find(id).title)
