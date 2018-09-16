@@ -29,7 +29,8 @@
       <% if current_admin? %>
       <td>
         <%= link_to "Edit", edit_admin_condition_path, class: "btn btn-warning" %>
-        <%= link_to "Delete", admin_condition_path, method: :delete, class: "btn btn-dange"%>
+        <%= link_to "Delete", admin_condition_path, method: :delete,
+            class: "btn btn-danger" data: {confirm: "Are you sure you want to delete this condition?"}%>
       </td>
       <% end %>
     </tr>
