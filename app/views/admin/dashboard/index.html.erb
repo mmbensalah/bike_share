@@ -19,6 +19,12 @@
   <li>Cancelled: <%= @status["cancelled"] %></li>
 </ul>
 
+<p id='status-filter'>Filters: <%= link_to "Cancelled", admin_dashboard_path(sort: "cancelled"), class: 'btn' %> |
+  <%= link_to "Ordered", admin_dashboard_path(sort: "ordered"), class: 'btn' %> |
+  <%= link_to "Paid", admin_dashboard_path(sort: "paid"), class: 'btn' %>|
+  <%= link_to "Completed", admin_dashboard_path(sort: "completed"), class: 'btn' %>|
+  <%= link_to "No Filter", admin_dashboard_path, class: 'btn' %></p>
+
 <table class="table">
   <thead>
     <tr>
@@ -29,7 +35,7 @@
   </thead>
   <tbody>
     <% @orders.each do |order| %>
-    <div class ='order' id="order-<%= order.id %>">
+    <div class ='orders' id="order-<%= order.id %>">
     <tr>
       <td><%= link_to "Order #{order.id}", order_path(order) %></td>
       <td><%= order.status %></td>
