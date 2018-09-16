@@ -9,14 +9,13 @@ Rails.application.routes.draw do
   get '/trips-dashboard', to: 'trips_dashboard#index'
   get '/stations-dashboard', to: 'stations_dashboard#index'
 
-
   resources :stations, only: [:index, :show], param: :slug
 
   resources :trips, only: [:index, :show]
 
   resources :conditions, only: [:index, :show]
 
-  resources :carts, only: [:create, :index]
+  resources :carts, only: [:create, :index, :update, :destroy]
 
   resources :users, only: [:new, :create, :edit, :update]
 
@@ -31,8 +30,7 @@ Rails.application.routes.draw do
     resources :trips, only: [:edit, :destroy, :new, :create, :update]
     resources :conditions, only: [:edit, :destroy, :new, :create, :update]
     resources :stations, only: [:edit, :update, :destroy, :create, :new], param: :slug
-    resources :items, only: [:new, :create]
+    resources :items, only: [:new, :create, :edit, :update]
+    resources :orders, only: [:update]
   end
-
-
 end

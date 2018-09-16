@@ -1,10 +1,66 @@
 <h1 class='text-center'>Welcome <%= current_user.username %>!</h1>
 
 <h3>Your info: </h3>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Address</th>
+      <th scope="col">Email</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <div id="user-<%= current_user.id %>">
+        <td><%= current_user.first_name %></td>
+        <td><%= current_user.last_name %></td>
+        <td><%= current_user.address %></td>
+        <td><%= current_user.email %></td>
+        <td><%= link_to "Edit my account info", edit_user_path(current_user), class: 'btn btn-info' %></td>
+        <td><%= link_to "View all Items in Bike Shop", admin_bike_shop_path, class: 'btn btn-info' %></td>
+      </div>
+    </tr>
+  </tbody>
+</table>
+
+<br/>
+
+<h2>Orders</h2>
+
 <ul>
-  <li><%= current_user.first_name %></li>
-  <li><%= current_user.last_name %></li>
-  <li><%= current_user.email %></li>
+  <li>Ordered: <%= @status["ordered"] %></li>
+  <li>Paid: <%= @status["paid"] %></li>
+  <li>Completed: <%= @status["completed"] %></li>
+  <li>Cancelled: <%= @status["cancelled"] %></li>
 </ul>
 
-<%= link_to "View all Items in Bike Shop", admin_bike_shop_path, class: 'btn btn-info' %>
+<p id='status-filter'>Filters: <%= link_to "Cancelled", admin_dashboard_path(sort: "cancelled"), class: 'btn' %> |
+  <%= link_to "Ordered", admin_dashboard_path(sort: "ordered"), class: 'btn' %> |
+  <%= link_to "Paid", admin_dashboard_path(sort: "paid"), class: 'btn' %>|
+  <%= link_to "Completed", admin_dashboard_path(sort: "completed"), class: 'btn' %>|
+  <%= link_to "No Filter", admin_dashboard_path, class: 'btn' %></p>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Order Number</th>
+      <th scope="col">Status</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody class='orders'>
+    <% @orders.each do |order| %>
+    <div id="order-<%= order.id %>">
+    <tr>
+      <td><%= link_to "Order #{order.id}", order_path(order) %></td>
+      <td><%= order.status.capitalize %></td>
+      <td><%= link_to "Cancel", admin_order_path(order, status: "cancelled"), method: :patch, class: 'btn btn-danger' if order.status == "paid" || "ordered" %></td>
+      <td><%= link_to "Mark as Paid", admin_order_path(order, status: "paid"), method: :patch, class: 'btn btn-success' if order.status == "ordered" %></td>
+      <td><%= link_to "Mark as Completed", admin_order_path(order, status: "completed"), method: :patch, class: 'btn btn-info' if order.status == "paid" %></td>
+    </tr>
+  </div>
+  <% end %>
+  </tbody>
+</table>

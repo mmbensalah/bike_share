@@ -26,18 +26,17 @@ describe 'visitor can see all trips' do
       expect(page).to have_content(trip_2.end_station_id)
 
     end
+
     describe 'on the trips index page' do
-      xit 'shows the first 30 trips along with all their attributes' do
-        # Come back and flesh this out
-        31.times do
-          create(:trip)
-        end
+      it 'shows the first 30 trips along with all their attributes' do
+        trips = create_list(:trip, 35)
 
         visit trips_path
 
-        expect(page).to have_content
+        expect(page).to have_css(".trip", count: 30)
 
-
+        click_on("Next")
+        expect(page).to have_css(".trip", count: 5)
       end
     end
   end

@@ -1,5 +1,7 @@
 <h1 class='text-center'>Trips Index</h1>
 
+<%= paginate @trips %>    <%= page_entries_info @trips %>
+
 <% if current_admin? %>
   <%= link_to "Add New Trip", new_admin_trip_path, class: 'btn btn-secondary text-center' %>
 <% end %>
@@ -22,7 +24,7 @@
   <tbody>
     <% @trips.each do |trip| %>
     <tr>
-      <td><%= trip.id %></td>
+      <td class="trip"><%= trip.id %></td>
       <td><%= trip.duration %></td>
       <td><%= trip.start_date %></td>
       <td><%= trip.start_station.name %></td>
@@ -35,7 +37,8 @@
         <%= link_to "View this Trip", trip_path(trip), class: "btn btn-info" %>
         <% if current_admin? %>
         <%= link_to "Edit", edit_admin_trip_path(trip), class: "btn btn-warning" %>
-        <%= link_to "Delete", admin_trip_path(id: trip.id), method: :delete, class: "btn btn-danger" %>
+        <%= link_to "Delete", admin_trip_path(id: trip.id), method: :delete,
+            class: "btn btn-danger", data: {confirm: "Are you sure you want to delete this trip?"}%>
         <% end %>
       </td>
     </tr>
