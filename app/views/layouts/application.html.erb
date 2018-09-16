@@ -67,7 +67,7 @@
             </nav>
 
     <% flash.each do |name, msg| %>
-      <%= content_tag :div, msg, class: "#{name} alert alert-primary" %>
+      <%= content_tag :div, msg.html_safe, class: "#{name} alert alert-primary" %>
     <% end %>
 
       <%= yield %>

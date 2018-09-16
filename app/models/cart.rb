@@ -19,7 +19,6 @@ class Cart
 
   def remove_item(id)
     @contents.delete(id.to_s)
-    @contents[id.to_s] - 1 unless @contents[id.to_s] = 0
   end
 
   def total_price
