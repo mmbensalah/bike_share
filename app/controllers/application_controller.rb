@@ -19,4 +19,9 @@ class ApplicationController < ActionController::Base
   def set_cart
     @cart ||= Cart.new(session[:cart])
   end
+
+  def correct_user?
+    @user = User.find(params[:id])
+    render file: "/public/404" unless @user == current_user
+  end
 end
