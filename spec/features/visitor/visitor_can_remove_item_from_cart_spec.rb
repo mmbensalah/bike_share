@@ -11,9 +11,7 @@ describe 'As a visitor' do
       within("#item-#{item_1.id}") do
         click_on("Add to Cart")
       end
-      within("#item-#{item_1.id}") do
-        click_on("Add to Cart")
-      end
+
       within("#item-#{item_2.id}") do
         click_on("Add to Cart")
       end
@@ -25,6 +23,7 @@ describe 'As a visitor' do
 
       expect(current_path).to eq(carts_path)
 
+      expect(page).to have_link(item_1.title)
       expect(page).to have_content("#{item_1.title} removed from cart.")
       expect(page).to_not have_content(item_1.description)
     end
