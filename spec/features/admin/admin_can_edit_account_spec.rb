@@ -27,7 +27,6 @@ describe 'As an admin' do
       fill_in :user_address, with: address_2
 
       click_on("Update Account")
-      save_and_open_page
       expect(current_path).to eq(admin_dashboard_path)
 
       expect(page).to have_content(name_2)
