@@ -16,6 +16,7 @@ class CartsController < ApplicationController
     item = Item.find(params[:item_id])
     @cart.contents[params[:item_id]] = params[:quantity].to_i
     flash[:success] = "You have successfully adjusted the quantity of #{item.title}"
+  end 
 
   def destroy
     item = Item.find(params[:id])
