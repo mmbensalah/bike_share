@@ -1,6 +1,6 @@
 class Admin::ItemsController < Admin::BaseController
   def index
-    @items = Item.all 
+    @items = Item.all
   end
 
   def new
@@ -17,6 +17,22 @@ class Admin::ItemsController < Admin::BaseController
       render :new
     end
   end
+
+  def edit
+    @item = Item.find(params[:id])
+  end
+
+  def update
+    @item = Item.find(params[:id])
+    if @item.update(item_params)
+      flash[:success] = "#{@item.title} has been updated."
+      redirect_to item_path(@item)
+    else
+      flash[:failure] = 'Could not update item. Please try again.'
+      render :edit
+    end
+  end
+
   private
     def item_params
       params.require(:item).permit(:title, :price, :description, :image)

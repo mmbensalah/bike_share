@@ -30,9 +30,7 @@ Rails.application.routes.draw do
     resources :trips, only: [:edit, :destroy, :new, :create, :update]
     resources :conditions, only: [:edit, :destroy, :new, :create, :update]
     resources :stations, only: [:edit, :update, :destroy, :create, :new], param: :slug
-    resources :items, only: [:new, :create]
+    resources :items, only: [:new, :create, :edit, :update]
     resources :orders, only: [:update]
   end
-
-
 end
