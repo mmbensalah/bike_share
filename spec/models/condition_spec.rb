@@ -21,9 +21,13 @@ RSpec.describe Condition, type: :model do
       trip_3 = Trip.create(duration: 40, start_date: 8/28/2013, end_date: 8/28/2013, bike_id: 3, subscription_type: 'subscriber', start_station_id: 3, end_station_id: 3)
     end
 
-    it 'average rides in 10 degree increments' do
-
+    it '#average_rides_ten_degrees' do
+      expect(Condition.average_rides_ten_degrees).to eq()
     end
+
+
+
+
     xit 'max rides in 10 degree increments' do
     end
     xit 'min rides in 10 degree inrements' do
