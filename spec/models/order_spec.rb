@@ -47,9 +47,18 @@ RSpec.describe Order, type: :model do
     context '#status_total' do
       it 'should return total count of orders for each status' do
         expect(Order.status_total).to eq({"cancelled" => 1,
-                                          "completed" => 1, 
+                                          "completed" => 1,
                                           "ordered" => 2,
                                           "paid"=> 2})
+      end
+    end
+
+    context '#filter_status' do
+      it 'should return only orders with the given status' do
+        expect(Order.filter_status("ordered")).to eq([@order_3, @order_4])
+        expect(Order.filter_status("paid")).to eq([@order_1, @order_5])
+        expect(Order.filter_status("completed")).to eq([@order_6])
+        expect(Order.filter_status("cancelled")).to eq([@order_2])
       end
     end
   end
