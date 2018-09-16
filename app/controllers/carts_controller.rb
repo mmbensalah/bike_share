@@ -12,6 +12,11 @@ class CartsController < ApplicationController
     redirect_to bike_shop_path
   end
 
+  def update
+    item = Item.find(params[:item_id])
+    @cart.contents[params[:item_id]] = params[:quantity].to_i
+    flash[:success] = "You have successfully adjusted the quantity of #{item.title}"
+
   def destroy
     item = Item.find(params[:id])
     @cart.remove_item(item.id)
