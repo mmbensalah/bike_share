@@ -17,7 +17,6 @@ describe 'visitor has authorization restrictions' do
 
       visit carts_path
       click_on "Checkout"
-
       expect(current_path).to eq(login_path)
 
     end
