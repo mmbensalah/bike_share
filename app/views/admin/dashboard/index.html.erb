@@ -8,3 +8,25 @@
 </ul>
 
 <%= link_to "View all Items in Bike Shop", admin_bike_shop_path, class: 'btn btn-info' %>
+
+<h2>Orders</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Order Number</th>
+      <th scope="col">Status</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @orders.each do |order| %>
+  <div class ='order' id="order-<%= order.id %>">
+    <tr>
+      <td>Order <%= order.id %></td>
+      <td><%= order.status %></td>
+      <td>Edit</td>
+    </tr>
+  </div>
+  <% end %>
+</table>
