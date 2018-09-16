@@ -65,5 +65,48 @@ describe "As an admin" do
       expect(page).to have_content("Cancelled: #{Order.status_total["cancelled"]}")
     end
 
+    it 'should show orders depending on the filter chosen' do
+      within("#status-filter") do
+        click_on("Cancelled")
+      end
+      within('.orders') do
+        expect(page).to_not have_content("Paid")
+        expect(page).to_not have_content("Ordered")
+        expect(page).to_not have_content("Completed")
+      end
+      within("#status-filter") do
+        click_on("Paid")
+      end
+      within('.orders') do
+        expect(page).to_not have_content("Cancelled")
+        expect(page).to_not have_content("Ordered")
+        expect(page).to_not have_content("Completed")
+      end
+      within("#status-filter") do
+        click_on("Ordered")
+      end
+      within('.orders') do
+        expect(page).to_not have_content("Paid")
+        expect(page).to_not have_content("Cancelled")
+        expect(page).to_not have_content("Completed")
+      end
+      within("#status-filter") do
+        click_on("Completed")
+      end
+      within('.orders') do
+        expect(page).to_not have_content("Paid")
+        expect(page).to_not have_content("Ordered")
+        expect(page).to_not have_content("Cancelled")
+      end
+      within("#status-filter") do
+        click_on("No Filter")
+      end
+      within('.orders') do
+        expect(page).to have_content("Paid")
+        expect(page).to have_content("Ordered")
+        expect(page).to have_content("Cancelled")
+        expect(page).to have_content("Completed")
+      end
+    end
   end
 end
