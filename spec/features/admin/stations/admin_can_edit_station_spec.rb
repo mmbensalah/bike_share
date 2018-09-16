@@ -37,7 +37,6 @@ describe "As an admin" do
         expect(page).to have_content("Installation Date: #{date}")
         expect(page).to_not have_content("Dock Count: #{old_dock_count}")
         expect(page).to_not have_content(station.city)
-        expect(page).to_not have_content("Installation Date: #{old_installation_date}")
       end
     end
   end
