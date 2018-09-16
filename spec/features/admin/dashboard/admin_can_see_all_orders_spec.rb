@@ -70,34 +70,33 @@ describe "As an admin" do
         click_on("Cancelled")
       end
       within('.orders') do
-        expect(page).to_not have_content("Paid")
-        expect(page).to_not have_content("Ordered")
-        expect(page).to_not have_content("Completed")
+        expect(page).to_not have_content("Order #{@order_1.id}")
+        expect(page).to_not have_content("Order #{@order_3.id}")
+        expect(page).to_not have_content("Order #{@order_6.id}")
       end
-      save_and_open_page
       within("#status-filter") do
         click_on("Paid")
       end
       within('.orders') do
-        expect(page).to_not have_content("Cancelled")
-        expect(page).to_not have_content("Ordered")
-        expect(page).to_not have_content("Completed")
+        expect(page).to_not have_content("Order #{@order_2.id}")
+        expect(page).to_not have_content("Order #{@order_3.id}")
+        expect(page).to_not have_content("Order #{@order_6.id}")
       end
       within("#status-filter") do
         click_on("Ordered")
       end
       within('.orders') do
-        expect(page).to_not have_content("Paid")
-        expect(page).to_not have_content("Cancelled")
-        expect(page).to_not have_content("Completed")
+        expect(page).to_not have_content("Order #{@order_1.id}")
+        expect(page).to_not have_content("Order #{@order_2.id}")
+        expect(page).to_not have_content("Order #{@order_6.id}")
       end
       within("#status-filter") do
         click_on("Completed")
       end
       within('.orders') do
-        expect(page).to_not have_content("Paid")
-        expect(page).to_not have_content("Ordered")
-        expect(page).to_not have_content("Cancelled")
+        expect(page).to_not have_content("Order #{@order_1.id}")
+        expect(page).to_not have_content("Order #{@order_3.id}")
+        expect(page).to_not have_content("Order #{@order_5.id}")
       end
       within("#status-filter") do
         click_on("No Filter")
@@ -107,6 +106,23 @@ describe "As an admin" do
         expect(page).to have_content("Ordered")
         expect(page).to have_content("Cancelled")
         expect(page).to have_content("Completed")
+      end
+    end
+
+    it 'should change paid/ordered status' do
+      within("#order-#{@order_1.id}") do
+        click_on("Cancel")
+      end
+      within("#order-#{@order_1.id}") do
+        expect(page).to_not have_content("Paid")
+        expect(page).to have_content("Cancelled")
+      end
+      within("#order-#{@order_3.id}") do
+        click_on("Cancel")
+      end
+      within("#order-#{@order_3.id}") do
+        expect(page).to_not have_content("Ordered")
+        expect(page).to have_content("Cancelled")
       end
     end
   end

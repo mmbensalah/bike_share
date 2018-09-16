@@ -32,6 +32,7 @@ Rails.application.routes.draw do
     resources :conditions, only: [:edit, :destroy, :new, :create, :update]
     resources :stations, only: [:edit, :update, :destroy, :create, :new], param: :slug
     resources :items, only: [:new, :create]
+    resources :orders, only: [:update]
   end
 
 
