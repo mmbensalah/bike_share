@@ -26,7 +26,11 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user.update(user_params)
       flash[:success] = "Your account was successfully updated."
-      redirect_to dashboard_path
+      if current_user?
+        redirect_to dashboard_path
+      elsif current_admin?
+        redirect_to admin_dashboard_path
+      end
     else
       flash[:failure] = "Update failed, please try again."
       render :edit
