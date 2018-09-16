@@ -38,11 +38,9 @@ describe "As an admin" do
       @admin = create(:user, role: 1)
 
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@admin)
-
+      visit admin_dashboard_path
     end
     it 'should show all orders' do
-      visit admin_dashboard_path
-
       within("#order-#{@order_1.id}") do
         expect(page).to have_content("Order #{@order_1.id}")
       end
@@ -54,7 +52,14 @@ describe "As an admin" do
       end
       within("#order-#{@order_6.id}") do
         expect(page).to have_content("Order #{@order_6.id}")
-      end 
+      end
+    end
+
+    it 'should show total of each order status' do
+      expect(page).to have_content("Ordered: #{Order.status_total["ordered"]}")
+      expect(page).to have_content("Paid: #{Order.status_total["paid"]}")
+      expect(page).to have_content("Completed: #{Order.status_total["completed"]}")
+      expect(page).to have_content("Cancelled: #{Order.status_total["cancelled"]}")
     end
   end
 end
