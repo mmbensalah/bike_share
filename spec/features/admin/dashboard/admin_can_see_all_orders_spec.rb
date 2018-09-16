@@ -56,6 +56,7 @@ describe "As an admin" do
     end
 
     it 'should show total of each order status' do
+      save_and_open_page
       expect(page).to have_content("Ordered: #{Order.status_total["ordered"]}")
       expect(page).to have_content("Paid: #{Order.status_total["paid"]}")
       expect(page).to have_content("Completed: #{Order.status_total["completed"]}")
