@@ -11,10 +11,11 @@ describe 'visitor has authorization restrictions' do
       expect(page).to have_content("The page you were looking for doesn't exist.")
       expect(page).to_not have_content("Welcome")
 
-      # add this once orders are built out
-      # create(:order) # through a user
-      # visit order_path(order)
-      # expect(page).to have_content("The page you were looking for doesn't exist.")
+      order = create(:order)
+      visit order_path(order)
+      expect(page).to have_content("The page you were looking for doesn't exist.")
+
+      
 
     end
   end

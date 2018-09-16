@@ -19,5 +19,8 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
+    if current_user != @order.user
+      render file: "/public/404"
+    end
   end
 end
