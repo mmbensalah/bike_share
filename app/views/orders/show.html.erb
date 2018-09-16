@@ -1,0 +1,45 @@
+<h1 class='text-center'>Order <%= @order.id %></h1>
+<% if current_admin? %>
+<div class="card mx-auto" style="width: 25rem;">
+  <div class="card-body">
+    <h5 class="card-title text-center">Order for <%= @order.user.last_name %>, <%= @order.user.first_name %></h5>
+    <div>
+      Status: <b><%= @order.status %></b>
+    </div>
+    <div>
+      Address:
+    </div>
+    <p class="card-text">
+      <%= @order.user.address %>
+    </p>
+  </div>
+</div>
+<% end %>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Item</th>
+      <th scope="col">Price</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Subtotal</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @order.order_items.each do |order_item| %>
+    <tr>
+      <div id="order-<%= @order.id %>">
+      <td><%= order_item.title %></td>
+      <td><%= order_item.price %></td>
+      <td><%= order_item.quantity %></td>
+      <td><%= number_to_currency(order_item.price * order_item.quantity) %></td>
+      <div>
+    </tr>
+    <% end %>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>Total: <%= @order.total_price %></td>
+  </tr>
+  </tbody>
+</table>

@@ -1,16 +1,23 @@
-<h1>Items availble in the Bike Shoppe!</h1>
+<h1>Items available in the Bike Shop!</h1>
 
+<% if current_admin? %>
+  <%= link_to "Add New Item", new_admin_item_path, class: 'btn btn-secondary text-center' %>
+<% end %>
 
 <div class="card" style="width: 18rem;">
   <% @items.each do |item| %>
   <div class ='item' id="item-<%= item.id %>">
-  <img class="card-img-top" src="<%= item.image %>" alt="Card image cap">
+  <%= image_tag(item.image, class: "card-img-top", alt: "Bike picture") %>
   <div class="card-body">
-    <h5 class="card-title"><%= item.title %></h5>
-    <p class="card-text">Price: $<%= item.price %></p>
+    <h5 class="card-title"><%= link_to item.title, item_path(item) %></h5>
+    <p class="card-text">Price: <%= number_to_currency(item.price) %></p>
     <p class="card-text"><%= item.description %></p>
   </div>
-    <%= button_to "Add to Cart", carts_path(item_id: item.id) %>
+    <% if item.status == "active" %>
+      <%= button_to "Add to Cart", carts_path(item_id: item.id) %>
+    <% else %>
+      <p style='color: red'>Item Retired</p>
+    <% end %>
   </div>
     <% end %>
 </div>
