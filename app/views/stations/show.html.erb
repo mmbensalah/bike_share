@@ -39,7 +39,7 @@
       </li>
       <li class="list-group-item d-flex justify-content-between align-items-center">
         Date of most trips:
-        <span class="badge badge-primary badge-pill"><%= @show_data[:most_trips].keys.first %> with <%= @show_data[:most_trips].values.first %> rides</span>
+        <span class="badge badge-primary badge-pill"><%= @show_data[:most_trips].keys.first.in_time_zone("MST").strftime("%m/%d/%Y") %> with <%= @show_data[:most_trips].values.first %> rides</span>
       </li>
       <li class="list-group-item d-flex justify-content-between align-items-center">
         Most frequent rider zip code:

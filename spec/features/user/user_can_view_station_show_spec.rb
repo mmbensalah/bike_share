@@ -21,7 +21,7 @@ describe "As an authenticated user" do
       expect(page).to have_content("Number of rides ended here: #{station.ride_count("ended")}")
       expect(page).to have_content("Most popular Destination Station: #{station.destination_station.name} with #{station.destination_station.station_count} arrivals")
       expect(page).to have_content("Most popular Origination Station: #{station.origination_station.name} with #{station.origination_station.station_count} departures")
-      expect(page).to have_content("Date of most trips: #{station.most_trips.keys.first} with #{station.most_trips.values.first} rides")
+      expect(page).to have_content("Date of most trips: #{station.most_trips.keys.first.in_time_zone("MST").strftime("%m/%d/%Y")} with #{station.most_trips.values.first} rides")
       expect(page).to have_content("Most frequent rider zip code: #{station.top_zips.keys.first} with #{station.top_zips.values.first} rides")
       expect(page).to have_content("Most used bike: #{station.top_bike.keys.first} (id) with #{station.top_bike.values.first} rides")
     end
