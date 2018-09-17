@@ -12,8 +12,8 @@ describe 'a visitor can see a single trip' do
       expect(page).to have_content(trip.end_date.in_time_zone("MST").strftime("%m/%d/%Y %I:%M %P"))
       expect(page).to have_content(trip.zip_code)
       expect(page).to have_content(trip.bike_id)
-      expect(page).to have_content(trip.start_station_id)
-      expect(page).to have_content(trip.end_station_id)
+      expect(page).to have_content(trip.start_station.name)
+      expect(page).to have_content(trip.end_station.name)
       expect(page).to have_content(trip.subscription_type)
     end
   end
