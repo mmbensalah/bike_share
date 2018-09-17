@@ -54,7 +54,7 @@
 
 <ul class="list-group">
   <li class="list-group-item"><strong>Weather Conditions for most rides:</strong></li>
-  <li class="list-group-item">Date: <%= @weather_on_most_rides.date.strftime "%m-%d-%Y" %></li>
+  <li class="list-group-item">Date: <%= @weather_on_most_rides.date %></li>
   <li class="list-group-item">Max Temperature: <%= @weather_on_most_rides.max_temperature %></li>
   <li class="list-group-item">Mean Temperature: <%= @weather_on_most_rides.mean_temperature %></li>
   <li class="list-group-item">Min Temperature: <%= @weather_on_most_rides.min_temperature %></li>
@@ -66,7 +66,7 @@
 
 <ul class="list-group">
   <li class="list-group-item"><strong>Weather Conditions for least rides:</strong></li>
-  <li class="list-group-item">Date: <%= @weather_on_least_rides.date.strftime "%m-%d-%Y" %></li>
+  <li class="list-group-item">Date: <%= @weather_on_least_rides.date %></li>
   <li class="list-group-item">Max Temperature: <%= @weather_on_least_rides.max_temperature %></li>
   <li class="list-group-item">Mean Temperature: <%= @weather_on_least_rides.mean_temperature %></li>
   <li class="list-group-item">Min Temperature: <%= @weather_on_least_rides.min_temperature %></li>
