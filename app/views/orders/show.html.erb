@@ -4,7 +4,8 @@
   <div class="card-body">
     <h5 class="card-title text-center">Order for <%= @order.user.last_name %>, <%= @order.user.first_name %></h5>
     <p class="card-text">
-      Address: <%= @order.user.address %>
+      <p class='float-left'>Address:</p>
+      <p class='float-right'><%= @order.user.address %></p>
     </p>
   </div>
 </div>
@@ -28,7 +29,7 @@
     <% @order.order_items.each do |order_item| %>
     <tr>
       <div id="order-<%= @order.id %>">
-      <td><%= link_to "#{order_item.title}", item_path(order_item.item_id) %></td>
+      <td><%= link_to "#{order_item.item.title}", item_path(order_item.item_id) %></td>
       <td><%= number_to_currency(order_item.price) %></td>
       <td><%= order_item.quantity %></td>
       <td><%= number_to_currency(order_item.price * order_item.quantity) %></td>
