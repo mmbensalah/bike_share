@@ -10,7 +10,7 @@
   <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">Duration</th>
+      <th scope="col">Duration (seconds)</th>
       <th scope="col">Start Date</th>
       <th scope="col">Start Station</th>
       <th scope="col">Zip Code</th>
@@ -26,11 +26,11 @@
     <tr>
       <td class="trip"><%= trip.id %></td>
       <td><%= trip.duration %></td>
-      <td><%= trip.start_date %></td>
+      <td><%= trip.start_date.in_time_zone("MST").strftime("%m/%d/%Y %l:%M %P") %></td>
       <td><%= trip.start_station.name %></td>
       <td><%= trip.zip_code %></td>
       <td><%= trip.bike_id %></td>
-      <td><%= trip.end_date %></td>
+      <td><%= trip.end_date.in_time_zone("MST").strftime("%m/%d/%Y %l:%M %P") %></td>
       <td><%= trip.end_station.name %></td>
       <td><%= trip.subscription_type %></td>
       <td>
