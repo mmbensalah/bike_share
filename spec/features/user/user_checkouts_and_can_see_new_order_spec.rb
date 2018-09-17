@@ -59,4 +59,19 @@ describe 'As a user' do
       expect(page).to have_content("Total: $47.50")
     end
   end
+
+  describe "user should only be able to see their own orders" do
+    it 'should not show other users orders' do
+      other_user = create(:user)
+      other_order = create(:order)
+      other_user.orders << other_order
+      order = create(:order)
+      @user.orders << order
+
+      visit dashboard_path
+
+      expect(page).to have_content("Order: #{order.id}")
+      expect(page).to_not have_content("Order: #{other_order.id}")
+    end
+  end
 end
