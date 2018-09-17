@@ -21,6 +21,7 @@ describe 'admin can visit individual order show page' do
       expect(page).to have_content("#{order_item.price}")
       expect(page).to have_content("#{order_item.quantity}")
     end
-    expect(page).to have_content("#{order.status}")
+    expect(page).to have_content("#{order.status.capitalize}")
+    expect(page).to have_content("Back to all Orders")
   end
 end
