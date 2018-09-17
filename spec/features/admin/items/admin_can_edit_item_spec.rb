@@ -7,7 +7,6 @@ describe 'As an admin' do
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
       item = Item.create(title: "Handlebars", price: "35.00", image: 'bike_gear.jpg', description: 'Use to steer your bike.', status: 0)
 
-
       visit bike_shop_path
 
       within "#item-#{item.id}" do
