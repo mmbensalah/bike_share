@@ -8,13 +8,91 @@ class Condition < ApplicationRecord
                         :mean_wind_speed,
                         :precipitation
 
-  def self.average_rides_ten_degrees
-    Trip.select("start_date, COUNT(trips.id) AS count")
-      .joins("JOIN conditions ON conditions.date = trips.start_date")
-        .where("max_temperature BETWEEN ? and ?", 80, 89.9)
-          .group(:start_date)
-            .order("count(trips.id) desc")
-              .limit(1)
+  def self.rides_ten_degrees_max(start_temp, end_temp)
+    response = Trip.select("trips.start_date")
+                .joins("join conditions on conditions.date = trips.start_date")
+                .where("conditions.max_temperature between #{start_temp} and #{end_temp}")
+                .order("count_id desc")
+                .limit(1)
+                .group(:start_date)
                 .count(:id)
+    response.values
+  end
+
+  def self.rides_ten_degrees_min(start_temp, end_temp)
+    response = Trip.select("trips.start_date")
+                .joins("join conditions on conditions.date = trips.start_date")
+                .where("conditions.max_temperature between #{start_temp} and #{end_temp}")
+                .order("count_id asc")
+                .limit(1)
+                .group(:start_date)
+                .count(:id)
+    response.values
+  end
+
+  def self.rides_precipitation_max(start_amount, end_amount)
+    response = Trip.select("trips.start_date")
+                .joins("join conditions on conditions.date = trips.start_date")
+                .where("conditions.precipitation between #{start_amount} and #{end_amount}")
+                .order("count_id desc")
+                .limit(1)
+                .group(:start_date)
+                .count(:id)
+    response.values
+  end
+
+  def self.rides_precipitation_min(start_amount, end_amount)
+    response = Trip.select("trips.start_date")
+                .joins("join conditions on conditions.date = trips.start_date")
+                .where("conditions.precipitation between #{start_amount} and #{end_amount}")
+                .order("count_id asc")
+                .limit(1)
+                .group(:start_date)
+                .count(:id)
+    response.values
+  end
+
+  def self.rides_mean_wind_speed_max(start_amount, end_amount)
+    response = Trip.select("trips.start_date")
+                .joins("join conditions on conditions.date = trips.start_date")
+                .where("conditions.mean_wind_speed between #{start_amount} and #{end_amount}")
+                .order("count_id desc")
+                .limit(1)
+                .group(:start_date)
+                .count(:id)
+    response.values
+  end
+
+  def self.rides_mean_wind_speed_min(start_amount, end_amount)
+    response = Trip.select("trips.start_date")
+                .joins("join conditions on conditions.date = trips.start_date")
+                .where("conditions.mean_wind_speed between #{start_amount} and #{end_amount}")
+                .order("count_id asc")
+                .limit(1)
+                .group(:start_date)
+                .count(:id)
+    response.values
+  end
+
+  def self.rides_mean_visibility_max(start_amount, end_amount)
+    response = Trip.select("trips.start_date")
+                .joins("join conditions on conditions.date = trips.start_date")
+                .where("conditions.mean_visibility between #{start_amount} and #{end_amount}")
+                .order("count_id desc")
+                .limit(1)
+                .group(:start_date)
+                .count(:id)
+    response.values
+  end
+
+  def self.rides_mean_visibility_min(start_amount, end_amount)
+    response = Trip.select("trips.start_date")
+                .joins("join conditions on conditions.date = trips.start_date")
+                .where("conditions.mean_visibility between #{start_amount} and #{end_amount}")
+                .order("count_id asc")
+                .limit(1)
+                .group(:start_date)
+                .count(:id)
+    response.values
   end
 end
