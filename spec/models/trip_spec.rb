@@ -104,5 +104,29 @@ RSpec.describe Trip, type: :model do
       create(:trip, start_date: "2016-08-25")
       expect(Trip.get_years).to eq([2015, 2016])
     end
+    it 'weather_on_most_rides' do
+      condition_1 = create(:condition, date: "2009-09-30")
+      condition_2 = create(:condition, date: "2009-08-30")
+      trip_1 = create(:trip, start_date: "2009-09-30")
+      trip_2 = create(:trip, start_date: "2009-09-30")
+      trip_3 = create(:trip, start_date: "2009-09-30")
+      trip_4 = create(:trip, start_date: "2009-09-30")
+      trip_5 = create(:trip, start_date: "2009-08-30")
+      trip_6 = create(:trip, start_date: "2009-08-30")
+
+      expect(Trip.weather_on_most_rides).to eq(condition_1)
+    end
+    it 'weather_on_least_rides' do
+      condition_1 = create(:condition, date: "2009-09-30")
+      condition_2 = create(:condition, date: "2009-08-30")
+      trip_1 = create(:trip, start_date: "2009-09-30")
+      trip_2 = create(:trip, start_date: "2009-09-30")
+      trip_3 = create(:trip, start_date: "2009-09-30")
+      trip_4 = create(:trip, start_date: "2009-09-30")
+      trip_5 = create(:trip, start_date: "2009-08-30")
+      trip_6 = create(:trip, start_date: "2009-08-30")
+
+      expect(Condition.find(Trip.date_with_least_trips)).to eq(condition_2)
+    end
   end
 end

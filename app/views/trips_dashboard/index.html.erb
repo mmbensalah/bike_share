@@ -63,4 +63,26 @@
     <span class="badge badge-primary badge-pill">Trips: <%= pair.values[0] %></span>
   </li>
   <% end %>
+  <div>
+    <li>Weather Conditions for most rides:</li>
+    <li>Date: <%= @weather_on_most_rides.date %></li>
+    <li>Max Temperature: <%= @weather_on_most_rides.max_temperature %></li>
+    <li>Mean Temperature: <%= @weather_on_most_rides.mean_temperature %></li>
+    <li>Min Temperature: <%= @weather_on_most_rides.min_temperature %></li>
+    <li>Mean Humidity: <%= @weather_on_most_rides.mean_humidity %></li>
+    <li>Mean Visibility: <%= @weather_on_most_rides.mean_visibility %></li>
+    <li>Mean Wind Speed: <%= @weather_on_most_rides.mean_wind_speed %></li>
+    <li>Precipitation: <%= @weather_on_most_rides.precipitation %></li>
+  <div>
+  <div>
+    <li>Weather Conditions for least rides:</li>
+    <li>Date: <%= @weather_on_least_rides.date %></li>
+    <li>Max Temperature: <%= @weather_on_least_rides.max_temperature %></li>
+    <li>Mean Temperature: <%= @weather_on_least_rides.mean_temperature %></li>
+    <li>Min Temperature: <%= @weather_on_least_rides.min_temperature %></li>
+    <li>Mean Humidity: <%= @weather_on_least_rides.mean_humidity %></li>
+    <li>Mean Visibility: <%= @weather_on_least_rides.mean_visibility %></li>
+    <li>Mean Wind Speed: <%= @weather_on_least_rides.mean_wind_speed %></li>
+    <li>Precipitation: <%= @weather_on_least_rides.precipitation %></li>
+  <div>
 </ul>
