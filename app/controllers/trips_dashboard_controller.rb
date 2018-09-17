@@ -16,6 +16,5 @@ class TripsDashboardController < ApplicationController
     @year_counts = Trip.rides_per_year(*Trip.get_years)
     @weather_on_most_rides = Condition.find_by(date: Trip.date_with_most_trips[:date])
     @weather_on_least_rides = Condition.find_by(date: Trip.date_with_least_trips[:date])
-binding.pry
   end
 end
