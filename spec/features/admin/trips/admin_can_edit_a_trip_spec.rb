@@ -16,7 +16,7 @@ describe 'admin can edit a trip' do
         fill_in :trip_start_date, with: "1992-04-01"
         fill_in :trip_end_date, with: "2007-09-15"
         fill_in :trip_bike_id, with: 7
-        fill_in :trip_subscription_type, with: "Subscriber"
+        select(value = "Subscriber", from: 'trip[subscription_type]')
         fill_in :trip_zip_code, with: 80220
         select(value = station_1.name, from: 'trip[start_station_id]')
         select(value = station_2.name, from: 'trip[end_station_id]')
