@@ -17,7 +17,7 @@ item_7 = Item.create(title: "More Stuff", price: "100.00", image: 'bike_shoe.jpg
 item_8 = Item.create(title: "Tires", price: "55.00", image: 'bike_shoe.jpg', description: 'To go places', status: 0)
 item_9 = Item.create(title: "Paint", price: "2.00", image: 'bike_shoe.jpg', description: 'Can you paint a bike? Let\'s try!', status: 0)
 item_10 = Item.create(title: "Grips", price: "14.90", image: 'bike_shoe.jpg', description: 'The better to grip the bike.', status: 0)
-item_11 = Item.create(title: "Grips", price: "84.90", image: 'bike_shoe.jpg', description: 'No one was buying these, they\' top of the line', status: 1)
+item_11 = Item.create(title: "Grips 2", price: "84.90", image: 'bike_shoe.jpg', description: 'No one was buying these, they\' top of the line', status: 1)
 item_12 = Item.create(title: "Bike Seat", price: "40.00", image: 'bike_shoe.jpg', description: 'Keep your bum comfty!', status: 0)
 
 user_1 = User.create(first_name: "Kat", last_name: "Yruegas", email: "kat@email.com", username: "katuser", password: "test", role: 0, address: "Test Address")
