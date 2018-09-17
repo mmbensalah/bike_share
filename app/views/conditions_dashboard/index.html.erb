@@ -1,1 +1,24 @@
-<h1>Conditions Dashboard</h1>
+<h1 class='text-center'>Conditions Dashboard</h1>
+
+<ul class="list-group">
+  <li class="list-group-item">Most rides from 99F - 90F: <%= @rides_ten_degrees_max %> rides</li>
+  <li class="list-group-item">Most rides from 89F - 80F: <%= @rides_ten_degrees_max_1 %> rides</li>
+  <li class="list-group-item">Most rides from 79F - 70F: <%= @rides_ten_degrees_max_2 %> rides</li>
+  <li class="list-group-item">Most rides from 69F - 60F: <%= @rides_ten_degrees_max_3 %> rides</li>
+  <li class="list-group-item">Least rides from 99F - 90F: <%= @rides_ten_degrees_min %> rides</li>
+  <li class="list-group-item">Least rides from 89F - 80F: <%= @rides_ten_degrees_min_1 %> rides</li>
+  <li class="list-group-item">Least rides from 79F - 70F: <%= @rides_ten_degrees_min_2 %> rides</li>
+  <li class="list-group-item">Least rides from 69F - 60F: <%= @rides_ten_degrees_min_3 %> rides</li>
+  <li class="list-group-item">Most rides with precipitation 0in - 0.5in: <%= @rides_precipitation_max %> rides</li>
+  <li class="list-group-item">Most rides with precipitation 0.6in - 1.0in: <%= @rides_precipitation_max_1 %> rides</li>
+  <li class="list-group-item">Least rides with precipitation 0in - 0.5in: <%= @rides_precipitation_min %> rides</li>
+  <li class="list-group-item">Least rides with precipitation 0.6in - 1.0in: <%= @rides_precipitation_min_1 %> rides</li>
+  <li class="list-group-item">Most rides with mean speed 0mi - 4mi: <%= @rides_mean_wind_speed_max %> rides</li>
+  <li class="list-group-item">Most rides with mean speed 5mi - 9mi: <%= @rides_mean_wind_speed_max_1 %> rides</li>
+  <li class="list-group-item">Least rides with mean speed 0mi - 4mi: <%= @rides_mean_wind_speed_min %> rides</li>
+  <li class="list-group-item">Least rides with mean speed 5mi - 9mi: <%= @rides_mean_wind_speed_min_1 %> rides</li>
+  <li class="list-group-item">Most rides with mean visibility 10mi - 14mi: <%= @rides_mean_visibility_max_1  %> rides</li>
+  <li class="list-group-item">Most rides with mean visibility 15mi - 19mi: <%= @rides_mean_visibility_max_2  %> rides</li>
+  <li class="list-group-item">Least rides with mean visibility 10mi - 14mi: <%= @rides_mean_visibility_min_1 %> rides</li>
+  <li class="list-group-item">Least rides with mean visibility 15mi - 19mi: <%= @rides_mean_visibility_min_2 %> rides</li>
+</ul>
