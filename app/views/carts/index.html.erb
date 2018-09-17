@@ -14,8 +14,16 @@
       <h5 class="card-title"><%= item.title %></h5>
       <p class="card-text">Price: <%= number_to_currency(item.price) %></p>
       <p class="card-text">Quantity: <%= @cart.contents[item.id.to_s] %></p>
+      <p class="card-text">Adjust Quantity:
+        <%= form_with url: cart_path(@cart), method: :patch do |f| %>
+          <%= f.hidden_field :item_id, value: item.id %>
+          <%= f.number_field :quantity, min: 1 %>
+        <%= f.submit "Update Quantity" %>
+        <% end %>
+      </p>
       <p class="card-text">Subtotal: <%= number_to_currency((item.price * @cart.contents[item.id.to_s])) %></p>
     </div><s></s>
+    <%= button_to "Remove from cart", cart_path(id: item.id), method: :delete, class: "btn btn-primary" %>
   </div>
     <% end %>
 </div>

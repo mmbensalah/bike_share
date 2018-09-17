@@ -1,17 +1,30 @@
 <h1 class='text-center'><%= @station.name %> Station</h1>
 <%= link_to "Back to All Stations", stations_path, class: 'text-center'%>
 <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Dock Count</th>
+      <th scope="col">City</th>
+      <th scope="col">Installation Date</th>
+      <th scope="col">Options</th>
+    </tr>
+  </thead>
   <tbody>
     <tr>
+      <div id="station-attributes">
       <th scope="row"><%= @station.id %></th>
-        <td>Dock Count: <%= @station.dock_count %></td>
-        <td>City: <%= @station.city %></td>
-        <td>Installation Date: <%= @station.installation_date %></td>
+        <td><%= @station.name %></td>
+        <td><%= @station.dock_count %></td>
+        <td><%= @station.city %></td>
+        <td><%= @station.installation_date %></td>
       <% if current_admin? %>
         <td><%= link_to "Edit", edit_admin_station_path(@station), class: "btn btn-warning" %></td>
         <td><%= link_to "Delete", admin_station_path(@station), method: :delete, class: "btn btn-danger",
           data: {confirm: "Are you sure you want to delete #{@station.name}?"} %></td>
       <% end %>
+    </div>
     </tr>
   </tbody>
 </table>
@@ -37,7 +50,7 @@
       </li>
       <li class="list-group-item d-flex justify-content-between align-items-center">
         Date of most trips:
-        <span class="badge badge-primary badge-pill"><%= @show_data[:most_trips].keys.first %> with <%= @show_data[:most_trips].values.first %> rides</span>
+        <span class="badge badge-primary badge-pill"><%= @show_data[:most_trips].keys.first.in_time_zone("MST").strftime("%m/%d/%Y") %> with <%= @show_data[:most_trips].values.first %> rides</span>
       </li>
       <li class="list-group-item d-flex justify-content-between align-items-center">
         Most frequent rider zip code:
@@ -48,7 +61,7 @@
         <span class="badge badge-primary badge-pill"><%= @show_data[:top_bike].keys.first %> (id) with <%= @show_data[:top_bike].values.first %> rides</span>
       </li>
     </ul>
-  <% end %>
   <% else %>
     <p>Station has no data yet. Nothing to see here!</p>
+  <% end %>
 <% end %>
