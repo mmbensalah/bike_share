@@ -11,10 +11,10 @@
 </div>
 <% end %>
 <div class='text-center'>
-  Status: <b><%= @order.status %></b> <%= if @order.status == ("completed" || "cancelled") then "at #{@order.updated_at}" end%>
+  Status: <b><%= @order.status %></b> <%= if @order.status == ("completed" || "cancelled") then "at #{@order.updated_at.in_time_zone("MST").strftime("%m/%d/%Y %I:%M %P")}" end%>
 </div>
 <div class='text-center'>
-  Created at: <b><%= @order.created_at %></b>
+  Order Submitted: <b><%= @order.created_at.in_time_zone("MST").strftime("%m/%d/%Y %I:%M %P") %></b>
 </div>
 <table class="table">
   <thead>
@@ -44,3 +44,9 @@
   </tr>
   </tbody>
 </table>
+
+<% if current_admin? %>
+  <%= link_to "Back to all Orders", admin_dashboard_path %>
+<% else %>
+  <%= link_to "Back to all Orders", dashboard_path %>
+<% end %>
