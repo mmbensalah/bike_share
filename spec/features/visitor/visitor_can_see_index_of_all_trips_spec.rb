@@ -24,7 +24,6 @@ describe 'visitor can see all trips' do
       expect(page).to have_content(trip_2.zip_code)
       expect(page).to have_content(trip_2.start_station_id)
       expect(page).to have_content(trip_2.end_station_id)
-
     end
 
     describe 'on the trips index page' do
