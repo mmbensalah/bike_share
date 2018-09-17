@@ -22,7 +22,7 @@ describe 'As an admin' do
       click_on('Create Item')
 
       expect(current_path).to eq item_path(Item.last.id)
-      expect(page).to have_content("Item #{@item.title} has been successfully created!")
+      expect(page).to have_content("Item #{Item.last.title} has been successfully created!")
       expect(page).to have_content(title)
       expect(page).to have_content(price)
       expect(page).to have_content(description)
