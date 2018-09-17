@@ -50,7 +50,7 @@ RSpec.describe Condition, type: :model do
     it '#rides_precipitation_max' do
 
       expect(Condition.rides_precipitation_max(0, 0.5)).to eq([3])
-      expect(Condition.rides_precipitation_max(0.6, 1.0)).to eq([3])
+      expect(Condition.rides_precipitation_max(0.6, 1.0)).to eq([1])
     end
 
     it '#rides_precipitation_min' do
@@ -82,10 +82,5 @@ RSpec.describe Condition, type: :model do
       expect(Condition.rides_mean_visibility_min(0, 4)).to eq([1])
       expect(Condition.rides_mean_visibility_min(5, 9)).to eq([1])
     end
-
-
-
-
-
   end
 end
