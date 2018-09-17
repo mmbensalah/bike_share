@@ -17,7 +17,7 @@ describe 'admin can visit individual order show page' do
     expect(page).to have_content("#{order.user.last_name}")
     expect(page).to have_content("#{order.user.address}")
     order.order_items.each do |order_item|
-      expect(page).to have_content("#{order_item.title}")
+      expect(page).to have_content("#{order_item.item.title}")
       expect(page).to have_content("#{order_item.price}")
       expect(page).to have_content("#{order_item.quantity}")
     end
