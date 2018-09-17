@@ -32,9 +32,9 @@ describe "As an admin" do
 
       expect(page).to have_content(station.name)
       within("#station-attributes") do
-        expect(page).to have_content("Dock Count: #{dock_count}")
+        expect(page).to have_content("#{dock_count}")
         expect(page).to have_content(city)
-        expect(page).to have_content("Installation Date: #{date}")
+        expect(page).to have_content("#{date}")
         expect(page).to_not have_content("Dock Count: #{old_dock_count}")
         expect(page).to_not have_content(station.city)
       end
