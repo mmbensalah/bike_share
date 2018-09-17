@@ -9,6 +9,9 @@ class Admin::ItemsController < Admin::BaseController
 
   def create
     @item = Item.create(item_params)
+    if @item.image == ""
+      @item.image = "trail_bike.jpg"
+    end
     if @item.save
       flash[:success] = "Item #{@item.title} has been successfully created!"
       redirect_to item_path(@item)

@@ -94,3 +94,7 @@ end
 ActiveRecord::Base.connection.reset_pk_sequence!('stations')
 ActiveRecord::Base.connection.reset_pk_sequence!('trips')
 ActiveRecord::Base.connection.reset_pk_sequence!('conditions')
+ActiveRecord::Base.connection.reset_pk_sequence!('items')
+ActiveRecord::Base.connection.reset_pk_sequence!('users')
+ActiveRecord::Base.connection.reset_pk_sequence!('orders')
+ActiveRecord::Base.connection.reset_pk_sequence!('order_items')
