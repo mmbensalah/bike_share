@@ -12,7 +12,7 @@ class Trip < ApplicationRecord
   belongs_to :end_station, class_name: "Station", foreign_key: :end_station_id
 
   def self.average_duration
-    average(:duration)
+    (average(:duration) / 60).round(2)
   end
 
   def self.longest_ride
@@ -99,4 +99,10 @@ class Trip < ApplicationRecord
     all_years
   end
 
+  def weather_on_most_rides
+    Condition.find(Trip.date_with_least_trips)
+  end
+
+  def weather_on_least_rides
+  end
 end
