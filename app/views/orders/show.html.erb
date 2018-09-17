@@ -11,10 +11,13 @@
 </div>
 <% end %>
 <div class='text-center'>
-  Status: <b><%= @order.status %></b> <%= if @order.status == ("completed" || "cancelled") then "at #{@order.updated_at.in_time_zone("MST").strftime("%m/%d/%Y %I:%M %P")}" end%>
+  <p>Status: <%= @order.status.capitalize %></p>
 </div>
 <div class='text-center'>
-  Order Submitted: <b><%= @order.created_at.in_time_zone("MST").strftime("%m/%d/%Y %I:%M %P") %></b>
+  <p>Order Submitted: <%= @order.created_at.in_time_zone("MST").strftime("%m/%d/%Y %I:%M %P") %></p>
+  <% if @order.status == ("completed" || "cancelled") %>
+    <p>Order Updated: <%= @order.updated_at.in_time_zone("MST").strftime("%m/%d/%Y %I:%M %P") %></p>
+  <% end %>
 </div>
 <table class="table">
   <thead>
