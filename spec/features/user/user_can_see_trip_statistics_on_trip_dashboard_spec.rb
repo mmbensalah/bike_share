@@ -6,6 +6,7 @@ describe 'Trips Dashboard' do
       user = create(:user)
       5.times { create(:trip, subscription_type: "Customer") }
       5.times { create(:trip, subscription_type: "Subscriber") }
+      5.times { create(:condition) }
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
       visit trips_dashboard_path
       expect(page).to have_content("Average duration of ride: #{Trip.average_duration}")
@@ -26,6 +27,7 @@ describe 'Trips Dashboard' do
       subscribe_percents = Trip.subscription_percents
       expect(page).to have_content(subscribe_percents["Subscriber"])
       expect(page).to have_content(subscribe_percents["Customer"])
+      expect(page).to have_content(Condition.find_by(date: Trip.date_with_most_trips[:date]))
     end
   end
 end

@@ -98,11 +98,4 @@ class Trip < ApplicationRecord
     end
     all_years
   end
-
-  def weather_on_most_rides
-    Condition.find(Trip.date_with_least_trips)
-  end
-
-  def weather_on_least_rides
-  end
 end
