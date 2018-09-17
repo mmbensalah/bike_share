@@ -23,6 +23,17 @@ describe "As an authenticated admin" do
         expect(page).to have_content("Edit")
       end
     end
+
+    it 'should have link to create new item' do
+      admin = create(:user, role: 1)
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
+
+      visit admin_bike_shop_path
+
+      click_on("Add New Item")
+
+      expect(current_path).to eq(new_admin_item_path)
+    end
   end
 
   describe "As a user" do

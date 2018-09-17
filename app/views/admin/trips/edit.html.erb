@@ -20,7 +20,7 @@
     </div>
     <div class="form-group">
       <%= f.label :subscription_type %>
-      <%= f.text_field :subscription_type %>
+      <%= f.select :subscription_type, ['Subscriber', 'Customer'] %>
     </div>
     <div class="form-group">
       <%= f.label :zip_code %>
@@ -34,7 +34,7 @@
       <%= f.label :end_station_id %>
       <%= f.collection_select :end_station_id, @stations, :id, :name, prompt: true %>
     </div>
-  
+
     <%= f.submit "Update Trip" %>
 
   <% end %>

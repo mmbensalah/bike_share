@@ -57,6 +57,7 @@ describe 'As a user' do
       expect(page).to have_content(@item_2.title)
       expect(page).to have_content(@item_2.price)
       expect(page).to have_content("Total: $47.50")
+      expect(page).to have_content("Back to all Orders")
     end
   end
 

@@ -1,66 +1,77 @@
 <h1 class='text-center'>Trips Dashboard</h1>
 
 <ul class="list-group">
-  <li class="list-group-item d-flex justify-content-between align-items-center">
-    Average duration of ride:
-    <span class="badge badge-primary badge-pill"><%= @average_duration %></span>
-  </li>
-  <li class="list-group-item d-flex justify-content-between align-items-center">
-    Longest ride:
-    <span class="badge badge-primary badge-pill"><%= @longest_ride.duration %></span>
-  </li>
-  <li class="list-group-item d-flex justify-content-between align-items-center">
-    Shortest ride:
-    <span class="badge badge-primary badge-pill"><%= @shortest_ride.duration %></span>
-  </li>
-  <li class="list-group-item d-flex justify-content-between align-items-center">
-    Station where most rides start:
-    <span class="badge badge-primary badge-pill"><%= @most_rides_start.name %></span>
-  </li>
-  <li class="list-group-item d-flex justify-content-between align-items-center">
-    Station where most rides end:
-    <span class="badge badge-primary badge-pill"><%= @most_rides_end.name %></span>
-  </li>
-  <li class="list-group-item d-flex justify-content-between align-items-center">
-    Most ridden bike:
-    <small>Trip count: <%= @most_ridden_bike[:count] %></small>
-    <span class="badge badge-primary badge-pill"><%= @most_ridden_bike[:bike] %></span>
-  </li>
-  <li class="list-group-item d-flex justify-content-between align-items-center">
-    Least ridden bike:
-    <small>Trip count: <%= @least_ridden_bike[:count] %></small>
-    <span class="badge badge-primary badge-pill"><%= @least_ridden_bike[:bike] %></span>
-  </li>
-  <li class="list-group-item d-flex justify-content-between align-items-center">
-    Date with highest number of trips:
-    <small>Trip count: <%= @date_with_highest_trips[:trips] %></small>
-    <span class="badge badge-primary badge-pill"><%= @date_with_highest_trips[:date] %></span>
-  </li>
-  <li class="list-group-item d-flex justify-content-between align-items-center">
-    Date with least number of trips:
-        <small>Trip count: <%= @date_with_least_trips[:trips] %></small>
-    <span class="badge badge-primary badge-pill"><%= @date_with_least_trips[:date] %></span>
-  </li>
-  <li class="list-group-item d-flex justify-content-between align-items-center">
-    Subscriber breakdown:
-        <small>Trip count: <%= @subscription_counts["Subscriber"] %></small>
-    <span class="badge badge-primary badge-pill">Percent: <%= @subscription_percents["Subscriber"] %></span>
-  </li>
-  <li class="list-group-item d-flex justify-content-between align-items-center">
-    Customer breakdown:
-        <small>Trip count: <%= @subscription_counts["Customer"] %></small>
-    <span class="badge badge-primary badge-pill">Percent: <%= @subscription_percents["Customer"] %></span>
-  </li>
+  <li class="list-group-item"><strong>Average duration of ride:</strong> <%= @average_duration %> minutes</li>
+  <li class="list-group-item"><strong>Longest ride:</strong> <%= @longest_ride.duration / 60 %> minutes</li>
+  <li class="list-group-item"><strong>Shortest ride:</strong> <%= @shortest_ride.duration / 60 %> minute</li>
+  <li class="list-group-item"><strong>Station where most rides start:</strong> <%= @most_rides_start.name %></li>
+  <li class="list-group-item"><strong>Station where most rides end:</strong> <%= @most_rides_end.name %></li>
+</ul>
+
+<ul class="list-group">
+  <li class="list-group-item"><strong>Most ridden bike:</strong> <%= @most_ridden_bike[:bike] %></li>
+  <li class="list-group-item">Trip count: <%= @most_ridden_bike[:count] %></li>
+</ul>
+
+<ul class="list-group">
+  <li class="list-group-item"><strong>Least ridden bike:</strong> <%= @least_ridden_bike[:bike] %></li>
+  <li class="list-group-item">Trip count: <%= @least_ridden_bike[:count] %></li>
+</ul>
+
+<ul class="list-group">
+  <li class="list-group-item"><strong>Date with highest number of trips:</strong> <%= @date_with_highest_trips[:date] %></li>
+  <li class="list-group-item">Trip count: <%= @date_with_highest_trips[:trips] %></li>
+</ul>
+
+<ul class="list-group">
+  <li class="list-group-item"><strong>Date with lowest number of trips:</strong> <%= @date_with_least_trips[:date] %></li>
+  <li class="list-group-item">Trip count: <%= @date_with_least_trips[:trips] %></li>
+</ul>
+
+<ul class="list-group">
+  <li class="list-group-item"><strong>Subscriber breakdown:</strong> <%= @subscription_percents["Subscriber"] %></li>
+  <li class="list-group-item">Trip count: <%= @subscription_counts["Subscriber"] %></li>
+</ul>
+
+<ul class="list-group">
+  <li class="list-group-item"><strong>Customer breakdown:</strong> <%= @subscription_percents["Customer"] %></li>
+  <li class="list-group-item">Trip count: <%= @subscription_counts["Customer"] %></li>
+</ul>
+
+<ul class="list-group">
   <% @rides_per_month.each do |month, count| %>
-  <li class="list-group-item d-flex justify-content-between align-items-center">
-    Month of <%= month %>:
-    <span class="badge badge-primary badge-pill">Trips: <%= count %></span>
-  </li>
+  <li class="list-group-item"><strong>Month of <%= month %>:</strong> </li>
+  <li class="list-group-item">Trips: <%= count %></li>
   <% end %>
+</ul>
+
+<ul class="list-group">
   <% @year_counts.each do |pair| %>
-  <li class="list-group-item d-flex justify-content-between align-items-center">
-    Year of <%= pair.keys[0] %>:
-    <span class="badge badge-primary badge-pill">Trips: <%= pair.values[0] %></span>
-  </li>
+  <li class="list-group-item"><strong>Year of <%= pair.keys[0] %>:</strong> </li>
+  <li class="list-group-item">Trips: <%= pair.values[0] %></li>
   <% end %>
+</ul>
+
+<ul class="list-group">
+  <li class="list-group-item"><strong>Weather Conditions for most rides:</strong></li>
+  <li class="list-group-item">Date: <%= @weather_on_most_rides.date.strftime "%m-%d-%Y" %></li>
+  <li class="list-group-item">Max Temperature: <%= @weather_on_most_rides.max_temperature %></li>
+  <li class="list-group-item">Mean Temperature: <%= @weather_on_most_rides.mean_temperature %></li>
+  <li class="list-group-item">Min Temperature: <%= @weather_on_most_rides.min_temperature %></li>
+  <li class="list-group-item">Mean Humidity: <%= @weather_on_most_rides.mean_humidity %></li>
+  <li class="list-group-item">Mean Visibility: <%= @weather_on_most_rides.mean_visibility %></li>
+  <li class="list-group-item">Mean Wind Speed: <%= @weather_on_most_rides.mean_wind_speed %></li>
+  <li class="list-group-item">Precipitation: <%= @weather_on_most_rides.precipitation %></li>
+</ul>
+
+<ul class="list-group">
+  <li class="list-group-item"><strong>Weather Conditions for least rides:</strong></li>
+  <li class="list-group-item">Date: <%= @weather_on_least_rides.date.strftime "%m-%d-%Y" %></li>
+  <li class="list-group-item">Max Temperature: <%= @weather_on_least_rides.max_temperature %></li>
+  <li class="list-group-item">Mean Temperature: <%= @weather_on_least_rides.mean_temperature %></li>
+  <li class="list-group-item">Min Temperature: <%= @weather_on_least_rides.min_temperature %></li>
+  <li class="list-group-item">Mean Humidity: <%= @weather_on_least_rides.mean_humidity %></li>
+  <li class="list-group-item">Mean Visibility: <%= @weather_on_least_rides.mean_visibility %></li>
+  <li class="list-group-item">Mean Wind Speed: <%= @weather_on_least_rides.mean_wind_speed %></li>
+  <li class="list-group-item">Precipitation: <%= @weather_on_least_rides.precipitation %></li>
 </ul>

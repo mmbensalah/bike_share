@@ -16,9 +16,9 @@ RSpec.describe Trip, type: :model do
   end
   describe 'methods' do
     it 'average_duration' do
-      trip_1 = create(:trip, duration: 1)
-      trip_2 = create(:trip, duration: 3)
-      expect(Trip.average_duration).to eq(2)
+      trip_1 = create(:trip, duration: 100)
+      trip_2 = create(:trip, duration: 300)
+      expect(Trip.average_duration).to eq(3.33)
     end
     it 'longest_ride' do
       trip_1 = create(:trip, duration: 1)

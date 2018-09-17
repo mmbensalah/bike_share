@@ -25,9 +25,9 @@ describe "As an admin" do
 
       expect(current_path).to eq(station_path(Station.last))
       expect(page).to have_content("Station #{name} has been successfully created!")
-      expect(page).to have_content("Dock Count: #{dock_count}")
+      expect(page).to have_content("#{dock_count}")
       expect(page).to have_content(city)
-      expect(page).to have_content("Installation Date: #{date}")
+      expect(page).to have_content("#{date}")
     end
 
     it 'should not save if name is duplicated' do
