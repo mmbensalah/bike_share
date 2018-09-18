@@ -52,7 +52,21 @@ OrderItem.create(order_id: order_3.id, item_id: item_3.id, price: 5.00, quantity
 OrderItem.create(order_id: order_4.id, item_id: item_4.id, price: 6.99, quantity: 3)
 OrderItem.create(order_id: order_5.id, item_id: item_7.id, price: 100.00, quantity: 1)
 OrderItem.create(order_id: order_6.id, item_id: item_8.id, price: 55.00, quantity: 2)
-OrderItem.create(order_id: order_7.id, item_id: item_10.id, price: 14.90, quantity: 2)
+OrderItem.create(order_id: order_7.id, item_id: item_10.id, price: 15.90, quantity: 2)
+OrderItem.create(order_id: order_8.id, item_id: item_10.id, price: 24.90, quantity: 2)
+OrderItem.create(order_id: order_8.id, item_id: item_10.id, price: 14.90, quantity: 2)
+OrderItem.create(order_id: order_10.id, item_id: item_10.id, price: 19.90, quantity: 2)
+OrderItem.create(order_id: order_11.id, item_id: item_10.id, price: 20.90, quantity: 2)
+OrderItem.create(order_id: order_12.id, item_id: item_10.id, price: 14.00, quantity: 2)
+OrderItem.create(order_id: order_13.id, item_id: item_10.id, price: 15.50, quantity: 2)
+OrderItem.create(order_id: order_14.id, item_id: item_10.id, price: 14.90, quantity: 2)
+OrderItem.create(order_id: order_15.id, item_id: item_10.id, price: 14.90, quantity: 2)
+OrderItem.create(order_id: order_16.id, item_id: item_10.id, price: 14.90, quantity: 2)
+OrderItem.create(order_id: order_17.id, item_id: item_10.id, price: 14.90, quantity: 2)
+OrderItem.create(order_id: order_18.id, item_id: item_10.id, price: 14.90, quantity: 2)
+OrderItem.create(order_id: order_18.id, item_id: item_10.id, price: 14.90, quantity: 2)
+OrderItem.create(order_id: order_17.id, item_id: item_10.id, price: 14.90, quantity: 2)
+OrderItem.create(order_id: order_16.id, item_id: item_10.id, price: 14.90, quantity: 2)
 
 
 CSV.foreach("./db/csv/station.csv", headers: true, header_converters: :symbol) do |row|
