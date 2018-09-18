@@ -17,3 +17,15 @@
 .welcome-page {
   background-image: url("asphalt-bicycle.jpg") cover no-repeat;
 }
+
+.card-img-top {
+    width: 100%;
+    height: 15vw;
+    object-fit: cover;
+}
+
+.card-img-top-table {
+    width: 50%;
+    height: 15vw;
+    object-fit: cover;
+}

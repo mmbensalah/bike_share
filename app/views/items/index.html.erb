@@ -1,22 +1,25 @@
-<h1>Items available in the Bike Shop!</h1>
-
-<div class="card-deck">
-  <% @items.each do |item| %>
-  <div class =' card item' id="item-<%= item.id %>">
-  <%= image_tag(item.image, class: "card-img-top", alt: "Bike picture") %>
-  <div class="card-body">
-    <h5 class="card-title"><%= link_to item.title, item_path(item) %></h5>
-    <p class="card-text">Price: <%= number_to_currency(item.price) %></p>
-    <p class="card-text"><%= item.description %></p>
+<h1 class='text-center'>Items available in the Bike Shop!</h1>
+<div class="container-fluid">
+  <div class="row">
+    <% @items.each do |item| %>
+      <div class="col-sm-6 col-lg-3 py-2">
+        <div class ='card' id="item-<%= item.id %>">
+          <%= image_tag(item.image, class: "card-img-top", alt: "Bike picture") %>
+        <div class="card-body">
+          <h5 class="card-title"><%= link_to item.title, item_path(item) %></h5>
+          <p class="card-text">Price: <%= number_to_currency(item.price) %></p>
+          <p class="card-text"><%= item.description %></p>
+        </div>
+          <% if item.status == "active" %>
+            <%= button_to "Add to Cart", cart_path(item_id: item.id) %>
+          <% else %>
+            <p style='color: red'>Item Retired</p>
+          <% end %>
+          <% if current_admin? %>
+            <%= link_to "Edit Item", edit_admin_item_path(item), class: 'btn btn-secondary text-center' %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
   </div>
-    <% if item.status == "active" %>
-      <%= button_to "Add to Cart", cart_path(item_id: item.id) %>
-    <% else %>
-      <p style='color: red'>Item Retired</p>
-    <% end %>
-    <% if current_admin? %>
-      <%= link_to "Edit Item", edit_admin_item_path(item), class: 'btn btn-secondary text-center' %>
-    <% end %>
-  </div>
-    <% end %>
 </div>
