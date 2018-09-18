@@ -30,6 +30,16 @@ class Condition < ApplicationRecord
     response.values
   end
 
+  def self.average_rides_ten_degrees(start_temp, end_temp)
+    dates_count = Condition.select(:date).where(max_temperature: [start_temp..end_temp]).count(:id)
+    trips = Trip.select("trips.start_date")
+        .joins("join conditions on conditions.date = trips.start_date")
+        .where("conditions.max_temperature between #{start_temp} and #{end_temp}")
+        .group(:start_date)
+        .count(:id)
+    (trips.values.sum) / (dates_count.to_f)
+  end
+
   def self.rides_precipitation_max(start_amount, end_amount)
     response = Trip.select("trips.start_date")
                 .joins("join conditions on conditions.date = trips.start_date")
@@ -50,6 +60,16 @@ class Condition < ApplicationRecord
                 .group(:start_date)
                 .count(:id)
     response.values
+  end
+
+  def self.average_rides_precipitation(start_amount, end_amount)
+    dates_count = Condition.select(:date).where(precipitation: [start_amount..end_amount]).count(:id)
+    trips = Trip.select("trips.start_date")
+                .joins("join conditions on conditions.date = trips.start_date")
+                .where("conditions.precipitation between #{start_amount} and #{end_amount}")
+                .group(:start_date)
+                .count(:id)
+      (trips.values.sum) / (dates_count.to_f)
   end
 
   def self.rides_mean_wind_speed_max(start_amount, end_amount)
@@ -74,6 +94,16 @@ class Condition < ApplicationRecord
     response.values
   end
 
+  def self.average_rides_wind_speed(start_speed, end_speed)
+    dates_count = Condition.select(:date).where(mean_wind_speed: [start_speed..end_speed]).count(:id)
+    trips = Trip.select("trips.start_date")
+                .joins("join conditions on conditions.date = trips.start_date")
+                .where("conditions.mean_wind_speed between #{start_speed} and #{end_speed}")
+                .group(:start_date)
+                .count(:id)
+      (trips.values.sum) / (dates_count.to_f)
+  end
+
   def self.rides_mean_visibility_max(start_amount, end_amount)
     response = Trip.select("trips.start_date")
                 .joins("join conditions on conditions.date = trips.start_date")
@@ -95,4 +125,14 @@ class Condition < ApplicationRecord
                 .count(:id)
     response.values
   end
+
+  def self.average_rides_visibility(start_amount, end_amount)
+    dates_count = Condition.select(:date).where(mean_visibility: [start_amount..end_amount]).count(:id)
+    trips = Trip.select("trips.start_date")
+                .joins("join conditions on conditions.date = trips.start_date")
+                .where("conditions.mean_visibility between #{start_amount} and #{end_amount}")
+                .group(:start_date)
+                .count(:id)
+      (trips.values.sum) / (dates_count.to_f)
+  end 
 end

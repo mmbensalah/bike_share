@@ -12,7 +12,7 @@ RSpec.describe Condition, type: :model do
     it { should validate_presence_of :precipitation}
   end
 
-  describe 'methods' do
+  describe ' class methods' do
     before(:each) do
       station_1 = create(:station)
       station_2 = create(:station)
@@ -24,6 +24,7 @@ RSpec.describe Condition, type: :model do
       condition_6 = Condition.create(          date: "2013/8/24", max_temperature: 80, mean_temperature: 84, min_temperature: 70, mean_humidity: 50, mean_visibility: 10, mean_wind_speed: 10, precipitation: 0)
       condition_7 = Condition.create(          date: "2013/8/23", max_temperature: 75, mean_temperature: 70, min_temperature: 65, mean_humidity: 50, mean_visibility: 5, mean_wind_speed: 5, precipitation: 0.5)
       condition_3 = Condition.create(          date: "2013/8/22", max_temperature: 75, mean_temperature: 70, min_temperature: 65, mean_humidity: 50, mean_visibility: 9, mean_wind_speed: 5, precipitation: 0.66)
+
       trip_1 = Trip.create!(duration: 60, start_date: "2013/8/29", end_date: "2013/8/28", bike_id: 1, subscription_type: 'subscriber', start_station_id: 1, end_station_id: 1)
       trip_2 = Trip.create!(duration: 50, start_date: "2013/8/29", end_date: "2013/8/28", bike_id: 2, subscription_type: 'subscriber', start_station_id: 2, end_station_id: 2)
       trip_3 = Trip.create!(duration: 40, start_date: "2013/8/28", end_date: "2013/8/28", bike_id: 3, subscription_type: 'subscriber', start_station_id: 2, end_station_id: 2)
@@ -81,6 +82,25 @@ RSpec.describe Condition, type: :model do
 
       expect(Condition.rides_mean_visibility_min(0, 4)).to eq([1])
       expect(Condition.rides_mean_visibility_min(5, 9)).to eq([1])
+    end
+
+    it '#average_rides_ten_degrees' do
+      expect(Condition.average_rides_ten_degrees(80, 89)).to eq(4/6.0)
+    end
+
+    it '#average_rides_precipitation' do
+      expect(Condition.average_rides_precipitation(0, 0.5)).to eq(6/4.0)
+      expect(Condition.average_rides_precipitation(0.6, 1.0)).to eq(2/4.0)
+    end
+
+    it '#average_rides_wind_speed' do
+      expect(Condition.average_rides_wind_speed(0, 4)).to eq(3/2.0)
+      expect(Condition.average_rides_wind_speed(5, 9)).to eq(5/3.0)
+    end
+
+    it '#average_rides_visibility' do
+      expect(Condition.average_rides_visibility(0, 4)).to eq(3/2.0)
+      expect(Condition.average_rides_visibility(5, 9)).to eq(4/2.0)
     end
   end
 end
