@@ -8,7 +8,7 @@ describe "As a visitor" do
 
       visit bike_shop_path
 
-      expect(page).to have_css(".item"), minimum: 13
+      expect(page).to have_css(".item"), count: 13
       expect(page).to have_content(items.first.title)
       expect(page).to have_content(items.first.price)
       expect(page).to have_content(items.first.description)
