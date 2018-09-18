@@ -8,7 +8,7 @@
     <p class="card-text"><%= @item.description %></p>
   </div>
   <% if @item.status == "active" %>
-    <%= button_to "Add to Cart", carts_path(item_id: @item.id) %>
+    <%= button_to "Add to Cart", cart_path(item_id: @item.id) %>
   <% else %>
     <p style='color: red'>Item Retired</p>
   <% end %>
