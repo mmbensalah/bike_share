@@ -41,7 +41,7 @@ class ConditionsDashboardController < ApplicationController
 
     def format_array(result)
       if result == []
-        "No "
+        "0 "
       else
         result[0]
       end
