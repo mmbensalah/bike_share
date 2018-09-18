@@ -12,7 +12,6 @@ describe 'visitor can change cart quantities' do
         click_on("Add to Cart")
       end
 
-
       visit cart_path
       within("#cart-item-1") do
         fill_in :quantity, with: 2

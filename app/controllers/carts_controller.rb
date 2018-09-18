@@ -8,13 +8,13 @@ class CartsController < ApplicationController
     @cart.add_item(item.id)
     session[:cart] = @cart.contents
     flash[:success] = "You have successfully added #{item.title} to your cart."
-
     redirect_to bike_shop_path
   end
 
   def update
     item = Item.find(params[:item_id])
     @cart.contents[params[:item_id]] = params[:quantity].to_i
+    Item.reset_column_information
     flash[:success] = "You have successfully adjusted the quantity of #{item.title}"
     redirect_to cart_path
   end
