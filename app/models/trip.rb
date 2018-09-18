@@ -61,7 +61,7 @@ class Trip < ApplicationRecord
                  .limit(1)
                  .group(:start_date)
                  .count(:id).to_a.flatten
-    { date: date_trips[0].strftime("%m/%d/%Y"), trips: date_trips[1] }
+    { date: date_trips[0], trips: date_trips[1] }
   end
 
   def self.date_with_least_trips
@@ -69,7 +69,7 @@ class Trip < ApplicationRecord
                  .limit(1)
                  .group(:start_date)
                  .count(:id).to_a.flatten
-    { date: date_trips[0].strftime("%m/%d/%Y"), trips: date_trips[1] }
+    { date: date_trips[0], trips: date_trips[1] }
   end
 
   def self.subscription_counts

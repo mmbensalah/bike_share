@@ -6,6 +6,9 @@ describe 'Trips Dashboard' do
       user = create(:user)
       create(:trip)
       create(:trip)
+      create(:condition, date: Trip.first.start_date)
+      create(:condition, date: Trip.last.start_date)
+      create(:condition, date: Trip.last.start_date)
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
       visit trips_dashboard_path
 
