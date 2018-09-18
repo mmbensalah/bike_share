@@ -8,6 +8,8 @@ class Condition < ApplicationRecord
                         :mean_wind_speed,
                         :precipitation
 
+
+
   def self.rides_ten_degrees_max(start_temp, end_temp)
     response = Trip.select("trips.start_date")
                 .joins("join conditions on conditions.date = trips.start_date")
