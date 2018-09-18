@@ -14,7 +14,6 @@ class CartsController < ApplicationController
   def update
     item = Item.find(params[:item_id])
     @cart.contents[params[:item_id]] = params[:quantity].to_i
-    Item.reset_column_information
     flash[:success] = "You have successfully adjusted the quantity of #{item.title}"
     redirect_to cart_path
   end
