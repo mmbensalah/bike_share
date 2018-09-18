@@ -15,7 +15,10 @@ Rails.application.routes.draw do
 
   resources :conditions, only: [:index, :show]
 
-  resources :carts, only: [:create, :index, :update, :destroy]
+  get '/cart', to: 'carts#index'
+  post '/cart', to: 'carts#create'
+  patch '/cart', to: 'carts#update'
+  delete '/cart', to: 'carts#destroy'
 
   resources :users, only: [:new, :create, :edit, :update]
 

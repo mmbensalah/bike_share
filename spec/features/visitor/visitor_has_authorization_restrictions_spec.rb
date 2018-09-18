@@ -15,7 +15,7 @@ describe 'visitor has authorization restrictions' do
       visit order_path(order)
       expect(page).to have_content("The page you were looking for doesn't exist.")
 
-      visit carts_path
+      visit cart_path
       click_on "Checkout"
       expect(current_path).to eq(login_path)
       visit edit_user_path(order.user)
