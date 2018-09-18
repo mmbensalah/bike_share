@@ -18,7 +18,7 @@ describe 'As a user' do
 
       find("#nav-cart-link").click
 
-      expect(current_path).to eq(carts_path)
+      expect(current_path).to eq(cart_path)
       within("#cart-item-#{item_1.id}") do
         expect(page).to have_content(item_1.title)
         expect(page).to have_content(item_1.price)

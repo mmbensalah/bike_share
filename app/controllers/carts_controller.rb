@@ -16,7 +16,7 @@ class CartsController < ApplicationController
     item = Item.find(params[:item_id])
     @cart.contents[params[:item_id]] = params[:quantity].to_i
     flash[:success] = "You have successfully adjusted the quantity of #{item.title}"
-    redirect_to carts_path
+    redirect_to cart_path
   end
 
   def destroy
@@ -24,6 +24,6 @@ class CartsController < ApplicationController
     @cart.remove_item(item.id)
     session[:cart] = @cart.contents
     flash[:success] = "#{view_context.link_to item.title, item_path(item)} removed from cart."
-    redirect_to carts_path
+    redirect_to cart_path
   end
 end

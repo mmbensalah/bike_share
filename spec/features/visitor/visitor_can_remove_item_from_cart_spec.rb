@@ -21,7 +21,7 @@ describe 'As a visitor' do
         click_on('Remove from cart')
       end
 
-      expect(current_path).to eq(carts_path)
+      expect(current_path).to eq(cart_path)
 
       expect(page).to have_link(item_1.title)
       expect(page).to have_content("#{item_1.title} removed from cart.")

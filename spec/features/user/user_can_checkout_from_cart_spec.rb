@@ -20,7 +20,7 @@ describe 'As a user' do
       end
 
       find("#nav-cart-link").click
-      expect(current_path).to eq(carts_path)
+      expect(current_path).to eq(cart_path)
 
       click_on 'Checkout'
 

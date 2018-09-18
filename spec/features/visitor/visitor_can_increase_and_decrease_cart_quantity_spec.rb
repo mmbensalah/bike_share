@@ -13,7 +13,7 @@ describe 'visitor can change cart quantities' do
       end
 
 
-      visit carts_path
+      visit cart_path
       within("#cart-item-1") do
         fill_in :quantity, with: 2
       end
