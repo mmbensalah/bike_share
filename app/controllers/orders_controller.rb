@@ -8,11 +8,10 @@ class OrdersController < ApplicationController
     else
       @order = Order.create(user_id: current_user.id)
       @cart.contents.each do |id, quantity|
-        @order.order_items.create(item_id: id, quantity: quantity, price: Item.find(id).price, title: Item.find(id).title)
+      @order.order_items.create(item_id: id, quantity: quantity, price: Item.find(id).price, title: Item.find(id).title)
       end
       if @order.save
         session[:cart] = nil
-
         flash[:message] = "Successfully submitted your order totaling #{@order.total_price}"
         redirect_to dashboard_path
       else
@@ -25,7 +24,7 @@ class OrdersController < ApplicationController
   def show
     @order = Order.find(params[:id])
     if current_user != @order.user
-      render file: "/public/404" unless current_admin?
+      render file: "/public/404"
     end
   end
 end

@@ -1,0 +1,17 @@
+<h1 class='text-center'>Order <%= @order.id %></h1>
+
+<% if current_admin? %>
+<div class="card mx-auto" style="width: 25rem;">
+  <div class="card-body">
+    <h5 class="card-title text-center">Order for <%= @order.user.last_name %>, <%= @order.user.first_name %></h5>
+    <p class="card-text">
+      <p class='float-left'>Address:</p>
+      <p class='float-right'><%= @order.user.address %></p>
+    </p>
+  </div>
+</div>
+<% end %>
+
+<%= render partial: 'orders/form' %>
+
+<%= link_to "Back to all Orders", admin_dashboard_path %>

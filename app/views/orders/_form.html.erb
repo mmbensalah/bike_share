@@ -1,0 +1,40 @@
+
+<div class='text-center'>
+  <p>Status: <%= @order.status.capitalize %></p>
+</div>
+<div class='text-center'>
+  <p>Order Submitted: <%= @order.created_at.in_time_zone("MST").strftime("%m/%d/%Y %I:%M %P") %></p>
+  <% if @order.status == "completed" %>
+    <p>Order Completed: <%= @order.updated_at.in_time_zone("MST").strftime("%m/%d/%Y %I:%M %P") %></p>
+  <% elsif @order.status == "cancelled" %>
+    <p>Order Cancelled: <%= @order.updated_at.in_time_zone("MST").strftime("%m/%d/%Y %I:%M %P") %></p>
+  <% end %>
+</div>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Item</th>
+      <th scope="col">Price</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Subtotal</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @order.order_items.each do |order_item| %>
+    <tr>
+      <div id="order-<%= @order.id %>">
+      <td><%= link_to "#{order_item.item.title}", item_path(order_item.item_id) %></td>
+      <td><%= number_to_currency(order_item.price) %></td>
+      <td><%= order_item.quantity %></td>
+      <td><%= number_to_currency(order_item.price * order_item.quantity) %></td>
+      <div>
+    </tr>
+    <% end %>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>Total: <%= @order.total_price %></td>
+  </tr>
+  </tbody>
+</table>
