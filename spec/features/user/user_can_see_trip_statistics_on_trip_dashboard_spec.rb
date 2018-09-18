@@ -8,7 +8,7 @@ describe 'Trips Dashboard' do
       datetime_2 = Faker::Time.between(DateTime.now - 1, DateTime.now)
       6.times { create(:trip, start_date: datetime_1, subscription_type: "Customer") }
       5.times { create(:trip, start_date: datetime_2, subscription_type: "Subscriber") }
-      5.times { create(:condition, date: datetime_1) }
+      create(:condition, date: datetime_1)
       create(:condition, date: datetime_2)
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
       visit trips_dashboard_path

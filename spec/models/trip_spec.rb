@@ -59,16 +59,18 @@ RSpec.describe Trip, type: :model do
       expect(Trip.least_ridden_bike).to eq({bike: 2, count: 1})
     end
     it 'date_with_most_trips' do
-      trip = create(:trip, start_date: "2009-09-25")
-      create(:trip, start_date: "2009-09-25")
-      create(:trip, start_date: "2009-09-17")
-      expect(Trip.date_with_most_trips).to eq({date: "09/25/2009", trips: 2})
+      datetime_1 = Faker::Time.between(DateTime.now - 1, DateTime.now)
+      datetime_2 = Faker::Time.between(DateTime.now - 1, DateTime.now)
+      create(:trip, start_date: datetime_1)
+      2.times { create(:trip, start_date: datetime_2) }
+      expect(Trip.date_with_most_trips).to eq({date: datetime_2, trips: 2})
     end
     it 'date_with_least_trips' do
-      create(:trip, start_date: "2009-09-30")
-      create(:trip, start_date: "2009-09-30")
-      trip = create(:trip, start_date: "2009-09-27")
-      expect(Trip.date_with_least_trips).to eq({date: "09/27/2009", trips: 1})
+      datetime_1 = Faker::Time.between(DateTime.now - 1, DateTime.now)
+      datetime_2 = Faker::Time.between(DateTime.now - 1, DateTime.now)
+      create(:trip, start_date: datetime_1)
+      2.times { create(:trip, start_date: datetime_2) }
+      expect(Trip.date_with_least_trips).to eq({date: datetime_1, trips: 1})
     end
     it 'subscription_counts' do
       create(:trip, subscription_type: "Subscriber")
