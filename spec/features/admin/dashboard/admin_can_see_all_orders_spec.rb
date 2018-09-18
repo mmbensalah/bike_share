@@ -40,7 +40,7 @@ describe "As an admin" do
       end
 
       click_on("Order #{@order_5.id}")
-      expect(current_path).to eq(order_path(@order_5))
+      expect(current_path).to eq(admin_order_path(@order_5))
     end
 
     it 'should show total of each order status' do

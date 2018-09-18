@@ -11,11 +11,12 @@ describe 'admin can visit individual order show page' do
     order.user.role = 1
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
 
-    visit order_path(order)
+    visit admin_order_path(order)
 
     expect(page).to have_content("#{order.user.first_name}")
     expect(page).to have_content("#{order.user.last_name}")
     expect(page).to have_content("#{order.user.address}")
+
     order.order_items.each do |order_item|
       expect(page).to have_content("#{order_item.item.title}")
       expect(page).to have_content("#{order_item.price}")
