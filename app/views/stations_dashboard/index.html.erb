@@ -1,20 +1,20 @@
 <h1 class='text-center'>Stations Dashboard</h1>
 
-<ul>
-  <li>Total Number of Stations: <%= @total_stations %>  </li>
-  <li>Average bikes available per station: <%= @average_bikes %> </li>
-  <li>Most bikes available: <%= @most_bikes_stations.first.dock_count %> at <%= pluralize(@most_bikes_stations.count, "Station") %></li>
+<ul class='list-group'>
+  <li class="list-group-item d-flex justify-content-between align-items-center list-group-item-info">Total Number of Stations: <%= @total_stations %>  </li>
+  <li class="list-group-item d-flex justify-content-between align-items-center">Average bikes available per station: <%= @average_bikes %> </li>
+  <li class="list-group-item d-flex justify-content-between align-items-center list-group-item-info">Most bikes available: <%= @most_bikes_stations.first.dock_count %> at <%= pluralize(@most_bikes_stations.count, "Station") %></li>
     <ul>
       <% @most_bikes_stations.each do |station| %>
       <li><%= station.name %></li>
       <% end %>
     </ul>
-  <li>Fewest bikes available: <%= @least_bikes_stations.first.dock_count %> at <%= pluralize(@least_bikes_stations.count, "Station") %></li>
+  <li class="list-group-item d-flex justify-content-between align-items-center list-group-item-info">Fewest bikes available: <%= @least_bikes_stations.first.dock_count %> at <%= pluralize(@least_bikes_stations.count, "Station") %></li>
     <ul>
       <% @least_bikes_stations.each do |station| %>
       <li><%= station.name %></li>
       <% end %>
     </ul>
-  <li>Most recently installed station: <%= @recent_station.name %> installed on <%= @recent_station.installation_date %></li>
-  <li>Oldest station: <%= @oldest_station.name %> installed on <%= @oldest_station.installation_date %></li>
+  <li class="list-group-item d-flex justify-content-between align-items-center list-group-item-info">Most recently installed station: <%= @recent_station.name %> installed on <%= @recent_station.installation_date %></li>
+  <li class="list-group-item d-flex justify-content-between align-items-center">Oldest station: <%= @oldest_station.name %> installed on <%= @oldest_station.installation_date %></li>
 </ul>
