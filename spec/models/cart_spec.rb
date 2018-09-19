@@ -36,4 +36,13 @@ describe Cart do
       expect(subject.find_items).to eq([item_1, item_2])
     end
   end
+
+  describe '#update_quantity' do
+    it 'should update quantity of given quantity in cart' do
+      item_id = "1"
+      new_quant = 5
+
+      expect(subject.update_quantity(item_id, new_quant)).to eq({"1" => 5, "2" => 2})
+    end
+  end
 end
