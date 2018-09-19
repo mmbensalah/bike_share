@@ -7,7 +7,7 @@ describe 'Visitors can see conditions show page' do
 
       visit condition_path(condition)
 
-      expect(page).to have_content(condition.date)
+      expect(page).to have_content(condition.date.in_time_zone("MST").strftime("%m/%d/%Y"))
       expect(page).to have_content(condition.max_temperature)
       expect(page).to have_content(condition.min_temperature)
       expect(page).to have_content(condition.mean_temperature)
