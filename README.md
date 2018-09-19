@@ -1,7 +1,7 @@
 # README
 
 We created this app as a final TDD Rails project for BackEnd Module 2. This README outlines our process, so that future students might use it as resource for their own beginning Rails projects. 
-To see this app in action, visit https://sheltered-cove-57622.herokuap… and look around!
+To see this app in action, visit https://sheltered-cove-57622.herokuapp.com and look around! First browse around as a visitor to see what you have access to. Then create an account and see what a user has access to.  
 
 Group members:
 
