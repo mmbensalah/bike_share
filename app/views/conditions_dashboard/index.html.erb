@@ -9,26 +9,26 @@
   <li class="list-group-item">Least rides from 89F - 80F: <%= @rides_ten_degrees_min_1 %> rides</li>
   <li class="list-group-item">Least rides from 79F - 70F: <%= @rides_ten_degrees_min_2 %> rides</li>
   <li class="list-group-item">Least rides from 69F - 60F: <%= @rides_ten_degrees_min_3 %> rides</li>
-  <li class="list-group-item">Average rides from 99F - 90F: <%= @rides_ten_degrees_average_1 %> rides</li>
-  <li class="list-group-item">Average rides from 89F - 80F: <%= @rides_ten_degrees_average_2 %> rides</li>
-  <li class="list-group-item">Average rides from 79F - 70F: <%= @rides_ten_degrees_average_3 %> rides</li>
-  <li class="list-group-item">Average rides from 69F - 60F: <%= @rides_ten_degrees_average_4 %> rides</li>
+  <li class="list-group-item">Average rides from 99F - 90F: <%= @rides_ten_degrees_average[1].round(2) %> rides</li>
+  <li class="list-group-item">Average rides from 89F - 80F: <%= @rides_ten_degrees_average[2].round(2) %> rides</li>
+  <li class="list-group-item">Average rides from 79F - 70F: <%= @rides_ten_degrees_average[3].round(2) %> rides</li>
+  <li class="list-group-item">Average rides from 69F - 60F: <%= @rides_ten_degrees_average[4].round(2) %> rides</li>
   <li class="list-group-item">Most rides with precipitation 0in - 0.5in: <%= @rides_precipitation_max %> rides</li>
   <li class="list-group-item">Most rides with precipitation 0.6in - 1.0in: <%= @rides_precipitation_max_1 %> rides</li>
   <li class="list-group-item">Least rides with precipitation 0in - 0.5in: <%= @rides_precipitation_min %> rides</li>
   <li class="list-group-item">Least rides with precipitation 0.6in - 1.0in: <%= @rides_precipitation_min_1 %> rides</li>
-  <li class="list-group-item">Average rides with precipitation 0in - 0.5in: <%= @rides_precipitation_average_1%> rides</li>
-  <li class="list-group-item">Average rides with precipitation 0.6in - 1.0in: <%= @rides_precipitation_average_2 %> rides</li>
+  <li class="list-group-item">Average rides with precipitation 0in - 0.5in: <%= @rides_precipitation_average[1].round(2)%> rides</li>
+  <li class="list-group-item">Average rides with precipitation 0.6in - 1.0in: <%= @rides_precipitation_average[2].round(2) %> rides</li>
   <li class="list-group-item">Most rides with mean wind speed 0mi - 4mi: <%= @rides_mean_wind_speed_max %> rides</li>
   <li class="list-group-item">Most rides with mean wind speed 5mi - 9mi: <%= @rides_mean_wind_speed_max_1 %> rides</li>
   <li class="list-group-item">Least rides with mean wind speed 0mi - 4mi: <%= @rides_mean_wind_speed_min %> rides</li>
   <li class="list-group-item">Least rides with mean wind speed 5mi - 9mi: <%= @rides_mean_wind_speed_min_1 %> rides</li>
-  <li class="list-group-item">Average rides with mean wind speed 0mi - 4mi: <%= @rides_mean_wind_speed_average_1 %> rides</li>
-  <li class="list-group-item">Average rides with mean wind speed 5mi - 9mi: <%= @rides_mean_wind_speed_average_1 %> rides</li>
+  <li class="list-group-item">Average rides with mean wind speed 0mi - 4mi: <%= @rides_mean_wind_speed_average[1].round(2) %> rides</li>
+  <li class="list-group-item">Average rides with mean wind speed 5mi - 9mi: <%= @rides_mean_wind_speed_average[2].round(2) %> rides</li>
   <li class="list-group-item">Most rides with mean visibility 10mi - 14mi: <%= @rides_mean_visibility_max_1  %> rides</li>
   <li class="list-group-item">Most rides with mean visibility 15mi - 19mi: <%= @rides_mean_visibility_max_2  %> rides</li>
   <li class="list-group-item">Least rides with mean visibility 10mi - 14mi: <%= @rides_mean_visibility_min_1 %> rides</li>
   <li class="list-group-item">Least rides with mean visibility 15mi - 19mi: <%= @rides_mean_visibility_min_2 %> rides</li>
-  <li class="list-group-item">Average rides with mean visibility 10mi - 14mi: <%= @rides_mean_visibility_average_1 %> rides</li>
-  <li class="list-group-item">Average rides with mean visibility 15mi - 19mi: <%= @rides_mean_visibility_average_2 %> rides</li>
+  <li class="list-group-item">Average rides with mean visibility 10mi - 14mi: <%= @rides_mean_visibility_average[1].round(2) %> rides</li>
+  <li class="list-group-item">Average rides with mean visibility 15mi - 19mi: <%= @rides_mean_visibility_average[2].round(2) %> rides</li>
 </ul>

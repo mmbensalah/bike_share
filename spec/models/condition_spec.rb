@@ -84,23 +84,17 @@ RSpec.describe Condition, type: :model do
       expect(Condition.rides_mean_visibility_min(5, 9)).to eq([1])
     end
 
-    it '#average_rides_ten_degrees' do
-      expect(Condition.average_rides_ten_degrees(80, 89)).to eq(4/6.0)
-    end
+    it '#average_rides' do
+      expect(Condition.average_rides("max_temperature", 80, 89)).to eq(4/6.0)
 
-    it '#average_rides_precipitation' do
-      expect(Condition.average_rides_precipitation(0, 0.5)).to eq(6/4.0)
-      expect(Condition.average_rides_precipitation(0.6, 1.0)).to eq(2/4.0)
-    end
+      expect(Condition.average_rides("precipitation", 0, 0.5)).to eq(6/4.0)
+      expect(Condition.average_rides("precipitation", 0.6, 1.0)).to eq(2/4.0)
 
-    it '#average_rides_wind_speed' do
-      expect(Condition.average_rides_wind_speed(0, 4)).to eq(3/2.0)
-      expect(Condition.average_rides_wind_speed(5, 9)).to eq(5/3.0)
-    end
+      expect(Condition.average_rides("mean_wind_speed", 0, 4)).to eq(3/2.0)
+      expect(Condition.average_rides("mean_wind_speed", 5, 9)).to eq(5/3.0)
 
-    it '#average_rides_visibility' do
-      expect(Condition.average_rides_visibility(0, 4)).to eq(3/2.0)
-      expect(Condition.average_rides_visibility(5, 9)).to eq(4/2.0)
+      expect(Condition.average_rides("mean_visibility", 0, 4)).to eq(3/2.0)
+      expect(Condition.average_rides("mean_visibility", 5, 9)).to eq(4/2.0)
     end
   end
 end
