@@ -3,3 +3,4 @@
 --format=documentation
 --order=random
 --format NyanCatFormatter
+--format NyanCatMusicFormatter
