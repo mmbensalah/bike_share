@@ -6,9 +6,11 @@
   <%= button_to "Checkout", orders_path, class: "btn btn-primary" %>
 </div>
 
-<div class="card" style="width: 18rem;">
+<div class="card container-fluid">
+  <div class='row'>
   <% @cart_items.each do |item| %>
-  <div class ='item' id="cart-item-<%= item.id %>">
+  <div class ='col-sm-6 col-lg-3 py-2 item' id="cart-item-<%= item.id %>">
+    <div class='card'>
     <%= image_tag(item.image, class: "card-img-top", alt: "Bike picture") %>
     <div class="card-body">
       <h5 class="card-title"><%= item.title %></h5>
@@ -22,8 +24,10 @@
         <% end %>
       </p>
       <p class="card-text">Subtotal: <%= number_to_currency((item.price * @cart.contents[item.id.to_s])) %></p>
-    </div><s></s>
-    <%= button_to "Remove from cart", cart_path(id: item.id), method: :delete, class: "btn btn-primary" %>
+    </div>
+    <%= button_to "Remove from cart", cart_path(id: item.id), method: :delete, class: "btn btn-primary text-center" %>
+  </div>
   </div>
     <% end %>
+</div>
 </div>
