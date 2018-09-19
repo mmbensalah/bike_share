@@ -13,7 +13,8 @@ class CartsController < ApplicationController
 
   def update
     item = Item.find(params[:item_id])
-    @cart.contents[params[:item_id]] = params[:quantity].to_i
+    @cart.update_quantity(params[:item_id], params[:quantity])
+    session[:cart] = @cart.contents
     flash[:success] = "You have successfully adjusted the quantity of #{item.title}"
     redirect_to cart_path
   end

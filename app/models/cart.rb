@@ -32,4 +32,9 @@ class Cart
       Item.find(item_id)
     end
   end
+
+  def update_quantity(item_id, new_quant)
+    @contents[item_id] = new_quant.to_i
+    @contents
+  end
 end
